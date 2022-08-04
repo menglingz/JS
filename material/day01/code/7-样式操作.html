@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* div{
+           
+        } */
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+
+        // 获取元素
+        var box = document.getElementById('box');
+
+        // 改变样式
+        // box.style.width = '200px'
+        // box.style.height = '200px'
+        // box.style.background = 'blue'
+
+        // 注意：如果是复合词，需要遵循驼峰命名法  
+        // box.style.backgroundColor = 'green'
+
+
+        box.style.cssText = 'width: 100px;height: 100px;background-color: blue;'
+        // 是可以覆盖的  -- 在样式的前面加一个分号 解决非标准浏览器的兼容问题
+        box.style.cssText += ';border:2px solid red'
+
+    </script>
+</body>
+
+</html>

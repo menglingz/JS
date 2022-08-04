@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      ul,
+      li {
+        list-style: none;
+      }
+
+      .box {
+        width: 400px;
+        height: 50px;
+        border: 1px solid;
+        box-sizing: border-box;
+        line-height: 50px;
+        text-align: center;
+        margin: 50px auto;
+      }
+
+      input {
+        margin-left: 43vw;
+        width: 150px;
+      }
+
+      button {
+        width: 60px;
+        height: 20px;
+        vertical-align: bottom;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="box">我是内容</div>
+    <input type="text" value="30" /><button>按钮</button><br /><input type="text" value="blue" /><button>按钮</button> <br /><input type="text" value="black" /><button>按钮</button><br />
+    <input type="text" value="600" /><button>按钮</button>
+    <script>
+      const box = document.querySelector('.box')
+      const inputs = document.querySelectorAll('input')
+      const btns = document.querySelectorAll('button')
+      for (let i = 0; i < inputs.length; i++) {
+        btns[i].addEventListener('click', function (e) {
+          const content = inputs[i].value
+          // console.log(content)
+          if (i === 0) {
+            box.style.fontSize = content + 'px'
+          } else if (i === 1) {
+            box.style.color = content
+          } else if (i === 2) {
+            box.style.backgroundColor = content
+          } else {
+            box.style.fontWeight = content
+          }
+        })
+      }
+    </script>
+  </body>
+</html>

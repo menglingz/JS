@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+				background: red;
+			}
+		</style>
+		<script>
+            /* 
+            window.onload: 是把js代码临时存储起来，等到结构中所有的元素
+            加载完毕，在执行js代码
+            */
+			window.onload = function () {
+				var box = document.getElementById("box");
+				console.log(box);
+			};
+		</script>
+	</head>
+
+	<body>
+		<div id="box"></div>
+		<script>
+			/*  - 事件源-- 也就是哪个元素发生事件-- - 获取元素
+        - 发生什么事件-- 把事件绑定给元素
+        - 干什么事-- 事件触发后，会引发什么行为
+
+        需求： 点击这个红色的块，在控制台打印 “我是一个好人”
+        */
+
+			// 获取元素
+			/* 
+        document:文档
+        get: 获取 如果是set 就是设置
+        Element： 元素 -- 标签
+        By：通过
+        Id：ID的名字
+        .： 的
+        */
+			// var box = document.getElementById('box')
+			// 把事件绑定给元素 -- 这个函数就是事件函数，只有事件被触发的时候，才可以执行这个函数
+			/*   box.oncontextmenu = function() {
+            // 事件触发后，会引发什么行为
+            console.log('我是一个好人');
+        }
+ */
+
+			/*  onclick: 单击事件 
+
+        onmouseover: 鼠标经过  
+        onmouseout: 鼠标离开  
+
+        onmouseenter: 鼠标经过
+        onmouseleave: 鼠标离开   
+
+        onmousedown: 按下 
+        onmouseup: 抬起 
+
+        onmousemove: 移动  
+
+        ondblclick：双击事件 
+
+        oncontextmenu: 右键
+ */
+		</script>
+	</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			div {
+				width: 100px;
+				height: 100px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">200头母猪惨死</div>
+		<input type="text" id="input" />
+		<script>
+			// 获取元素
+			var box = document.getElementById("box");
+			var pt = document.getElementById("input");
+
+			// 获取元素内容
+			console.log(box.innerHTML);
+			console.log(box.innerText);
+
+			// 设置元素内容  // 有覆盖作用
+			box.innerHTML = "猪又活了";
+			box.innerHTML = "猪又死了";
+
+			// 解决覆盖
+			box.innerHTML = box.innerHTML + "到底是活了";
+			// 简写
+			box.innerHTML += "到底是活了";
+
+			box.innerText = "123";
+			box.innerText = box.innerText + "456";
+			box.innerText += "456";
+
+			box.innerHTML = "<h1>我是识别标签的</h1>";
+			box.innerText = "<h1>我是不识别标签的</h1>";
+
+			// 单标签
+			console.log(pt.value); // 获取文本内容
+			pt.value = "新内容";
+		</script>
+	</body>
+</html>

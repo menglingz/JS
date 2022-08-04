@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      .box {
+        width: 200px;
+        height: 200px;
+        text-align: center;
+        line-height: 200px;
+        box-sizing: border-box;
+        border: 1px solid;
+        position: absolute;
+        left: 400px;
+        top: 50%;
+        transform: translateY(-50%);
+      }
+      ul {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        width: 220px;
+        position: absolute;
+        top: 50%;
+        right: 400px;
+        transform: translateY(-50%);
+      }
+      ul li {
+        width: 100px;
+        height: 90px;
+        box-sizing: border-box;
+        line-height: 90px;
+        text-align: center;
+        border: 1px solid;
+        margin-bottom: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">内容</div>
+    <ul>
+      <li>100</li>
+      <li>200</li>
+      <li>300</li>
+      <li>400</li>
+      <li>red</li>
+      <li>blue</li>
+      <li>green</li>
+      <li>yellow</li>
+    </ul>
+
+    <script>
+      // console.log(typeof [1, 2, 3])
+      // // console.log([1, 2, 3] instanceof Object)
+      // const box = document.querySelector('.box')
+      // const lis = document.querySelectorAll('ul li')
+      // console.log(box, lis)
+      // for (let i = 0; i < lis.length; i++) {
+      //   lis[i].addEventListener('mouseenter', function () {
+      //     const content = this.innerText
+      //     if (isNaN(content)) {
+      //       box.style.backgroundColor = content
+      //     } else {
+      //       box.style.width = content + 'px'
+      //       box.style.height = content + 'px'
+      //       box.style.lineHeight = content + 'px'
+      //     }
+      //   })
+      // }
+    </script>
+  </body>
+</html>

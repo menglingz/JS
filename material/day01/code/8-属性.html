@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .active {
+        width: 200px;
+        height: 200px;
+        background-color: red;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="box" class="box div1 div2 div3 div4" a="1"></div>
+    <img src="./images/1.png" alt="" id="img" />
+    <input type="button" id="input" value="按钮" />
+    <script>
+      // 获取元素
+      var box = document.getElementById('box')
+      var img = document.getElementById('img')
+      var input = document.getElementById('input')
+
+      // 获取id属性
+      /*    console.log(box.id); // box
+           console.log(box.a); // undefined 
+           console.log(box.class); // undefined 因为class是一个保留字 属性的操作方式是获取不到的  */
+
+      // console.log(img.src); // 绝对路径
+
+      // 设置属性
+      /*   box.id = 'box1234567'
+          box.a = '123' 
+          box.class = 'divvvvv'*/
+
+      // 如果一个属性，赋值给了一个变量，那么就要把点的方式转换成方括号的方式
+      // 经常在函数的封装中使用
+      // var a = 'id'
+      // console.log(box[a]);
+      // console.log(box['id']);
+
+      // class
+      // 获取一个类
+      // console.log(box.className);
+      // 添加一个类
+      // box.className = 'box div1 div2 div3 div4 div'
+      // box.className = 'active'
+
+      box.classList.add() // 增加一个类
+      box.classList.remove() // 删除一个类
+
+      console.log(input.type)
+    </script>
+  </body>
+</html>
