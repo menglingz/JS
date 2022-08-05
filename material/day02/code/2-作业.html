@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            border: 1px solid blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <div id="box">文本内容</div>
+        <button id="btn1">100 x 100</button>
+        <button id="btn2">red</button>
+        <input type="text" id="input1"><button id="btn3">字体大小</button>
+        <input type="text" id="input2"><button id="btn4">字体颜色</button>
+        <input type="text" id="input3"><button id="btn5">背景色</button>
+        <input type="text" id="input4"><button id="btn6">字体加粗</button>
+    </div>
+    <script>
+
+        // 获取元素
+        var box = document.getElementById('box')
+        var btn1 = document.getElementById('btn1')
+        var btn2 = document.getElementById('btn2')
+
+        var btn3 = document.getElementById('btn3')
+        var btn4 = document.getElementById('btn4')
+        var btn5 = document.getElementById('btn5')
+        var btn6 = document.getElementById('btn6')
+
+        var input1 = document.getElementById('input1')
+        var input2 = document.getElementById('input2')
+        var input3 = document.getElementById('input3')
+        var input4 = document.getElementById('input4')
+
+        // 添加事件  
+        btn1.onmouseover = function () {
+            box.style.cssText = 'width:100px; height: 100px'
+        }
+        btn2.onmouseover = function () {
+            //  box.style.cssText += 'background: red'
+            box.style.cssText = box.style.cssText + 'background: red'
+        }
+
+        btn3.onclick = function(){
+           box.style.fontSize = input1.value + 'px'
+           console.log(input1.value + input2.value);
+        }
+        btn4.onclick = function(){
+           box.style.color = input2.value
+        }
+        btn5.onclick = function(){
+           box.style.background = input3.value
+        }
+        btn6.onclick = function(){
+           box.style.fontWeight = input4.value
+        }
+
+
+
+    </script>
+
+</body>
+
+</html>

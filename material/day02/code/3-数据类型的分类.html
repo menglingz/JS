@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <div id="box">
+
+    </div>
+
+    <script>
+
+        // Number 数值类型 
+        /*  var  num = 10; 
+         console.log(typeof num);
+     
+         var  num1 = 1.2; 
+         console.log(typeof num1); 
+         // 注意：小数是有精度缺失的 --- 不要使用小数当做判断条件 
+         console.log(0.1 + 0.7);
+         console.log(0.3); 
+     
+         console.log(typeof NaN);
+         console.log(NaN === NaN);
+         console.log(NaN === 10);
+         console.log(NaN === '10');
+         console.log(NaN === true);
+         console.log(NaN === null);
+         
+         var num = 0101010; // 二进制 
+         var num1 = 0123456; // 八进制 
+         var num2 = 3468 
+         var num3 = 0xaf; // 十六进制    */
+
+        /* 
+            内置函数： 
+            Number()  
+            String() 
+            Boolean() 
+            Function() 
+            Object() 
+            Array() 
+            Date() 时间 
+            Error() 异常
+            RegExp() 正则表达式 
+             */
+
+        // String 字符串类型
+        /*   var str = '10'; // 纯数字的字符串  
+          var str1 = "我爱美女"; // 字符串
+      
+      
+          console.log(10 + 10); // 20 
+          console.log('10' + 20); // 1020 
+          console.log('10' + '20'); // 1020 */
+
+        // var str = 'hello word'; 
+        // console.log(str.length); // 10
+
+        // console.log(str[0]); // 
+        // str[0] = 'k'
+        // console.log(str); // 可读不可写  
+
+        // // 使用的是小括号 参数是下标值  --- 返回值是字符
+        // console.log(str.charAt(0));
+        // // 使用的是小括号 参数是下标值  --- 是码值 常用来实现字符串的去重或分类
+        // console.log(str.charCodeAt(0));
+
+
+        // var num = 30
+        // // 把字符串中的数字删掉，引引加加 变量放中间
+        // console.log('张三今年'+num+'岁了');
+
+        // 获取元素
+        /*  var box = document.getElementById('box'); 
+     
+         var num = 30
+         var num1 = 185
+         var num2 = 150
+         var num3 = 80 */
+
+        // es6的模板语法
+        /*   box.innerHTML = `<h1>我今年${num}岁</h1>
+                      <h1>身高185</h1>
+                      <h1>体重150</h1>
+                      <h1>腰围80</h1>` */
+
+        // Boolean  布尔值
+        /*  console.log(true + false); // （ 1+ 0 ） 
+         console.log( 10 > 90); // fasle 
+     
+         console.log(typeof null);  */
+
+        // console.log(typeof isNaN); // function
+        /*     
+          isNaN: 是不是 不是一个数字？   
+                 是数字：不是  是一个数字  
+                 不是数字：是 不是一个数字  
+       */
+
+        //  console.log(isNaN(10));  // 不是 是一个数字
+        //  console.log(isNaN('10'));  // 不是 是一个数字
+        //  console.log(isNaN('str'));   // true  不是一个数字 
+
+        /* 
+        复杂数据类型
+        */
+
+        // 数组
+        /*   var arr = [1,2,3,4,5]
+          console.log(arr.length); // 数组中元素的个数 
+          console.log(arr[0]); // 取值 -- 数组中必须通过下标存储值或者取值
+          arr[5] = 6
+          console.log(arr);  */
+
+
+        // 有个值是长度，也就是这个数组中 只能存储四个值 
+     /*    var arr = new Array();
+        arr[0] = 1
+        arr[1] = 1
+        arr[2] = 1
+        arr[3] = 1
+        arr[100] = 100
+
+        console.log(arr);
+
+        var arr1 = ['./images/1.webp', './images/2.png', './images/3.png', './images/4.png',]
+ */
+        // document.body.innerHTML = arr1[0]
+
+
+        /* // 对象 -- 是键值（有属性名，有属性值，并且是冒号隔开）对的集合 
+        // 属性名对于程序员是没用的，需要的是属性值，但是，必须通过属性名才可以区到属性值
+        var obj = {
+            name: '张三三',
+            age:30,
+            eat:function(){
+                console.log('我很能吃');
+            }
+        } 
+        console.log(obj.name); 
+        obj.eat()
+
+        var obj1 = new Object(); 
+        obj1.name = '李四'
+        var a = 'name'
+        console.log(obj1[a]); */
+
+        // Function 函数
+
+        function add(){
+            console.log('代码块');
+        }
+        // 函数必须调用，否则不会执行  --  函数名+() 也就是 add()
+        add()
+
+        var num = function(){
+            console.log('代码块');
+        }
+        num()
+
+        console.log(typeof num);
+
+
+
+       
+    </script>
+</body>
+
+</html>

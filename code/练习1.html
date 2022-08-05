@@ -61,23 +61,23 @@
     </ul>
 
     <script>
-      // console.log(typeof [1, 2, 3])
-      // // console.log([1, 2, 3] instanceof Object)
-      // const box = document.querySelector('.box')
-      // const lis = document.querySelectorAll('ul li')
-      // console.log(box, lis)
-      // for (let i = 0; i < lis.length; i++) {
-      //   lis[i].addEventListener('mouseenter', function () {
-      //     const content = this.innerText
-      //     if (isNaN(content)) {
-      //       box.style.backgroundColor = content
-      //     } else {
-      //       box.style.width = content + 'px'
-      //       box.style.height = content + 'px'
-      //       box.style.lineHeight = content + 'px'
-      //     }
-      //   })
-      // }
+      console.log(typeof [1, 2, 3])
+      // console.log([1, 2, 3] instanceof Object)
+      const box = document.querySelector('.box')
+      const lis = document.querySelectorAll('ul li')
+      console.log(box, lis)
+      for (let i = 0; i < lis.length; i++) {
+        lis[i].addEventListener('mouseenter', function () {
+          const content = this.innerText
+          if (isNaN(content)) {
+            box.style.backgroundColor = content
+          } else {
+            box.style.width = content + 'px'
+            box.style.height = content + 'px'
+            box.style.lineHeight = content + 'px'
+          }
+        })
+      }
     </script>
   </body>
 </html>

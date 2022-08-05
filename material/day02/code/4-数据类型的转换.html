@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width: 100px;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+
+   /*      console.log(Number('1') + 1); // 11
+        // 如果遇到不能转换的 直接返回NaN
+        console.log(Number('1a') + 1); // 11
+        console.log(Number('1aAAAAA') + 1); // 11
+ */
+        console.log(parseInt('1') + 1); // 2
+        console.log(parseInt('1.9') + 1); // 2.5
+        console.log(parseInt('100.99px') + 10); // 110
+
+        console.log('*********************');
+
+        console.log(parseFloat('1') + 1); // 2
+        console.log(parseFloat('1.9') + 1); // 2.5
+        console.log(parseFloat('100.99px') + 10); // 110
+
+        console.log('*********************');
+
+        console.log(Boolean(null));
+        console.log(Boolean(undefined));
+        console.log(Boolean(''));
+        console.log(Boolean(false)); 
+        console.log(Boolean(NaN));
+        console.log(Boolean(0));
+
+        console.log('*********************');
+       
+        console.log(typeof String(1));
+        console.log(typeof (1).toString());
+
+        // 数字是多少，就保留多少位小数
+        console.log(parseFloat('1.23456789').toFixed(2))
+
+
+
+
+
+
+    </script>
+</body>
+</html>
