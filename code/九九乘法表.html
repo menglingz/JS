@@ -7,15 +7,38 @@
     <title>Document</title>
   </head>
   <body>
+    <ul>
+      <li>1</li>
+      <li>2</li>
+      <li>3</li>
+      <li>4</li>
+      <li>5</li>
+    </ul>
     <script>
-      result = ''
-      for (let i = 1; i < 10; i++) {
-        for (var j = 1; j < i + 1; j++) {
-          result += `${j} * ${i} = ${i * j}\t`
-        }
-        result += '\n'
+      const lis = document.querySelectorAll('ul li')
+      function add() {
+        console.log(this)
       }
-      console.log(result)
+      lis[0].onclick = function () {
+        console.log(this)
+        add()
+      }
+      // result = ''
+      // for (let i = 1; i < 10; i++) {
+      //   for (var j = 1; j < i + 1; j++) {
+      //     result += `${j} * ${i} = ${i * j}\t`
+      //   }
+      //   result += '\n'
+      // }
+      // console.log(result)
+      // result = ''
+      // for (let i = 9; i > 0; i--) {
+      //   for (let j = 1; j < i + 1; j++) {
+      //     result += `${j} * ${i} = ${i * j}\t`
+      //   }
+      //   result += '\n'
+      // }
+      // console.log(result)
     </script>
   </body>
 </html>

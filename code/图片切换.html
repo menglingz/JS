@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 600px;
+        height: 300px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .box img {
+        width: 100%;
+        height: 100%;
+      }
+    </style>
+  </head>
+  <body>
+    <button>切换</button>
+    <div class="box">
+      <img src="../img/1.jpeg" alt="" />
+    </div>
+    <script>
+      var arr = ['../img/1.jpeg', '../img/2.jpeg', '../img/3.jpeg', '../img/4.jpeg', '../img/5.jpeg']
+      var num = 1
+      const button = document.querySelector('button')
+      const img = document.querySelector('.box img')
+      console.log(img)
+      button.addEventListener('click', function () {
+        img.src = arr[num]
+        if (num >= 4) {
+          num = 0
+        } else {
+          num++
+        }
+        console.log(num)
+      })
+    </script>
+  </body>
+</html>

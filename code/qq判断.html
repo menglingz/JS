@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    QQ：<input type="text" />
+    <button>提交</button>
+    <script>
+      const ipt = document.querySelector('input')
+      const btn = document.querySelector('button')
+      btn.addEventListener('click', function () {
+        var str = ipt.value
+        var reg = /\d{5,11}/
+        if (!str) {
+          return alert('QQ账号不能为空')
+        }
+        if (isNaN(Number(str))) {
+          return alert('QQ账号需为数字')
+        }
+        if (!reg.test(str)) {
+          return alert('QQ账号的位数为5-11位')
+        }
+      })
+    </script>
+  </body>
+</html>

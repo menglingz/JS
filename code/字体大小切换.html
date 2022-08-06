@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        font-size: 16px;
+        font-weight: 400;
+      }
+    </style>
+  </head>
+  <body>
+    <button>+</button>
+    <button>-</button>
+    <div class="box">字体大小</div>
+    <script>
+      const btns = document.querySelectorAll('button')
+      const box = document.querySelector('.box')
+      console.log(box)
+      btns[0].addEventListener('click', function () {
+        size = Number(box.style.fontWeight)
+        size += 100
+        box.style.fontWeight = size
+      })
+      btns[1].addEventListener('click', function () {
+        size = Number(box.style.fontWeight)
+        size -= 100
+        box.style.fontWeight = size
+      })
+    </script>
+  </body>
+</html>

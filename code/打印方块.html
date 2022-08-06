@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+      }
+
+      .box {
+        position: relative;
+      }
+    </style>
+  </head>
+
+  <body>
+    <input type="text" />
+    <button>按钮</button>
+    <section class="box"></section>
+    <script>
+      // 获取元素
+      const inp = document.querySelector('input')
+      const btn = document.querySelector('button')
+      const box = document.querySelector('.box')
+      btn.addEventListener('click', function () {
+        const num = parseInt(inp.value)
+        for (let i = 0; i < num; i++) {
+          box.innerHTML += '<div>' + '</div>'
+        }
+        var divs = document.getElementsByTagName('div')
+        for (var j = 0; j < divs.length; j++) {
+          if (j < divs.length / 2) {
+            divs[j].style.cssText = 'left:' + j * 100 + 'px;top:' + j * 100 + 'px;'
+          } else {
+            divs[j].style.cssText = 'left:' + j * 100 + 'px;top:' + (divs.length - j - 1) * 100 + 'px;'
+          }
+        }
+      })
+    </script>
+  </body>
+</html>

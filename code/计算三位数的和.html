@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input type="text" />
+    <button>计算</button>
+    <script>
+      const ipt = document.querySelector('input')
+      const btn = document.querySelector('button')
+      btn.addEventListener('click', function () {
+        const num = Number(ipt.value)
+        const a = parseInt(num / 100)
+        const b = parseInt((num % 100) / 10)
+        const c = parseInt((num % 100) % 10)
+        return alert(`${a} + ${b} + ${c} = ${a + b + c}`)
+      })
+    </script>
+  </body>
+</html>

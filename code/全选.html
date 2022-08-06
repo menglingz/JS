@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    全选：<input type="checkbox" class="ipt" name="aa" />
+    <br />
+    <input type="checkbox" name="" id="a" />
+    <input type="checkbox" name="" id="a" />
+    <input type="checkbox" name="" id="a" />
+    <input type="checkbox" name="" id="a" />
+    <script>
+      // 获取元素
+      const ipt = document.querySelector('.ipt')
+      const ipts = Array.from(document.querySelectorAll('#a'))
+      // console.log(ipts)
+      // 单击全选按钮
+      ipt.addEventListener('click', function () {
+        var state = ipt.checked
+        for (let i = 0; i < ipts.length; i++) {
+          ipts[i].checked = state
+        }
+      })
+      // 单选按钮点击事件
+      for (let l = 0; l < ipts.length; l++) {
+        ipts[l].addEventListener('click', function () {
+          isSelected()
+          isAllSelected()
+        })
+      }
+      // 判断是否全部单选按钮的状态为选中，有一个没选中全选按钮就不选中
+      function isSelected() {
+        for (let j = 0; j < ipts.length; j++) {
+          if (!ipts[j].checked) {
+            ipt.checked = false
+          }
+        }
+      }
+      // 判断是否全部单选按钮的状态为选中，所有的单选按钮都被选中时全选按钮选中
+      function isAllSelected() {
+        let allState = ipts.every(function (item) {
+          return item.checked === true
+        })
+        if (allState) {
+          ipt.checked = allState
+        }
+      }
+    </script>
+  </body>
+</html>
