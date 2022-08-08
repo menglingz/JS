@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      ul {
+        margin-top: 10px;
+        box-sizing: border-box;
+        padding-left: 10px;
+        cursor: pointer;
+      }
+      ul li {
+        box-sizing: border-box;
+        padding-left: 30px;
+        display: none;
+      }
+      span {
+        display: inline-block;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <ul>
+        <span>&gt;</span>
+        好友列表1
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+      </ul>
+      <ul>
+        <span>&gt;</span
+        >好友列表2
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+      </ul>
+      <ul>
+        <span>&gt;</span
+        >好友列表3
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+      </ul>
+      <ul>
+        <span>&gt;</span
+        >好友列表4
+        <li>10</li>
+        <li>11</li>
+        <li>12</li>
+      </ul>
+    </div>
+    <script>
+      // 获取元素
+      const uls = document.querySelectorAll('.box ul')
+      for (let i = 0; i < uls.length; i++) {
+        uls[i].tag = true
+        uls[i].addEventListener('click', function () {
+          console.log(this.innerHTML)
+          if (this.tag) {
+            const lis = this.querySelectorAll('li')
+            const span = this.querySelector('span')
+            // console.log(lis)
+            for (let j = 0; j < lis.length; j++) {
+              lis[j].style.display = 'block'
+            }
+            span.style.transform = 'rotate(90deg)'
+            this.tag = false
+          } else {
+            const lis = this.querySelectorAll('li')
+            const span = this.querySelector('span')
+            for (let j = 0; j < lis.length; j++) {
+              lis[j].style.display = 'none'
+            }
+            span.style.transform = 'rotate(0deg)'
+            this.tag = true
+          }
+        })
+      }
+    </script>
+  </body>
+</html>

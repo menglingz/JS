@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        display: flex;
+      }
+      div {
+        width: 50px;
+        height: 30px;
+        background-color: red;
+        margin-right: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <div></div>
+    <div></div>
+    <script>
+      const divs = document.getElementsByTagName('div')
+      for (var i = 0; i < divs.length; i++) {
+        divs[i].tag = true
+        divs[i].onclick = function () {
+          if (this.tag === true) {
+            this.style.height = '60px'
+            this.tag = false
+          } else {
+            this.style.height = '30px'
+            this.tag = true
+          }
+        }
+      }
+    </script>
+  </body>
+</html>

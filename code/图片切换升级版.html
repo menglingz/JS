@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      .box {
+        width: 600px;
+        height: 300px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+      .box img {
+        width: 100%;
+        height: 100%;
+      }
+      span {
+        display: block;
+        width: 50px;
+        height: 50px;
+        background: #ccc;
+        font-size: 25px;
+        text-align: center;
+        line-height: 50px;
+        cursor: pointer;
+      }
+      .left {
+        position: absolute;
+        left: 0;
+        top: 130px;
+      }
+      .right {
+        position: absolute;
+        right: 0;
+        top: 130px;
+      }
+      ul {
+        display: flex;
+        position: absolute;
+        bottom: 10px;
+        left: 270px;
+      }
+      ul li {
+        width: 10px;
+        height: 10px;
+        background-color: white;
+        border-radius: 50%;
+        margin-right: 3px;
+      }
+      p {
+        border: 1px solid;
+        position: absolute;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        width: 100px;
+        top: -30px;
+        left: 250px;
+      }
+      .active {
+        background-color: orange;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <ul>
+        <li class="active"></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+      </ul>
+      <p>图片1</p>
+      <img src="../img/1.jpeg" alt="" />
+      <span class="left">&lt;</span>
+      <span class="right">&gt;</span>
+    </div>
+    <script>
+      var arr = ['../img/1.jpeg', '../img/2.jpeg', '../img/3.jpeg', '../img/4.jpeg', '../img/5.jpeg']
+      var index = 0
+      // 获取元素
+      const img = document.querySelector('.box img')
+      const points = document.querySelectorAll('.box ul li')
+      const box = document.querySelector('.box')
+      const p = document.querySelector('.box p')
+
+      // 切换函数
+      function changeOne(type) {
+        img.src = ''
+        points[index].className = ''
+        p.innerHTML = ''
+
+        if (type === true) {
+          index++
+        } else if (type === false) {
+          index--
+        } else {
+          index = type
+        }
+        // 判定一下 index 的边界值
+        if (index >= arr.length) {
+          index = 0
+        }
+        if (index < 0) {
+          index = arr.length - 1
+        }
+
+        img.src = arr[index]
+        points[index].className = 'active'
+        p.innerHTML = `图片${index + 1}`
+      }
+
+      box.onclick = function (e) {
+        if (e.target.className === 'left') {
+          console.log('点击的是左按钮')
+          changeOne(false)
+        }
+
+        if (e.target.className === 'right') {
+          console.log('点击的是右按钮')
+          changeOne(true)
+        }
+      }
+
+      for (let i = 0; i < points.length; i++) {
+        points[i].num = i
+        points[i].addEventListener('mouseenter', function () {
+          // console.log(this.num)
+          changeOne(this.num)
+        })
+      }
+    </script>
+  </body>
+</html>
