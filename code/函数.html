@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      div {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+      }
+    </style>
+  </head>
+  <body>
+    <div></div>
+    <button>按钮</button>
+    <script>
+      var div = document.getElementsByTagName('div')[0]
+      var btn = document.getElementsByTagName('button')[0]
+      console.log(btn)
+      // 封装获取元素属性函数
+      function getStyle(ele, attr) {
+        if (window.getComputedStyle) {
+          console.log(1)
+          return window.getComputedStyle(ele)[attr]
+        } else {
+          console.log(2)
+          return ele.currentStyle[attr]
+        }
+      }
+      btn.onclick = function () {
+        console.log(getStyle(div, 'width'))
+      }
+    </script>
+  </body>
+</html>

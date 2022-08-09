@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 30px;
+            background: red;
+            float: left;
+            margin-left: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" tag="123"></div>
+    <div></div>
+    <div></div>
+    <script>
+        // 点击的时候 高度 30 - 60  在次点击 60 -30 
+        // 获取元素
+        var oDiv = document.getElementsByTagName('div');
+
+        /*   
+          注意：非原有属性 通过在标签中直接加入是不能获取到的 
+          如果是通过js进行设置，是可以获取到的
+          oDiv[0].tag = '456'
+          console.log(oDiv[0].tag);
+   */
+
+
+        // var tag = true; // 开关
+
+        for (var i = 0; i < oDiv.length; i++) {
+            oDiv[i].tag = true; // 自定义属性
+            oDiv[i].onclick = function () {
+                if (this.tag == true) {
+                    this.style.height = '60px'
+                    this.tag = false
+                } else {
+                    this.style.height = '30px'
+                    this.tag = true
+                }
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

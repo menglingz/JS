@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+       /*  数据类型： 
+         简单数据类型：
+         Number  
+         整数
+         小数 -- 精度缺失
+         进制
+         NaN
+
+         String
+         长度（length）  下标 从0 开始
+         var str = 'dfghjkl'
+         str[0]
+         str.charAt(0)
+         str.charCodeAt(0) -- 码值 
+
+         拼接 -- 字符串拼接 es6模板字符串（`${变量名}`）
+         
+         Boolean
+         true  - 1  -- 真 
+         false - 0 -- 假  
+         
+         Null -- 空值  
+        undefined -- 变量声明了 但是没有赋值
+
+         复杂数据类型：
+         Object {} --- new  
+         obj={
+            name: '李四'，
+            add: function(){
+
+            }
+         }
+         
+         Array  [] -- new  
+
+         
+         function  -- function  
+ */
+
+        //  var obj = { name: '李四' }
+        //  var obj1 = obj
+        //  obj1.name = '张三'
+        //  console.log(obj1.name); // 张三
+        //  console.log(obj.name); // 张三
+/* 
+         复杂的数据类型，直接赋值，是相当于把指向内存的哈希地址，复制出来一份，也就是两个相同的地址
+         指向了同一个内存，改变其中的一个 另外一个也会改变  
+
+         如果实现互补影响，应该重新开辟一块新内存，生成一个新的指向的哈希地址 
+ */
+
+        //  Number()  
+        //  parseInt() 
+        //  parseFloat()  
+        //  String(变量)
+        //  变量.toString()
+
+        //  ++ --  
+
+        //  比较运算符 --  > < >= <= ==  ===  != 不等  !== 不全等
+
+        var a = '10'
+        var b = 10;
+
+        // console.log( a != b); // false
+        // 先比较值不相等 如果成立在比较数据类型不相等
+        console.log( a !== b ); // true 
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            height: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <div>4</div>
+    <div>5</div>
+    <script>
+
+        // for (var i = 1; i < 100; i++) {
+        //     console.log('哈哈嘎嘎嘿嘿呵呵');
+        // }
+        /* 
+                执行过程：
+                1、i = 0 判断是否满足条件  0 < 5 true  执行打印 console.log('哈哈嘎嘎嘿嘿呵呵');
+                2、i++ i = 1 判断是否满足条件  1 < 5 true console.log('哈哈嘎嘎嘿嘿呵呵');
+                .... 
+                i = 4 
+                i++ i 5 判断是否满足条件  5 < 5  false 程序结束
+         */
+        /*  var arr = [1, 2, 3, 4, 5] // 0-4  5个元素 
+         for (var i = 0; i <= 5; i++) {
+             console.log(arr[i]);
+         }
+ 
+         var div = document.querySelectorAll('div'); 
+ 
+         for (var i = 0; i < 6; i++) {
+             // console.log(div[i]);
+             div[i].innerHTML = '内容'
+         } */
+
+        // 循环100个数 打印出偶数  
+        /*  for (var i = 0; i < 100; i++) {
+             if( i % 2 == 0){
+                 console.log(i);
+             }
+         } */
+
+        // 100 岁了  1岁了  100 死了  
+        /* for (var i = 0; i < 101; i++) {
+            if( i == 1){
+                console.log('活了');
+            }else if ( i == 100){
+                console.log('sile');
+            }
+        } */
+
+
+        // 1-100的和
+        // var num = 0; 
+        // for (var i = 0; i < 101; i++) { 
+        //     num+= i 
+        // }
+        // console.log(num);
+
+        // 1000个数，能被5整除 25整除 35 75 
+        // for (var i = 0; i < 1001; i++) { 
+        //     if(i % 25 == 0 && i % 5 == 0 && i % 35 == 0 && i % 75 == 0 ){
+        //         console.log(i);
+        //     }
+        // }
+
+        /*  var div = document.querySelectorAll('div');
+ 
+         for (var i = 0; i < 5; i++) {
+             if (i % 2 == 0) {
+                 div[i].style.background = 'red';
+             } else {
+                 div[i].style.background = 'blue';
+             }
+         } */
+
+        /*   for (var i = 0; i < 5; i++) {
+              console.log('我是外边的');
+              for (var  j= 0; j < 5; j++) {
+                  console.log('我是里边的');
+              }
+          }
+   */
+        /* 
+                一共是九行 每行的个数不一样  
+                外层的for循环控制行数 循环 9次  可以打印 9 行  
+                内层的for循环  控制每行打印的公式  
+         */
+        /*  var str = ''
+         for (var i = 1; i < 10; i++) {
+             for (var j = 1; j <= i; j++) {
+                 str += j + '*' + i + '=' + i * j + '\t'
+             }
+             str += '\n'
+         }
+         console.log(str);
+  */
+
+
+        /*  var str1 = ''
+         var i = 1;
+         while (i < 10) {
+             var j = 1;
+             while (j <= i) {
+                 str1 += j + '*' + i + '=' + i * j + '\t'
+                 j++
+             }
+             str1 += '\n'
+             i++
+         }
+         console.log(str1); */
+
+
+
+        for (var i = 1; i < 10; i++) { }
+
+
+        var i = 10
+        do {
+            console.log(i);
+            i++
+        } while (i < 10)
+
+
+
+
+    </script>
+</body>
+
+</html>

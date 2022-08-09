@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <script>
+        // 获取元素 
+        /*  var li = document.getElementsByTagName('li');
+         console.log(li[0]);
+         for (var i = 0; i < li.length; i++) {
+             li[i].onclick = function () {
+                 // console.log(i); // 3 
+                 // console.log(li[3].innerHTML); // 
+ 
+                 console.log(this);
+                 console.log(this.innerHTML);
+             }
+         }
+  */
+
+        /*  var obj = {
+            name:'来',
+            eat: function(){
+                console.log(this); // 
+            }
+         }
+         
+         var li = document.getElementsByTagName('li');
+         li[0].onclick = function(){
+            obj.eat()
+         }
+        */
+/* 
+        function fun() {
+            console.log(this.s);
+        }
+        var obj = {
+            s: '1',
+            f: fun
+        }
+        var s = '2'
+
+        obj.f(); // 1
+        fun(); //  2   */
+
+       /*  var A = {
+            name: '张三',
+            f: function(){
+                console.log('姓名：' + this.name);
+            }
+        }
+
+        var B = {
+            name: '李四'
+        }
+        B.f = A.f 
+        B.f() // 李四
+        A.f() // 张三 */
+
+        function foo() {
+            console.log(this.a);
+        }
+
+        var obj2 = {
+            a: 2,
+            fn:foo 
+        }
+        var obj1 = {
+            a: 1,
+            o1:obj2
+        }
+
+        obj1.o1.fn(); // 2 
+
+
+    </script>
+</body>
+
+</html>

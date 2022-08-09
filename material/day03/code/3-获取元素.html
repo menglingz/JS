@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="box1">dfghjkljhgfdsdfghj</div>
+    <div id="box" class="box">
+        <p>123</p>
+    </div>
+    <div class="box">456</div>
+    <div class="box1">dfghjkljhgfdsdfghj</div>
+    <div id="box" class="box">
+       
+    </div>
+    <div class="box">
+        <div class="box1">dfghjkljhgfdsdfghj</div>
+        <div id="box" class="box">
+            <div class="box1">dfghjkljhgfdsdfghj</div>
+            <div id="box" class="box">
+               
+            </div>
+            <div class="box">456</div>
+        </div>
+        <div class="box">456</div>
+    </div>
+    <script>
+
+        // 根据ID的名字，只能获取到一个元素
+        var box = document.getElementById('box');
+
+        // document.queryselect(选择器) -- 只能获取页面中出现的第一个元素
+        var box = document.querySelector('.box p')
+        console.log(box);
+
+
+        // 通过标签名获取元素  -- 获取到是一个类（类似）数组，可以使用数组的长度和下标 但是数组专有的方法是不能使用的
+        // 只能通过标签名获取
+        var div = document.getElementsByTagName('div');
+        console.log(div);
+        console.log(div[0]);
+        console.log(div.length); // 3 
+
+
+        // 通过class获取元素  -- 获取到是一个类（类似）数组，可以使用数组的长度和下标 但是数组专有的方法是不能使用的
+        // 只能通过class类类名获取
+        var div1 = document.getElementsByClassName('box')
+        var p = div1[0].getElementsByTagName('p')
+        console.log(div1);
+        console.log(div1[0]);
+        console.log(div1.length); // 3 
+
+        console.log(p);
+
+
+        // document.queryselectAll(选择器) 
+        // 获取到是一个类（类似）数组，可以使用数组的长度和下标 但是数组专有的方法是不能使用的
+        var div2 = document.querySelectorAll('.box p');
+        console.log(div2);
+
+
+
+
+    </script>
+</body>
+
+</html>

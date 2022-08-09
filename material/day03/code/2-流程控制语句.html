@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // var num = prompt('请输入您的年龄：')
+        /*  if(num > 18){ // 条件返回值 必须是true 才可以执行
+             alert('你可以去浪了')
+         }
+       */
+        // 注意：只能控制一行代码
+        // if(num > 18) 
+        //     alert('你可以去浪了')
+        //     console.log('我不想去浪了');
+
+        /* 
+                if (num > 18) {
+                    alert('你可以去浪了')
+                }else {
+                    alert('在家被抽')
+                } */
+
+        /*  var num = prompt('请输入你的成绩：') // 60
+ 
+         if(num >= 90) {
+             alert('优秀')
+         }else if( num >= 80 && num < 90){
+             alert('良好')
+         }else if ( num>= 70 && num < 80){
+             alert('一般')
+         }else if(num < 70) {
+             alert('轻轻抽一顿')
+         } */
+
+        // 因为输入的是字符串
+        /*  var num = prompt('请输入成绩：')
+ 
+         switch (num) {
+             case '1':
+                 console.log('第一个条件');
+                 break
+             case '2':
+                 console.log('第二个条件');
+                 break
+             case '3':
+                 console.log('第三个条件');
+                 break
+ 
+             default:
+                 console.log('上述条件都不成立');
+                 break
+         } */
+
+
+        var num = prompt('请输入成绩：'); // 80  90 90.1.2.3.4   100 
+        switch(parseInt(num / 10)) {
+            case 10: 
+            case 9:
+                console.log('优秀');
+                break;
+            case 8: 
+                console.log('良好');
+                break
+        }
+
+
+    </script>
+</body>
+
+</html>

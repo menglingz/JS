@@ -89,25 +89,31 @@
       <span class="right">&gt;</span>
     </div>
     <script>
+      // 图片src属性数组
       var arr = ['../img/1.jpeg', '../img/2.jpeg', '../img/3.jpeg', '../img/4.jpeg', '../img/5.jpeg']
+      // 索引值
       var index = 0
       // 获取元素
-      const img = document.querySelector('.box img')
-      const points = document.querySelectorAll('.box ul li')
-      const box = document.querySelector('.box')
-      const p = document.querySelector('.box p')
+      const img = document.querySelector('.box img') // 图片
+      const points = document.querySelectorAll('.box ul li') // 小圆点
+      const box = document.querySelector('.box') // 大盒子
+      const p = document.querySelector('.box p') // 图片名字
 
-      // 切换函数
+      // 切换函数（逻辑实现）
       function changeOne(type) {
+        // 排他思想
         img.src = ''
         points[index].className = ''
         p.innerHTML = ''
 
+        // 操作右按钮
         if (type === true) {
           index++
         } else if (type === false) {
+          // 操作左按钮
           index--
         } else {
+          // 操作小圆点
           index = type
         }
         // 判定一下 index 的边界值
@@ -117,12 +123,14 @@
         if (index < 0) {
           index = arr.length - 1
         }
-
+        console.log(index)
+        // 给当前操控的元素设置内容
         img.src = arr[index]
         points[index].className = 'active'
         p.innerHTML = `图片${index + 1}`
       }
 
+      // 通过冒泡控制元素的点击事件
       box.onclick = function (e) {
         if (e.target.className === 'left') {
           console.log('点击的是左按钮')
@@ -135,6 +143,7 @@
         }
       }
 
+      // 小圆点的鼠标经过事件
       for (let i = 0; i < points.length; i++) {
         points[i].num = i
         points[i].addEventListener('mouseenter', function () {
