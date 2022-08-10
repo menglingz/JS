@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        vertical-align: bottom;
+      }
+      body {
+        line-height: 30px;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      span {
+        display: inline-block;
+        width: 70px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+        border: 1px solid;
+        cursor: pointer;
+      }
+      input {
+        display: inline-block;
+        width: 100px;
+        height: 30px;
+        line-height: 30px;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <li><span>商品1</span>&nbsp; &nbsp; &nbsp; <span>-</span><input type="text" value="1" /><span>+</span> 单价：<span>19.85</span> &nbsp; &nbsp; &nbsp;小计：<span>19.85</span></li>
+      <li><span>商品2</span>&nbsp; &nbsp; &nbsp; <span>-</span><input type="text" value="1" /><span>+</span> 单价：<span>17.85</span> &nbsp; &nbsp; &nbsp;小计：<span>17.85</span></li>
+      <li><span>商品3</span>&nbsp; &nbsp; &nbsp; <span>-</span><input type="text" value="1" /><span>+</span> 单价：<span>15.85</span> &nbsp; &nbsp; &nbsp;小计：<span>15.85</span></li>
+      <li>总计：<span>3</span> &nbsp; &nbsp; &nbsp; 总价: <span>53.55</span></li>
+    </ul>
+    <script>
+      const lis = document.querySelectorAll('ul li')
+
+      // 小计
+      function getSubTotal(number) {
+        const spans = lis[number].querySelectorAll('span')
+        const price = spans[3] // 单价
+        const content = spans[4]
+        const add = spans[2] // 加号
+        const reduce = spans[1] // 减号
+        const num = lis[number].querySelector('input') // 数量
+        add.addEventListener('click', function () {
+          let nums = parseInt(num.value)
+          nums++
+          num.value = nums
+          content.innerHTML = (parseInt(nums) * parseFloat(price.innerHTML)).toFixed(2)
+          getTotal()
+        })
+        reduce.addEventListener('click', function () {
+          let nums = parseInt(num.value)
+          if (nums <= 1) {
+            num.value = 1
+          } else {
+            nums--
+            num.value = nums
+          }
+          content.innerHTML = (parseInt(nums) * parseFloat(price.innerHTML)).toFixed(2)
+          getTotal()
+        })
+      }
+
+      // 总数量、总价格计算
+      function getTotal() {
+        let countAll = 0
+        let priceAll = 0
+        for (let i = 0; i < lis.length - 1; i++) {
+          let price = lis[i].querySelectorAll('span')[4]
+          let count = lis[i].querySelector('input')
+          countAll += parseInt(count.value)
+          priceAll += parseFloat(price.innerHTML)
+        }
+        priceAll = priceAll.toFixed(2)
+        lis[lis.length - 1].querySelectorAll('span')[0].innerHTML = countAll
+        lis[lis.length - 1].querySelectorAll('span')[1].innerHTML = priceAll
+      }
+
+      for (let i = 0; i < lis.length - 1; i++) {
+        getSubTotal(i)
+      }
+    </script>
+  </body>
+</html>

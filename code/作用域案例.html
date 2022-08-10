@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      p {
+        display: inline-block;
+      }
+    </style>
+  </head>
+  <body>
+    <p>中午不睡，下午不困</p>
+    <button>编辑</button>
+    <br />
+    <input type="text" />
+    <button>保存</button>
+    <button>取消</button>
+    <script>
+      const ipt = document.querySelector('input')
+      const btns = document.querySelectorAll('button')
+      const p = document.querySelector('p')
+      var newVal,
+        oldVal = undefined,
+        undefined
+
+      for (let i = 0; i < btns.length; i++) {
+        btns[i].addEventListener('click', function () {
+          if (!i) {
+            ipt.focus()
+          } else if (i === 1) {
+            p.innerHTML = ipt.value
+            oldVal = ipt.value
+            ipt.value = ''
+          } else {
+            p.innerHTML = newVal
+            ipt.value = ''
+          }
+        })
+      }
+      ipt.addEventListener('input', function () {
+        p.innerHTML = this.value
+      })
+      ipt.addEventListener('focus', function () {
+        newVal = oldVal || this.value || '中午不睡，下午不困'
+      })
+    </script>
+  </body>
+</html>
