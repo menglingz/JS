@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 计算2的n次幂
+      function getPow() {
+        const n = parseInt(prompt('请输入一个整数：'))
+        console.log(Math.pow(2, n))
+      }
+      // getPower()
+
+      // 递归求n的阶乘
+      function getNum(n) {
+        if (n == 1) {
+          return 1
+        }
+        // 递归调用
+        return n * getNum(n - 1)
+        // let result = 1
+        // for (let i = 1; i < n + 1; i++) {
+        //   result *= i
+        // }
+        // console.log(result)
+      }
+      // console.log(getNum(4))
+      // getNum(5)
+
+      // 斐波那契数列
+      function feibo(n) {
+        if (n == 1 || n == 2) {
+          return 1
+        } else {
+          return feibo(n - 1) + feibo(n - 2)
+        }
+      }
+      // console.log(feibo(6))
+
+      // 反向输出
+      function numRevere() {
+        const num = prompt('请输入一个整数：')
+        // 定义一个数组存储
+        let arr = []
+        for (const i of num) {
+          arr.push(i)
+        }
+        // 将数值中的值从末尾开始累加
+        let result = arr.reduceRight((prev, cur) => prev + cur)
+        console.log(result)
+      }
+      // numRevere()
+
+      // 求质数
+      function primeNum() {
+        for (let i = 1; i < 101; i++) {
+          // 是质数为true
+          tag = true
+          // 1不用计算
+          if (i === 1) {
+            console.log(i)
+          } else {
+            for (let j = 2; j < i; j++) {
+              // 只要有一个数被它整除，那它就不是质数，tag为false
+              if (i % j === 0) {
+                tag = false
+                break
+              }
+            }
+            // 最终tag为true的数为质数
+            if (tag) {
+              console.log(i)
+            }
+          }
+        }
+      }
+      // primeNum()
+
+      // 投资问题
+      function touzi() {
+        for (let i = 1; i < 100; i++) {
+          if (1000 * Math.pow(1.05, i) >= 5000) {
+            console.log(i)
+            break
+          }
+        }
+      }
+      // touzi()
+
+      // 100以内奇数之和
+      function evenNum() {
+        let result = 0
+        for (let i = 0; i < 101; i++) {
+          if (i % 2 !== 0) {
+            result += i
+          }
+        }
+        console.log(result)
+      }
+      // evenNum()
+
+      // 7的倍数
+      function isSeven() {
+        let count = 0
+        let result = 0
+        for (let i = 0; i < 101; i++) {
+          if (i % 7 === 0) {
+            count++
+            result += i
+          }
+        }
+        console.log(`总数为：${count}，总和为：${result}`)
+      }
+      // isSeven()
+
+      // 判断是否为质数
+      function isPrime(n) {
+        for (let i = 2; i < n; i++) {
+          if (n % i === 0) {
+            return `${n}不是质数`
+          }
+        }
+        return `${n}是质数`
+      }
+      // console.log(isPrime(3))
+
+      // 打印正三角
+      function printTriabgle() {
+        let result = ''
+        for (let i = 1; i < 10; i++) {
+          for (let j = 1; j < i + 1; j++) {
+            result += '*\t'
+          }
+          result += '\n'
+        }
+        console.log(result)
+      }
+
+      // 打印倒三角形
+      function printReverseTriabgle() {
+        let result = ''
+        for (let i = 10; i >= 1; i--) {
+          for (let j = 1; j < i + 1; j++) {
+            result += '*\t'
+          }
+          result += '\n'
+        }
+        console.log(result)
+      }
+      // printTriabgle()
+      // printReverseTriabgle()
+
+      // 九九乘法表
+      function multiTable() {
+        result = ''
+        for (let i = 1; i < 10; i++) {
+          for (var j = 1; j < i + 1; j++) {
+            result += `${j} * ${i} = ${i * j}\t`
+          }
+          result += '\n'
+        }
+        console.log(result)
+      }
+      // multiTable()
+
+      // 等腰三角形
+      function printTriabgles(num) {
+        let result = ''
+        for (let i = 1; i < num + 1; i++) {
+          for (let j = 1; j < num - i + 1; j++) {
+            result += '\t'
+          }
+          for (let j = 1; j < 2 * i; j++) {
+            result += '*\t'
+          }
+          result += '\n'
+        }
+        console.log(result)
+      }
+      // printTriabgles(4)
+    </script>
+  </body>
+</html>
