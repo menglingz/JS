@@ -22,14 +22,8 @@
         }
         // 递归调用
         return n * getNum(n - 1)
-        // let result = 1
-        // for (let i = 1; i < n + 1; i++) {
-        //   result *= i
-        // }
-        // console.log(result)
       }
       // console.log(getNum(4))
-      // getNum(5)
 
       // 斐波那契数列
       function feibo(n) {
@@ -44,13 +38,10 @@
       // 反向输出
       function numRevere() {
         const num = prompt('请输入一个整数：')
-        // 定义一个数组存储
-        let arr = []
-        for (const i of num) {
-          arr.push(i)
+        let result = ''
+        for (let i = num.length; i > 0; i--) {
+          result += num[i - 1]
         }
-        // 将数值中的值从末尾开始累加
-        let result = arr.reduceRight((prev, cur) => prev + cur)
         console.log(result)
       }
       // numRevere()
@@ -181,7 +172,7 @@
         }
         console.log(result)
       }
-      // printTriabgles(4)
+      // printTriabgles(10)
     </script>
   </body>
 </html>
