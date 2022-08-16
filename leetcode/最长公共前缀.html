@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var longestCommonPrefix = function (strs) {
+        if (strs.length === 0 || strs === null) {
+          return ''
+        }
+        let prefix = strs[0]
+        for (let i = 1; i < strs.length; i++) {
+          prefix = CommonPrefix(prefix, strs[i])
+          if (prefix.length === 0) {
+            break
+          }
+        }
+        return prefix
+      }
+
+      function CommonPrefix(str1, str2) {
+        let length = Math.min(str1.length, str2.length)
+        let index = 0
+        while (index < length && str1.charAt(index) === str2.charAt(index)) {
+          index++
+        }
+        return str1.substring(0, index)
+      }
+
+      console.log(longestCommonPrefix(['flower', 'flow', 'flight']))
+    </script>
+  </body>
+</html>

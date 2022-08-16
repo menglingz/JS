@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var convert = function (s, numRows) {
+        if (numRows < 2) return s
+        let res = []
+        let i = 0,
+          flag = -1
+        for (const c of s) {
+          res[i] += c
+          if (i === 0 || i === numRows - 1) {
+            flag = -flag
+          }
+          i += flag
+        }
+        res = res.join('').split('undefined')
+        // console.log(res)
+        let result = ''
+        for (const x of res) {
+          result += x
+        }
+        return result.trim()
+      }
+      console.log(convert('PAYPALISHIRING', 3))
+    </script>
+  </body>
+</html>
