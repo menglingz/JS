@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        left: 0px;
+      }
+      .btn1 {
+        position: absolute;
+        top: 110px;
+      }
+      .box2 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        left: 0px;
+        top: 150px;
+      }
+      .btn2 {
+        position: absolute;
+        top: 250px;
+      }
+      .box3 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        left: 0px;
+        top: 290px;
+      }
+      .btn3 {
+        position: absolute;
+        top: 400px;
+      }
+      .btn4 {
+        position: absolute;
+        top: 400px;
+        left: 60px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1"></div>
+    <button class="btn1">运动</button>
+    <div class="box2"></div>
+    <button class="btn2">运动</button>
+    <div class="box3"></div>
+    <button class="btn3">运动</button>
+    <button class="btn4">停止运动</button>
+    <script>
+      // 获取元素
+      const box = document.querySelectorAll('div') // div伪数组
+      const btn = document.querySelectorAll('button') // button伪数组
+      var tag1 = false
+      var tag2 = false
+      // 封装函数，获取传入元素的对应css样式
+      function getStyle(element, attr) {
+        if (window.getComputedStyle) {
+          return window.getComputedStyle(element)[attr]
+        } else {
+          return element.currentStyle[attr]
+        }
+      }
+      // 第一个盒子运动，每点击一下向右移动一点距离
+      btn[0].addEventListener('click', function () {
+        box[0].style.left = parseInt(getStyle(box[0], 'left')) + 20 + 'px'
+      })
+      // 第二个盒子移动，点击按钮开始运动
+      btn[1].addEventListener('click', function () {
+        if (!tag1) {
+          var time1 = setInterval(function () {
+            box[1].style.left = parseInt(getStyle(box[1], 'left')) + 2 + 'px'
+            // 当元素举例浏览器左端300px时，关闭定时器从而使其停止运动
+            if (box[1].offsetLeft >= '300') {
+              clearInterval(time1)
+            }
+          }, 20)
+        }
+        tag1 = true
+      })
+      // 第三个盒子运动，点击运动按钮开始运动(停止定时器)
+      btn[2].addEventListener('click', function () {
+        if (!tag2) {
+          time2 = setInterval(function () {
+            box[2].style.left = parseInt(getStyle(box[2], 'left')) + 2 + 'px'
+          }, 20)
+        }
+        tag2 = true
+      })
+      // 点击第三个盒子的停止运动按钮停止运动(关闭定时器)
+      btn[3].addEventListener('click', function () {
+        clearInterval(time2)
+        tag2 = false
+      })
+    </script>
+  </body>
+</html>

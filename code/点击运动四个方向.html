@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box1 {
+        width: 100px;
+        height: 100px;
+        background-color: red;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50px, -50px);
+      }
+      button.btn1 {
+        width: 50px;
+        margin-top: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box1"></div>
+    <button class="btn1">上</button>
+    <button class="btn1">下</button>
+    <button class="btn1">左</button>
+    <button class="btn1">右</button>
+    <button class="btn1">停止</button>
+    <script>
+      // 获取元素
+      const box = document.querySelector('div') // div伪数组
+      const btn = document.querySelectorAll('button') // button伪数组
+      // 封装函数，获取传入元素的对应css样式
+      function getStyle(element, attr) {
+        if (window.getComputedStyle) {
+          return window.getComputedStyle(element)[attr]
+        } else {
+          return element.currentStyle[attr]
+        }
+      }
+      var tag = false
+      btn[0].addEventListener('click', function () {
+        if (tag) {
+          clearInterval(time)
+        }
+        tag = true
+        time = setInterval(function () {
+          box.style.top = parseInt(getStyle(box, 'top')) - 2 + 'px'
+        }, 20)
+      })
+      btn[1].addEventListener('click', function () {
+        if (tag) {
+          clearInterval(time)
+        }
+        tag = true
+        time = setInterval(function () {
+          box.style.top = parseInt(getStyle(box, 'top')) + 2 + 'px'
+        }, 20)
+      })
+      btn[2].addEventListener('click', function () {
+        if (tag) {
+          clearInterval(time)
+        }
+        tag = true
+        time = setInterval(function () {
+          box.style.left = parseInt(getStyle(box, 'left')) - 2 + 'px'
+        }, 20)
+      })
+      btn[3].addEventListener('click', function () {
+        if (tag) {
+          clearInterval(time)
+        }
+        tag = true
+        time = setInterval(function () {
+          box.style.left = parseInt(getStyle(box, 'left')) + 2 + 'px'
+        }, 20)
+      })
+      btn[4].addEventListener('click', function () {
+        clearInterval(time)
+      })
+    </script>
+  </body>
+</html>

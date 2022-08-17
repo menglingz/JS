@@ -11,25 +11,43 @@
         width: 100px;
         height: 100px;
         background-color: red;
+        left: 0;
+        top: 0;
       }
     </style>
   </head>
   <body>
     <div></div>
     <script>
-      const div = document.querySelector('div')
-      var speed
-      function getDistance(code){
-
-      }
-      window.addEventListener('keydown', function (e) {
+      const box1 = document.querySelector('div')
+      var dir, speed
+      setInterval(function () {
+        switch (dir) {
+          case 37:
+            box1.style.left = box1.offsetLeft - speed + 'px'
+            break
+          case 39:
+            box1.style.left = box1.offsetLeft + speed + 'px'
+            break
+          case 38:
+            box1.style.top = box1.offsetTop - speed + 'px'
+            break
+          case 40:
+            box1.style.top = box1.offsetTop + speed + 'px'
+            break
+        }
+      }, 20)
+      document.addEventListener('keydown', function (e) {
+        console.log(e.keyCode)
         if (e.ctrlKey) {
           speed = 50
-        } else{
+        } else {
           speed = 20
         }
-        step = getDistance(e.keyCode)
-        div.style.
+        dir = e.keyCode
+      })
+      document.addEventListener('keyup', function () {
+        dir = 0
       })
     </script>
   </body>
