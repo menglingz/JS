@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="../img/电灯关.png" alt="" />
+    <button>开</button>
+    <button>关</button>
+    <script>
+      const img = document.querySelector('img')
+      const openBtn = document.querySelectorAll('button')[0]
+      const closeBtn = document.querySelectorAll('button')[1]
+      var flag = false
+      openBtn.addEventListener('click', function () {
+        if (!flag) {
+          img.src = '../img/电灯开.png'
+          flag = true
+        }
+      })
+      closeBtn.addEventListener('click', function () {
+        if (flag) {
+          img.src = '../img/电灯关.png'
+          flag = false
+        }
+      })
+      img.addEventListener('click', function () {
+        if (flag) {
+          this.src = '../img/电灯关.png'
+          flag = false
+        } else {
+          this.src = '../img/电灯开.png'
+          flag = true
+        }
+      })
+    </script>
+  </body>
+</html>
