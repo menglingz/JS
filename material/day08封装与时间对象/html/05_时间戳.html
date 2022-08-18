@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p id="p"></p>
+    <script>
+        // 时间戳：就是从970年1月1日0时，到当前时间，经过的毫秒数
+        var d = new Date();
+        console.log(d.getTime());
+        // 时间倒计时
+        // 获取元素
+        var p = document.getElementById('p');
+        // 创建现在时间
+        var cTime = new Date();
+        // 创建未来的时间
+        var eTime = new Date('2023,6,7');
+
+        // 使用结束时间减去当前时间 转换成时间戳 单位是毫秒
+        // var lTime = eTime.getTime() - cTime.getTime();
+
+        var lTime = Math.ceil((eTime.getTime() - cTime.getTime())/1000/(24 * 60 * 60));
+        p.innerHTML = '距离高考还有' + lTime + "天"
+    </script>
+</body>
+</html>

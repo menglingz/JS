@@ -1,0 +1,94 @@
+.img {
+    position: absolute;
+    top: 100px;
+    left: 50%;
+    width: 480px;
+    height: 270px;
+    margin-left: -240px;
+    color: #FFFFFF;
+    /*设置图片默认透明度为0 */
+    opacity: 0;
+    /*设置图片过度效果， 会出现淡入淡出效果 */
+    transition: all .8s;
+  }
+  .img:nth-child(1){
+    background: url("../html/img/a.png");
+    background-size: 100%;
+  }
+  .img:nth-child(2){
+    background: url("../html/img/b.png");
+    background-size: 100%;
+  }
+  .img:nth-child(3){
+    background: url("../html/img/c.png");
+    background-size: 100%;
+  }
+  .img:nth-child(4){
+    background: url("../html/img/d.png");
+    background-size: 100%;
+  }
+  .img:nth-child(5){
+    background: url("../html/img/e.png");
+    background-size: 100%;
+  }
+  .prev {
+    position: absolute;
+    top: 185px;
+    left: 50%;
+    width: 20px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius: 0 5px 5px 0;
+    margin-top: 30px;
+    margin-left: -240px;
+    color: #c2c1cb;
+    text-align: center;
+    background-color: rgba(255, 255, 255, .2);
+    cursor: pointer;
+    line-height: 30px;
+  }
+  .next {
+    position: absolute;
+    top: 185px;
+    left: 50%;
+    width: 20px;
+    height: 30px;
+    border: 1px solid rgba(255, 255, 255, .2);
+    border-radius:  5px 0 0 5px;
+    margin-top: 30px;
+    margin-left: 218px;
+    color: #c2c1cb;
+    text-align: center;
+    background-color: rgba(255, 255, 255, .2);
+    cursor: pointer;
+    line-height: 30px;
+  }
+  .next:hover,
+  .prev:hover {
+    background-color: rgba(1, 1, 1, 0.73);
+    color: #FFFFFF;
+  }
+  .div1 {
+    position: absolute;
+    top: 350px;
+    left: 50%;
+    margin-left: -40px;
+  }
+  .little {
+    float: left;
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    background-color: rgba(255, 245, 244, .3);
+    margin-left: 4px;
+    cursor: pointer;
+    border: 1px solid #464646;
+  }
+.show{
+    /* 通过添加此类名给元素，使元素能显示图片 */
+    opacity: 1;
+}
+.little_show{
+    /* 通过添加此类名来改变小圆点的背景颜色 */
+    background-color: #fff;
+}

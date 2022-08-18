@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 时间对象，用来创建时间的，可以获取电脑本地的时间，也可以计算时间差，比如：结合定时器，可以实现秒杀。
+        // 实例化一个时间对象。
+        // 获取日期
+        var oDate = new Date();
+        console.log(oDate);
+        var y = oDate.getFullYear();// 年
+        console.log(y);
+        var m = oDate.getMonth() + 1;// 月
+        console.log(m);
+        var d = oDate.getDate();// 日期
+        console.log(d);
+        var week = ['星期日','星期一','星期二','星期三','星期四','星期五','星期六',];
+        var w = oDate.getDay();// 数值是从0开始，代表周日
+        console.log(week[w]);
+        console.log(w);
+
+        // 获取时间
+        var h = oDate.getHours();//小时值
+        console.log(h);
+        var mi = oDate.getMinutes();// 分钟值
+        console.log(mi);
+        var s = oDate.getSeconds();// 秒值
+        console.log(s);
+
+    </script>
+</body>
+</html>

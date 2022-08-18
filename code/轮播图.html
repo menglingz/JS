@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      ol,
+      ul,
+      li {
+        list-style: none;
+      }
+      .banner {
+        width: 800px;
+        height: 400px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-400px, -200px);
+      }
+      img {
+        width: 100%;
+        height: 100%;
+        display: block;
+      }
+      .banner > ul {
+        width: 100%;
+        height: 100%;
+        position: relative;
+      }
+      .banner > ul > li {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        left: 0;
+        top: 0;
+        opacity: 0;
+        transition: opacity 0.5s linear;
+      }
+
+      .banner > ul > li.active {
+        opacity: 1;
+      }
+
+      .banner > ol {
+        width: 150px;
+        height: 25px;
+        position: absolute;
+        left: calc((100% - 150px) / 2);
+        bottom: 30px;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        border-radius: 15px;
+      }
+
+      .banner > ol > li {
+        width: 15px;
+        height: 15px;
+        background-color: #fff;
+        border-radius: 50%;
+        cursor: pointer;
+      }
+
+      .banner > ol > li.active {
+        background-color: orange;
+      }
+
+      .banner > div {
+        width: 40px;
+        height: 60px;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 30px;
+        color: #fff;
+        cursor: pointer;
+      }
+
+      .banner > div.left {
+        left: 0;
+      }
+      .banner > div.right {
+        right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="banner">
+      <!-- 图片区域 -->
+      <ul class="imgBox">
+        <li class="active"><img src="../img/1.jpeg" alt="" /></li>
+        <li><img src="../img/2.jpeg" alt="" /></li>
+        <li><img src="../img/3.jpeg" alt="" /></li>
+        <li><img src="../img/4.jpeg" alt="" /></li>
+        <li><img src="../img/5.jpeg" alt="" /></li>
+      </ul>
+
+      <!-- 焦点区域 -->
+      <ol>
+        <li data-i="0" data-name="point" class="active"></li>
+        <li data-i="1" data-name="point"></li>
+        <li data-i="2" data-name="point"></li>
+        <li data-i="3" data-name="point"></li>
+        <li data-i="4" data-name="point"></li>
+      </ol>
+
+      <!-- 左右切换按钮 -->
+      <div class="left">&lt;</div>
+      <div class="right">&gt;</div>
+    </div>
+    <script src="../js/轮播图.js"></script>
+  </body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        setInterval(auto,1000);
+        function auto() {
+            // 创建获取时间
+            var oDate = new Date();
+            var y = oDate.getFullYear();// 年
+            var m = oDate.getMonth() + 1;// 月
+            var d = oDate.getDate();// 日期
+            var week = ['星期日', '星期一', '星期二', '星期三', '星期四', '星期五', '星期六',];
+            var w = oDate.getDay();// 数值是从0开始，代表周日
+            var h = oDate.getHours();//小时值
+            var mi = oDate.getMinutes();// 分钟值
+            var s = oDate.getSeconds();// 秒值
+            var str = y + "年" + m +"月" + d + "日" + week[w] + toTwo(h) + ":" + toTwo(mi) + ":" + toTwo(s);
+            document.body.innerHTML = str;
+        }
+        // 声明一个函数，判断是否小于10，小于的话前面补0
+        function toTwo(time){
+            return time >= 10 ? ' '+time : '0' + time;
+        }
+    </script>
+</body>
+
+</html>

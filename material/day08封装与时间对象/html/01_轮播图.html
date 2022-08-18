@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../css/01_style.css">
+</head>
+
+<body>
+    <div id="Box">
+        <div class="img show">1111</div>
+        <div class="img">2222</div>
+        <div class="img">3333</div>
+        <div class="img">4444</div>
+        <div class="img">5555</div>
+
+        <!--上一张按钮-->
+        <span class="prev">&gt;</span>
+        <!--下一张按钮-->
+        <span class="next">&lt;</span>
+
+        <div class="div1">
+            <span class="little little_show" data-index="0"></span>
+            <span class="little" data-index="1"></span>
+            <span class="little" data-index="2"></span>
+            <span class="little" data-index="3"></span>
+            <span class="little" data-index="4"></span>
+        </div>
+    </div>
+    <script>
+        let img = document.getElementsByClassName('img');
+        let next = document.querySelector('.next');
+        let prev = document.querySelector('.prev');
+        let little = document.getElementsByClassName('little');// 获取的是所有圆点的集合
+        let box = document.getElementById('Box');
+        let index = 0;
+        let time = 0;
+        // 封装函数clear(),重置所有类名
+        let clear = function () {
+            for (let i = 0; i < img.length; i++) {
+                img[i].className = "img";
+            }
+            for (let i = 0; i < little.length; i++) {
+                little[i].className = "little";
+            }
+        }
+        // 核心的功能逻辑代码，封装到函数show(),将img的类名修改，是当前的图片出现,改变little的类名，改变了实心的小圆点
+        let show = function () {
+            img[index].className = "img show";
+            little[index].className = "little little_show";
+            time = 0;
+        };
+        // 下一张按钮,封装此函数的意义：先重置，使用index计数，index++,放在调用过来的show()函数中使用
+        let nextBtn = function () {
+            // 先重置类名。调用函数clear
+            clear();
+            index++;
+            if (index > img.length - 1) {
+                index = 0;
+            }
+            show();
+        }
+        // 调用点击事件，调用函数nextBtn()
+        next.addEventListener("click", function () {
+            nextBtn();
+        })
+        // 上一张按钮的核心功能函数，封装到prevBtn(),重置，调用show()函数
+        let prevBtn = function () {
+            // 先重置类名。调用函数clear
+            clear();
+            index--;
+            if (index < 0) {
+                index = img.length - 1;
+            }
+            show();
+        }
+        // 上一张按钮被点击时，调用 prevBtn();
+        prev.addEventListener("click",function(){
+            prevBtn();
+        });
+
+        // 小圆点被点击的时候，先调用重置，
+        // 自定义了一个属性，获取到当前被点击的元素的此属性的值，赋值给index，代入到show()
+        for(let i = 0;i < little.length;i++){
+            little[i].addEventListener("click",function(){
+                clear();
+                index = this.getAttribute("data-index");
+                show();
+            })
+        }
+
+        let timer;
+        // 自动时间轮播定时器封装在下面的函数中
+        function autoTime(){
+            // 定时器
+            timer = setInterval(function(){
+                // time++;
+                // if(time === 4){
+                    nextBtn();
+                // }else if(time>4){
+                //     time = 0;
+                // }
+                // console.log("time = " + time);
+
+            },1000)
+        }
+        autoTime();
+
+        // 鼠标移入移出
+        // 鼠标移入，清除定时器
+        box.onmouseover = function(){
+            clearInterval(timer);
+        };
+        // 当鼠标移出时，重新调用定时器并重置time
+        box.onmouseout = function(){
+            time = 0;
+            autoTime();
+        }
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      .box {
+        width: 190px;
+        height: 260px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-100px, -130px);
+      }
+      .box a {
+        position: relative;
+        float: left;
+        width: 200px;
+        height: 100%;
+        color: #fff;
+        background-color: #e83632;
+        background-image: url(https://misc.360buyimg.com/mtd/pc/index_2019/1.0.1/assets/img/4a15d8883775742e3efbb850ae14def7.png);
+        background-size: contain;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        text-decoration: none;
+      }
+      .title {
+        width: 100%;
+        text-align: center;
+        font-size: 30px;
+        font-weight: 700;
+        margin-top: 31px;
+      }
+      .desc {
+        margin-top: 90px;
+        font-size: 14px;
+        text-align: center;
+      }
+      .desc strong {
+        font-size: 18px;
+        padding-right: 2px;
+        vertical-align: middle;
+        display: inline-block;
+        margin-top: -4px;
+      }
+      .main {
+        margin-left: auto;
+        margin-right: auto;
+        width: 180px;
+        height: 30px;
+        margin-top: 10px;
+        display: block;
+        color: #333;
+        font-weight: 700;
+      }
+      .main .timmer {
+        position: relative;
+        float: left;
+        width: 30px;
+        height: 30px;
+        text-align: center;
+        background-color: #2f3430;
+        margin-right: 20px;
+        color: white;
+        font-size: 20px;
+      }
+      .main .timer:after {
+        content: ':';
+        display: block;
+        position: absolute;
+        right: -20px;
+        font-weight: bolder;
+        font-size: 18px;
+        width: 20px;
+        height: 100%;
+        top: 0;
+      }
+      .main .timmer-second {
+        margin-right: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <a href="javascript:;">
+        <div class="title">京东秒杀</div>
+        <div>
+          <div class="desc"><strong>09:00</strong>点场 距结束</div>
+          <span class="main">
+            <span class="day timer timmer">00</span>
+            <span class="hour timer timmer">00</span>
+            <span class="minute timer timmer">00</span>
+            <span class="second timmer timmer-second">00</span>
+          </span>
+        </div>
+      </a>
+    </div>
+    <script src="../js/京东秒杀.js"></script>
+    <!-- <script src="../js/时间补零格式化.js"></script> -->
+    <script>
+      // let time1 = new Date('2022-08-19T09:00:00').getTime()
+      // let time2 = new Date(2022, 7, 19, 9, 0, 0).getTime()
+      // console.log(time1, time2)
+      // let now = Date.now()
+      // console.log(dateZeroFormat((time1 - now) / 1000))
+    </script>
+  </body>
+</html>
