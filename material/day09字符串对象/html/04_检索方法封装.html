@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 封装一个方法，查找字符串中名字出现的位置
+        // 医师节将至，钟南山寄语中国医师：钟南山为老百姓健康保驾护航
+        // 检索出现的次数
+        var str = '医师节将至，钟南山寄语中国医师：钟南山为老百姓健康保驾护航钟南山';
+        var num = 0;
+        function fn(str, val) {
+            var n = str.indexOf(val);
+            while (n !== -1) {
+                console.log(n); // 1
+                
+                n = str.indexOf(val, n + val.length);
+                num++;
+            }
+        }
+        fn(str,'钟南山');
+        console.log('出现的次数为：' + num);
+    </script>
+</body>
+
+</html>

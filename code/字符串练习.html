@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      let arr = ['red', 'blue', 'red', 'green', 'pink', 'red']
+      function getRedNum(arr) {
+        let num = 0
+        indexArr = []
+        for (const x of arr.entries()) {
+          // console.log(x)
+          if (x[1] === 'red') {
+            indexArr.push(x[0])
+            num++
+          }
+        }
+        return `red一共出现了${num}次，位置为${indexArr}`
+      }
+      // console.log(getRedNum(arr))
+      function getStringNum() {
+        let str = prompt('请输入一段内容:')
+        var obj = {}
+        for (const x of str) {
+          if (obj[x]) {
+            obj[x]++
+          } else {
+            obj[x] = 1
+          }
+        }
+        var result = ''
+        Object.keys(obj).forEach((ele) => {
+          result += `${ele}出现了${obj[ele]}次，`
+        })
+        return result
+      }
+      // console.log(getStringNum())
+
+      function isInstanceNum() {
+        let str = 'ad126234'
+        if (str.match(/([0-9]){3}/) === null) {
+          return false
+        } else {
+          return str.match(/([0-9]){3}/)[0]
+        }
+      }
+      var longestDupSubstring = function (s) {
+        let maxStr = ''
+        for (let i = 0, j = 0; i < s.length; i++) {
+          while (j - i <= maxStr.length && j < s.length && ++j) {
+            if (j - i <= maxStr.length) continue
+            const curStr = s.slice(i, j)
+            if (s.indexOf(curStr, i + 1) > -1) maxStr = curStr
+          }
+        }
+        let num = 0
+        let index = 0
+        while (s.indexOf(maxStr, index) > -1) {
+          index = s.indexOf(maxStr, index) + maxStr.length - 1
+          num++
+        }
+        return `最长重复子串为${maxStr || '空'},重复次数为${num}次`
+      }
+      console.log(longestDupSubstring('banana'))
+      // console.log(longestDupSubstring('abcd'))
+      // console.log(longestDupSubstring('bcbcabc'))
+    </script>
+  </body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = 'hello world';
+        // 字符串长度包含之间的空格
+        console.log(str.length);
+        // 字符串有长度也有下标，但是，字符串只能读，不能写（修改）
+        str[0] = 'p';
+        console.log(str);
+        console.log(str[1]);
+        // 字符串的遍历
+        for(var i=0;i<str.length;i++){
+            console.log(str[i]);
+        }
+    </script>
+</body>
+</html>

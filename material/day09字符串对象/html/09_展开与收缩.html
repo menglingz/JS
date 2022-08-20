@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <p>
+        <span>我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩我是展开和收缩</span>
+        <!-- 行内执行js代码，内容为空，给a标签绑定点击事件会去掉a标签默认的样式，这样写可以恢复默认样式 -->
+        <a href="javascript:;">点我收起</a>
+    </p>
+    <script>
+        // 获取元素
+        var span = document.getElementsByTagName('span')[0];
+        var a = document.getElementsByTagName('a')[0];
+        var text = span.innerHTML;
+        var tag = true;// 展开状态
+
+        // 点击展开和收缩
+        a.onclick = function(){
+            if(tag == true){
+                // 点击使它收起
+                span.innerHTML = span.innerHTML.substring(0,4);
+                this.innerHTML = '展开';
+                tag = false;
+            }else{
+                span.innerHTML = text;
+                this.innerHTML = '点我展开';
+                tag = true;
+            }
+        }
+
+    </script>
+</body>
+</html>

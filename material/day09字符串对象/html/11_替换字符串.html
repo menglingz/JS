@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>受限于制程工艺，骁龙 870 **在功耗控制上还要更好一点，高通骁龙 870 极限功耗为 5.7w，骁龙 8Gen1 的极限功耗则是 8.5W。也就是说在**游戏等一些连续输出高性能的场景中，搭载骁龙 8Gen1 的手机初期体验会流畅，而随着连续使用时间增加，高功耗带来的高热量，会使得手机越来越烫，同时芯片会主动降频避免过热，反而导致流畅度下降。除此之外，2K、120Hz 全面屏、UFS3.0 的存储技术、拍照像素、照片素质与广角、长焦镜头等硬件，也没有太大提升。</p>
+    <input type="text" name="" id="">
+    <button>净化器</button>
+    <script>
+        // var str = '1234567891212345678912'
+        // 使用替换方法，只能替换出现的第一个
+        // console.log(str.replace('4567','****'));
+        // 替换所有出现的特定字符
+        var input = document.querySelector('input');
+        var p = document.querySelector('p');
+        var a = '';
+        var btn = document.querySelector('button');
+        input.value = a;
+        btn.onclick = function(){
+            while(input.value.indexOf('手机') !== -1){
+                input.value = input.value.replace('手机','**')
+            }
+            
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str = '12378&ckshdicn&khd22324545454522&ldcks654';
+        // 去重
+        // 去掉特殊字符
+        // 数字在前，字母在后，输出
+        // 字母97~122，数字0-9是48~57
+        var num = '';//放置数字
+        var s = '';//放置字母
+        for(var i = 0;i <str.length;i++){
+            var v = str[i];//i=6时，v='c';i=12 v='c'
+            // v.charCodeAt(0)//判断是否在48~57区间内v='c'时，
+            // num.indexOf(v)===-1 检验是否已经存在，===-1则没有存在，可以执行赋值
+            // num += v;
+            if((v.charCodeAt(0) >=48 && v.charCodeAt(0) <= 57 && num.indexOf(v) === -1)){
+                num += v;
+            }
+            if((v.charCodeAt(0) >=97 && v.charCodeAt(0) <= 122 && s.indexOf(v) === -1)){
+                s += v;//s='c'
+            }
+        }
+        console.log(num + s);
+
+
+
+    </script>
+</body>
+</html>

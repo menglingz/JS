@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="查找">
+    <input type="text" placeholder="替换">
+    <button>按钮</button>
+    <p>中国信通院数据显示，截至 2022 年 5 月，中国智能手机出货量为 1.08 亿部，同比下降 27.1%，具体到各家手机大厂，更显惨淡。2022 年 Q1，在出货量排名前五的公司中，除荣耀外，市场份额全部呈现负增长，OPPO 市场份额下降 33.5%，vivo 下滑 35.1%，小米下滑 18.4%。一位小米代理商曾对数智前线表示，「即便是新品降价，也很难提振消费，今年 3 月底，小米 11 的售价直降 1500 元，市场也一点反应都没有，激发不起购买的欲望。
+    </p>
+    <script>
+        // 使用join方式拼接字符串时，要注意写法
+        // p.innerHTML = arr.join('<span>' + s +'</span>')
+        var input = document.getElementsByTagName('input');
+        var btn = document.getElementsByTagName('button')[0];
+        var p = document.getElementsByTagName('p')[0];
+        var str = p.innerHTML;
+        btn.onclick = function(){
+            var v1 = input[0].value;
+            var v2 = input[1].value;
+            var arr = str.split(v1);
+            // 先输出一边p
+            console.log(arr);
+
+            console.log(arr.join(v2));
+
+            p.innerHTML = arr.join(v2);
+        }
+    </script>
+</body>
+</html>

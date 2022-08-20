@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        width: 5000px;
+      }
+    </style>
+  </head>
+  <body>
+    <button>滚动</button>
+    <script>
+      console.log(window.innerHeight)
+      console.log(window.innerWidth)
+      console.log(window.outerWidth)
+      console.log(window.outerHeight)
+      console.log(document.documentElement.clientHeight)
+      for (const x of [1, 2, 3, 4]) {
+        console.log(x)
+      }
+
+      const btn = document.querySelector('button')
+      // btn.addEventListener('click', function () {
+      //   window.scrollTo({
+      //     left: 4000,
+      //     top: 0,
+      //     behavior: 'smooth'
+      //   })
+      // })
+      // let openWin = window.open('http://www.wrox.com/', 'wroxWindow', 'height=400,width=400,left=10,resizeable=yes')
+      // btn.addEventListener('click', function () {
+      //   openWin.close()
+      // })
+    </script>
+  </body>
+</html>

@@ -30,7 +30,7 @@
       //秒杀过期，取消定时器
       clearInterval(interval)
       d = h = m = s = '00'
-      desc.innerHTML = '<strong>23:00</strong>点场 已结束'
+      desc.innerHTML = '<strong>09:00</strong>点场 已结束'
     }
     day.innerHTML = d
     hour.innerHTML = h

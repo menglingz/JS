@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str1 = 'abcdefg';
+        // 第一种截取方法（推荐使用）
+        console.log(str1.slice(-5,6));
+        // 开始位置参数为负数时，第一种理解，从倒数第几位开始，第二种理解，负数+字符串长度=开始位置的下标
+        // str1.slice(包括，不包括)
+        console.log(str1.slice(2,5));
+        console.log(str1.slice(5,2));
+        console.log(str1.slice(-10,5));
+        // 负数的绝对值已经超过字符串长度时，从下标0开始截取
+
+        // 
+        // 第二种截取方法
+        console.log(str1.substring(5,2));
+        // 第一个参数大于第二个参数时，会自动调节位置
+        console.log(str1.substring(2,-5));
+        // 当第二个参数为负数时，默认为0，自动调节位置
+        console.log(str1.substring(-2,5));
+        // 当第一个参数为负数时，默认为0
+
+        // 第三钟截取方法
+        // 第二个参数设置截取字符串长度，开始位置包括
+        console.log(str1.substr(5,2));
+
+
+    </script>
+</body>
+</html>
