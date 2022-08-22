@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 有一个符合即可
+        // 语法：数组.some(function(参数1，参数2，参数3){返回 参数1的比较结果})
+        // 参数1：数组的数据
+        // 参数2：索引下标
+        // 参数3：原始数据
+
+        // 将数组中的每个数据进行判断比较,只要有符合条件的数据就返回true
+        var arr = [10,20,30,40,50];
+        var newArr = arr.some(function(value){
+            return value > 35;
+        })
+        console.log(newArr);
+
+
+        // 全部符合才行
+        var newArr2 = arr.every(function(value){
+            return value > 30;
+        })
+        console.log(newArr2);
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 将数组中的每个数据进行判断比较，将符合条件的数据生成一个新的数组
+        // 语法：数组.filter(function(参数1，参数2，参数3){返回 参数1的比较结果})
+        // 参数1：数组的数据
+        // 参数2：索引下标
+        // 参数3：原始数据
+        var arr = [10,20,30,40,50,60];
+        var newArr = arr.filter(function(value){
+            return value>30;
+        })
+        console.log(newArr);
+
+    </script>
+</body>
+</html>

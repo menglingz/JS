@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 对数组末尾进行操作叫做数组的栈方法，返回值是新数组的长度
+        // 语法：数组.push(数据1，数据2，。。。)；
+        // 会直接改变原始数组
+        var arr = [10,20,30,40,50,60];
+        var index = arr.push(70,80);
+        console.log(index);
+        console.log(arr);
+        arr.push();
+        console.log(arr.push());// 作用数组，返回数组更新后的长度
+
+
+        // 在末尾删除数据
+        // 数组.pop()：在数组的末尾删除一个元素，没有参数，返回该元素
+        var arr = [10,20,30,40,50,60];
+        // arr.pop(80);
+        console.log(arr.pop());
+        console.log(arr);
+    </script>
+</body>
+</html>

@@ -35,6 +35,19 @@
       // btn.addEventListener('click', function () {
       //   openWin.close()
       // })
+
+      let stateObject = { foo: 'bar' }
+      history.pushState(stateObject, 'My title')
+      console.log(history.state)
+      stateObject = { foo: 'barrrr' }
+      history.replaceState(stateObject, 'My title')
+      console.log(history.state)
+      window.addEventListener('popstate', (event) => {
+        let state = event.state
+        if (state) {
+          console.log(state)
+        }
+      })
     </script>
   </body>
 </html>

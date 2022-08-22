@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" id="inp">
+    <button id="btn">统计</button>
+    <span id="span"></span>
+    <script>
+        // 获取元素
+        var inp = document.getElementById('inp');
+        var btn = document.getElementById('btn');
+        var span = document.getElementById('span');
+
+        btn.onclick = function(){
+            var str = inp.value;
+            // 声明四个用来计数的变量，分别存放各类字符出现了几次
+            var S = 0;// 数字
+            var A = 0;// 大写
+            var Z = 0;// 小写
+            var N = 0;// 中文
+            for(var i = 0;i < str.length;i++){
+                // 小写字母：97~122，大写：65~90，数字48~57，中文字符：19968~40869
+                // 把字符串中的每个字符的编码获取，放在if判断里，看它出现在以上的哪个范围之内
+                // 将对应的计数变量++
+                var v =str[i];
+                if(v.charCodeAt(0) >=48 && v.charCodeAt(0) <=57){
+                    S++;
+                }
+                if(v.charCodeAt(0) >=65 && v.charCodeAt(0) <=90){
+                    A++;
+                }
+                
+            }
+            span.innerHTML = '大写次数' + A + '<br>' + '小写次数' + Z   
+
+        }
+    </script>
+</body>
+</html>

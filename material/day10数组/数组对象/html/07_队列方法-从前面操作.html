@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 与栈方法相反，针对数组的第一个元素进行操作
+        // 也是在原有的数组上操作,在第一个元素前面添加数据
+        // 数组.unshift(),返回的也是数组更新后的长度
+        var arr = [1,2,3,4,5];
+        arr.unshift(-2,-1,0);
+        console.log(arr);
+        console.log(arr.unshift());
+
+        // 删除第一个元素
+        // 数组.shift();
+        // 没有参数，返回的是删掉的数据
+        arr.shift()
+        console.log(arr);
+    </script>
+</body>
+</html>

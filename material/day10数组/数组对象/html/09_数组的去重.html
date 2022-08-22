@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = [2,4,5,4,2,3,7,2,1,3,8,9,0,2,4,5,1,6,];
+        // 去掉重复数字，返回结果数组
+        // 使用splice方法
+        // 1. 找到第一个元素
+        // 2. 从后一个元素开始，一次与第一项比较
+        for(var i = 0;i < arr.length;i++){
+            for(var j = i+1;j < arr.length;j++){
+                if(arr[i] == arr[j]){
+                    arr.splice(j,1);
+                    j--;
+                }
+            }
+        }
+        console.log(arr);
+        // i=0 j=1 j++=2
+                //arr[0] == arr[2]不成立 j++=3
+                // .....不成立 j++=4
+                // arr[0] == arr[4] 成立 删掉arr[4] j--=3 j++=4
+
+        //方法二：
+        // 创建新的空数组
+        // 遍历原来的数组，把数据放在新数组的indexOf方法里判断是否是-1，如果符合该条件，则把数据添加到新数组里，push方法
+
+        function fn(arr){
+            var newArr = [];
+            // 遍历原来的数组
+            for(var i =0;i <arr.length;i++){
+                // 判断新数组里是否出现过相同的数据，出现过也就是下标可以被找到，不是-1，就不符合条件，不执行push
+               if(newArr.indexOf(arr[i]) == -1){
+                newArr.push(arr[i]);
+               }
+            }
+            return newArr;
+        }
+    </script>
+</body>
+</html>

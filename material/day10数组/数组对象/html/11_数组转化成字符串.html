@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 将数组转化为字符串
+        // 将获取到的数组中的数据拼接成字符串
+        var arr = [1,2,3,4];
+        var str = arr.join();//1,2,3,4
+        var str = arr.join('');//1234
+        // 添加间隔符
+        var str = arr.join('-');//1-2-3-4
+        console.log(str);
+
+        // 相对的，字符串转化为数组
+        var str2 = 'l~o~v~e';
+        var arr2 = str2.split();
+        console.log(arr2);//['l~o~v~e']
+        
+        var arr2 = str2.split('~');
+        console.log(arr2);//['l', 'o', 'v', 'e']
+
+        var arr2 = str2.split('');
+        console.log(arr2);// ['l', '~', 'o', '~', 'v', '~', 'e']
+
+        
+
+    </script>
+</body>
+</html>

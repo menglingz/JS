@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var arr = [4, 3, 5, 6, 2, 5, 1];
+        // 排序方法，默认情况，根据每个单元的首字符的ascii码，由小到大来排序
+        // .sort()
+        // arr.sort();
+        // console.log(arr);
+
+        // 语法：数组.sort(function(参数1，参数2){比较的代码块})
+        // 两个参数做减法,如果返回的是一个正数，说明前一个值大于后一个值，如果是负数，则前一个值小于后一个值
+        // 降序排列
+        arr.sort(function (min, max) {
+            return max - min;
+        });
+        console.log(arr);
+        
+        // 升序排列
+        var points = [40, 100, 1, 5, 25, 10];
+        points.sort(function (a, b) { 
+            return a - b ;
+            //升序
+            
+            // return b - a ;
+            //降序
+
+        });
+        console.log(points);
+
+
+        // 给纯数字来排序：
+        arr.sort(function (min, max) {
+            // 降序排列
+            // return max - min;
+
+            // 升序排列
+            return min - max;
+        });
+        console.log(arr);
+    </script>
+</body>
+
+</html>

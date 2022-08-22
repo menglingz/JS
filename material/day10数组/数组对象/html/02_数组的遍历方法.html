@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr = ['北京','上海','日照','银河大厦'];
+        // 数组的遍历
+        // 方法一：通过for循环遍历
+        for( var i =0;i < arr.length;i++){
+            console.log(arr[i]);
+            if(i == 2){
+                break;
+            }
+        }
+        // 方法二：for...in循环
+        // for(var 变量 in 数组){}
+        for(var index in arr){
+            // js程序会自动对数组进行循环遍历
+            // 每循环一次，将数组的索引下标存放在变量index中
+            console.log(index,arr[index]);
+            // 循环数组的下标是string类型
+            if(index == 2){
+                break;
+            }
+        }
+        // 方法三：for...of循环
+        // 语法：for(var 变量 of 数组){}
+        for(var index of arr){
+            // 每循环一次，将数组的数据数值存储在变量index中
+            console.log(index);
+            if(index === arr[2]){
+                break;
+            }
+        }
+        // 方法四：forEach
+        // 语法：.forEach(function(参数1，参数2，参数3){})
+        // 参数1：数组的数据
+        // 参数2：索引下标
+        // 参数3：数组原始的内容
+        arr.forEach(function(value,index,array){
+            console.log(value,index);
+            // 不支持break语句
+            // if(index == '2'){
+            //     break;
+            // }
+        })
+
+
+        /*
+        总结：
+            1.实际项目中更加推荐for循环
+                执行效率最高
+                支持break语句
+            2.特殊的情况使用for...in,for...of
+                for...in唯一可以循环遍历对象的语法形式
+                都支持break语句,不能控制循环数组的顺序
+            3.forEach执行效率最低
+            可以同时获取数组数据和索引下标的操作比较方便
+                不支持break语句
+
+        */
+        
+    </script>
+</body>
+</html>

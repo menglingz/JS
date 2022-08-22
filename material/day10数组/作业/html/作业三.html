@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button>统计</button>
+    <script>
+        // 通过获取每个字符的编码，判断是否在数字范围内
+        // 声明一个变量num，用来计数，出现了几次数字
+        // num没有达到3时，遇到非数字，就将num清零
+        // 获取元素
+        var inp = document.querySelector('input');
+        var but = document.querySelector('button');
+        var ss = '';
+        btn.onclick = function(){
+            var str = inp.value;
+            var num = 0;//使用num来记录连续出现了几次数字
+            for(i = 0;i < str.length;i++){
+                var v = str[i];
+                if(v.charCodeAt(0) >= 48 && v.charCodeAt(0) <= 57){
+                    num++;
+                }else{
+                    num = 0;
+                }
+                if(num == 3){
+                    // 使用截断方法返回新字符串
+                    // 36ggg786jah
+                    console.log(str.slice(i-2,i+1));
+                }
+            }
+
+        }
+
+    </script>
+</body>
+</html>

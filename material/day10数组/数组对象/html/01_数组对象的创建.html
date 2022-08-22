@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 第一，字面量方式：
+        var arr  = [1,2,'s',{}];
+        // 第二，构造函数
+        var arr2 = new Array(1,2,3,4)
+        // 数组的调用:通过索引下标获取指定数组单元存放的数据数值
+        // 可读
+        console.log(arr2[2]);
+        // 数组的新增
+        // 方法一：修改长度
+        // arr2.length = 6;
+        // console.log(arr2.length);
+        // 方法二：修改数组索引号，追加数组元素
+        arr2[5] = 77
+        console.log(arr2);
+        
+
+    </script>
+</body>
+</html>

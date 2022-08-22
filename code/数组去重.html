@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // let arr = [1, 5, 3, 4, 6, 7, 2, 1, 5, 3, 4, 9, 8, 1]
+      var arr = ['干垃圾', '湿垃圾', '可回收垃圾', '干垃圾', '有害垃圾', '干垃圾', '湿垃圾']
+      /* 方法1 */
+      // for (let i = 0; i < arr.length; i++) {
+      //   for (let j = i + 1; j < arr.length; j++) {
+      //     if (arr[i] === arr[j]) {
+      //       arr.splice(j, 1)
+      //       j--
+      //     }
+      //   }
+      // }
+      // console.log(arr)
+      /* 方法2 */
+      let newArr = []
+      for (const x of arr) {
+        if (newArr.indexOf(x) === -1) {
+          newArr.push(x)
+        }
+      }
+      console.log(newArr)
+    </script>
+  </body>
+</html>

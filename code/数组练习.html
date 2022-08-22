@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      /*
+        1.将"js，数组，分类"字符串数组用/分割 var arr = ["js", "数组", "分类"];    
+        2.去掉大于10的数字 var arr = [1, 5, 4, 10, 48, 500, 14]; 
+        3. 找到所有出现"a"的位置 var arr = ["c", "a", "d", "a", "d"];
+        4.var arr = ["干垃圾", "湿垃圾", "可回收垃圾", "干垃圾", "有害垃圾", "干垃圾", "湿垃圾"];
+        5.循环100个数，放入到数组中
+        6.["b", "c","b", "c","a", "b", "c"] 统计每个元素出现的次数,结果是： {a：1， b: 3, c: 3}  
+        7.在数组arr末尾添加元素item,不要直接修改数组arr,结果返回新的数组
+        8.点名: 随机输出一位同学的名字 [“老赵”, “老李”, “小传”, “小黑”]，如果输出过了就不再出现这个名字
+      */
+      /* 第1题 */
+      var arr = ['js', '数组', '分类']
+      console.log(arr.join('/'))
+
+      /* 第2题 */
+      var arr1 = [1, 5, 4, 10, 48, 500, 14]
+      let newArr1 = arr1.filter((ele) => ele <= 10)
+      console.log(newArr1)
+
+      /* 第3题 */
+      let indexArr = []
+      let index = 0
+      var arr2 = ['c', 'a', 'd', 'a', 'd']
+      while (arr2.indexOf('a', index) > -1) {
+        indexArr.push(arr2.indexOf('a', index))
+        index = arr2.indexOf('a', index) + 1
+      }
+      console.log(indexArr)
+
+      /* 第4题 */
+      var arr3 = ['干垃圾', '湿垃圾', '可回收垃圾', '干垃圾', '有害垃圾', '干垃圾', '湿垃圾']
+      let newArr3 = []
+      for (const x of arr3) {
+        if (newArr3.indexOf(x) === -1) {
+          newArr3.push(x)
+        }
+      }
+      console.log(newArr3)
+
+      /* 第5题 */
+      let arr4 = []
+      for (let i = 0; i < 100; i++) {
+        arr4.push(i)
+      }
+      console.log(arr4)
+
+      /* 第6题 */
+      let obj = {}
+      let arr5 = ['b', 'c', 'b', 'c', 'a', 'b', 'c'].sort((a, b) => a.charCodeAt() - b.charCodeAt())
+      for (const x of arr5) {
+        if (obj[x]) {
+          obj[x]++
+        } else {
+          obj[x] = 1
+        }
+      }
+      console.log(obj)
+
+      /* 第7题 */
+      let arr6 = [1, 2, 3, 4, 5]
+      let newArr6 = arr6.concat()
+      newArr6.push(6)
+      console.log(arr6, newArr6)
+
+      /* 第8题 */
+      let arr7 = ['老赵', '老李', '小传', '小黑']
+      let str = '点名顺序为：'
+      function getRandomNumber(num1, num2) {
+        let total_num = num2 - num1 + 1
+        return Math.floor(Math.random() * total_num + num1)
+      }
+      for (let i = 0; i < 4; i++) {
+        let num = getRandomNumber(0, arr7.length - 1)
+        str += `${arr7[num]} `
+        arr7.splice(num, 1)
+      }
+      console.log(str)
+    </script>
+  </body>
+</html>

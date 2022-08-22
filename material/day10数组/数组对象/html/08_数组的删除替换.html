@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // 删除，插入，替换数据
+        // 语法：数组.splice(index,n,item1,item2...)
+        // index:删除数据的开始下标
+        // n:删除的项数，可以是一项，也可多项
+        // tiemX:要插入的数据，可以是一项，也可多项
+        var fruits = ["Banana", "Orange", "Apple", "Mango"];
+        fruits.splice(2, 1, "Lemon", "Kiwi");
+        console.log(fruits);
+        // 插入的数据，会在删除位置插入
+
+        // 单纯添加的方法
+        // 将n实为0
+        // 可以实现在任何位置插入数据
+        // 直接把后面插入的元素放在下标为index的位置上
+        fruits.splice(2,0,'app','app','app');
+        console.log(fruits);
+
+        // 替换
+        fruits.splice(2, 1, "Kiwi");
+        console.log(fruits);
+
+    </script>
+</body>
+
+</html>
