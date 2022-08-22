@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0px;
+        padding: 0px;
+      }
+
+      #sort {
+        width: 450px;
+        height: auto;
+      }
+
+      ul {
+        overflow: hidden;
+      }
+
+      ul li {
+        list-style: none;
+        float: left;
+        width: 200px;
+        height: 250px;
+        margin: 5px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="sort">
+      <ul>
+        <li>
+          <img src="../img/1.jpeg" alt="" width="200px" height="200px" />
+          <p>产品1</p>
+          <span>￥<em>10</em></span>
+        </li>
+        <li>
+          <img src="../img/2.jpeg" alt="" width="200px" height="200px" />
+          <p>产品2</p>
+          <span>￥<em>10.1</em></span>
+        </li>
+        <li>
+          <img src="../img/3.jpeg" alt="" width="200px" height="200px" />
+          <p>产品3</p>
+          <span>￥<em>10.2</em></span>
+        </li>
+        <li>
+          <img src="../img/4.jpeg" alt="" width="200px" height="200px" />
+          <p>产品4</p>
+          <span>￥<em>10.3</em></span>
+        </li>
+      </ul>
+
+      <div id="btn">
+        <button>随机</button>
+        <button>从低到高</button>
+        <button>从高到低</button>
+      </div>
+    </div>
+
+    <script>
+      // 获取元素
+      var allUl = document.querySelector('#sort ul')
+      var allLi = document.querySelectorAll('#sort ul li') //
+      var allImg = document.querySelectorAll('#sort ul li img') // 产品图片
+      var allP = document.querySelectorAll('#sort ul li p') // 产品名称
+      var allEm = document.querySelectorAll('#sort ul li em') // 价格
+      var allBtn = document.querySelectorAll('#btn button') // 按钮
+
+      // 保存原始数据、
+      var allArr = []
+      for (let i = 0; i < allLi.length; i++) {
+        allArr[i] = {
+          allImg: allImg[i].src,
+          allP: allP[i].innerText,
+          allEm: allEm[i].innerText
+        }
+      }
+
+      var allFn = [
+        function () {
+          return Math.random() - 0.5
+        }, // 随机
+        (a, b) => a.allEm - b.allEm, // 升序
+        (a, b) => b.allEm - a.allEm // 降序
+      ]
+
+      // 点击事件
+      for (let i = 0; i < allBtn.length; i++) {
+        allBtn[i].addEventListener('click', function () {
+          // 数组排序
+          allArr.sort(allFn[i])
+          // 更新内容数据
+          upDateCon(allArr)
+        })
+      }
+
+      function upDateCon(data) {
+        str = ''
+        for (var i = 0; i < data.length; i++) {
+          var nowData = data[i] //
+          str += '<li>' + '<img src="' + nowData.allImg + '" alt="" width="200px" height="200px" />' + '<p>' + nowData.allP + '</p>' + '<span>￥<em>' + nowData.allEm + '</em></span>' + '</li>'
+        }
+        allUl.innerHTML = str
+      }
+    </script>
+  </body>
+</html>
