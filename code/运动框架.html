@@ -10,37 +10,27 @@
         margin: 0;
         padding: 0;
       }
-      .box1 {
+      .box {
         width: 100px;
         height: 100px;
         background-color: red;
         position: absolute;
-        left: 48%;
-        top: 48%;
-        /* transform: translate(-50px, -50px); */
+        left: 0;
+        top: 25px;
       }
-      button.btn1 {
+      button {
         width: 50px;
-        margin-top: 10px;
+        height: 20px;
       }
     </style>
   </head>
   <body>
-    <div class="box1"></div>
-    <button class="btn1">上</button>
-    <button class="btn1">下</button>
-    <button class="btn1">左</button>
-    <button class="btn1">右</button>
-    <button class="btn1">停止</button>
+    <div class="box"></div>
+    <button class="btn">运动</button>
     <script>
-      // 获取元素
-      const box = document.querySelector('div') // div伪数组
-      const btn = document.querySelectorAll('button') // button伪数组
+      const box = document.querySelector('div')
+      const btn = document.querySelector('button')
       var tag = false
-      var time = null
-      const maxHeight = document.documentElement.clientHeight - parseInt(getStyle(box, 'height')) - 2
-      const maxWidth = document.documentElement.clientWidth - parseInt(getStyle(box, 'width')) - 2
-
       // 封装函数，获取传入元素的对应css样式
       function getStyle(element, attr) {
         // 标准
@@ -81,21 +71,17 @@
         }, 20)
       }
 
-      // 向上
-      btn[0].addEventListener('click', function () {
-        move(-2, 0, box, 'top')
-      })
-      btn[1].addEventListener('click', function () {
-        move(2, maxHeight, box, 'top')
-      })
-      btn[2].addEventListener('click', function () {
-        move(-2, 0, box, 'left')
-      })
-      btn[3].addEventListener('click', function () {
-        move(2, maxWidth, box, 'left')
-      })
-      btn[4].addEventListener('click', function () {
-        clearInterval(time)
+      // 运动
+      btn.addEventListener('click', function () {
+        move(2, 500, box, 'left', function () {
+          move(2, 500, box, 'top', function () {
+            move(-2, 0, box, 'left', function () {
+              move(-2, 25, box, 'top', function () {
+                console.log('运动结束')
+              })
+            })
+          })
+        })
       })
     </script>
   </body>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var arr = [1, 5, 2, 15, 9, 8, 20, 12]
+      // 数组拼接
+      function num(arr) {
+        if (arr.length <= 1) {
+          return arr
+        }
+        // 取出一个中点
+        let md = arr.splice(Math.floor(arr.length / 2), 1)[0]
+        let left = [] // 左数组
+        let right = [] // 右数组
+        // 将小于中点的值放在做数组中，大于中点的值放在右数组中
+        for (let i = 0; i < arr.length; i++) {
+          if (arr[i] < md) {
+            left.push(arr[i])
+          } else {
+            right.push(arr[i])
+          }
+        }
+        // 递归数组拼接
+        return num(left).concat(md, num(right))
+      }
+      console.log(num(arr))
+
+      // 指针 + 元素调换
+      // function quickSort(arr, begin, end) {
+      //   if (begin > end) return
+      //   let tmp = arr[begin]
+      //   let i = begin
+      //   let j = end
+      //   while (i != j) {
+      //     while (arr[j] >= tmp && j > i) j--
+      //     while (arr[i] <= tmp && j > i) i++
+      //     if (j > i) {
+      //       let t = arr[i]
+      //       arr[i] = arr[j]
+      //       arr[j] = t
+      //     }
+      //   }
+      //   arr[begin] = arr[i]
+      //   arr[i] = tmp
+      //   quickSort(arr, begin, i - 1)
+      //   quickSort(arr, i + 1, end)
+      // }
+      // quickSort(arr, 0, arr.length - 1)
+      // console.log(arr)
+    </script>
+  </body>
+</html>

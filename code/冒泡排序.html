@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 优化
+      /*
+        外循环的终点为：arr.length - 1，当外循环最后一次循环时，此时只剩下最后一个数，因此就不用再判断了
+        内循环的终点为：arr.length - i - 1，内循环相当于将每次外循环中值得最大值，放在最右边，
+        因此当第二次外循环开始时，内循环就不用再判断arr.length - i - 1上的数值了，因为这已经是此次循环的最大值了
+      */
+      var arr = [1, 5, 2, 15, 9, 8, 20, 12]
+      for (let i = 0; i < arr.length - 1; i++) {
+        for (let j = 0; j < arr.length - i - 1; j++) {
+          if (arr[j] > arr[j + 1]) {
+            var temp = arr[j]
+            arr[j] = arr[j + 1]
+            arr[j + 1] = temp
+          }
+        }
+      }
+      console.log(arr)
+
+      // 完整
+      // for (let i = 0; i < arr.length; i++) {
+      //   for (let j = 0; j < arr.length; j++) {
+      //     if (arr[j] > arr[j + 1]) {
+      //       var temp = arr[j]
+      //       arr[j] = arr[j + 1]
+      //       arr[j + 1] = temp
+      //     }
+      //   }
+      // }
+    </script>
+  </body>
+</html>
