@@ -32,15 +32,15 @@
 
       // 删除后序号重排
       function indexSort() {
-        let trs = document.querySelectorAll('tbody tr')
+        let trs = tbody.rows
         for (let i = 0; i < trs.length; i++) {
           trs[i].firstElementChild.innerText = i + 1
-        } 
+        }
       }
 
       // 隔行变色
       function changeColor() {
-        let trs = document.querySelectorAll('tbody tr')
+        let trs = tbody.rows
         for (let i = 0; i < trs.length; i++) {
           if (i % 2 === 0) {
             trs[i].style.backgroundColor = 'thistle'

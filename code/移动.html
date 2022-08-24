@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      html,
+      body {
+        height: 100%;
+        width: 100%;
+        background: black;
+      }
+
+      a {
+        text-decoration: none;
+      }
+
+      ul {
+        list-style-type: none;
+        position: relative;
+        overflow: hidden;
+        width: 900px;
+        margin: 50px auto;
+        padding: 20px 0px;
+        display: flex;
+        border-radius: 5px;
+      }
+
+      ul li {
+        position: relative;
+        z-index: 10;
+        flex: 1;
+        text-align: center;
+      }
+
+      ul li a {
+        font-size: 18px;
+        color: #fff;
+      }
+
+      .cloud {
+        width: 83px;
+        height: 42px;
+        display: inline-block;
+        background: red;
+        position: absolute;
+        left: 34px;
+        top: 0px;
+        bottom: 0px;
+        margin: auto;
+        z-index: 2;
+      }
+    </style>
+  </head>
+  <body>
+    <ul>
+      <span class="cloud"></span>
+      <li>
+        <a href="javascript:;">首页</a>
+      </li>
+      <li>
+        <a href="javascript:;">电影</a>
+      </li>
+      <li>
+        <a href="javascript:;">最新电影</a>
+      </li>
+      <li>
+        <a href="javascript:;">新闻头条</a>
+      </li>
+      <li>
+        <a href="javascript:;">八卦娱乐</a>
+      </li>
+      <li>
+        <a href="javascript:;">军事热点</a>
+      </li>
+    </ul>
+
+    <script>
+      const lis = document.querySelectorAll('ul li')
+      const bg = document.querySelector('.cloud')
+      let moveLeft = 34
+      let header = 34
+
+      for (let i = 0; i < lis.length; i++) {
+        lis[i].addEventListener('mouseover', function () {
+          moveLeft = this.offsetLeft + (this.offsetWidth - bg.offsetWidth) / 2
+        })
+      }
+
+      setInterval(function () {
+        header = header + (moveLeft - header) / 10
+        bg.style.left = header + 'px'
+      }, 20)
+    </script>
+  </body>
+</html>
