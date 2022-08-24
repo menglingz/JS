@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p>我是段落</p>
+    <p>我是段落</p>
+    <p>我是段落</p>
+    <p>我是段落</p>
+
+    <script>
+
+        // 创建节点
+        /*   语法：
+          document.createElement('元素名称') */
+
+        var p = document.createElement('p');
+        var a = document.createElement('a');
+        a.href = 'http://www.baidu.com'
+        a.innerHTML = '百度'
+
+
+        // 添加节点 -- 在父元素的末尾追加节点
+        /*  
+         语法：
+         父元素.appendChild(需要添加的节点) 
+         */
+        document.body.appendChild(a)
+
+
+        //插入节点 -- 在某个元素之前加入节点
+        /* 
+        语法：
+            父元素.insertBefore(newChild, refChild)
+            newChild: 新的一个元素，也就是需要插入的元素 
+            refChild：参考元素，也就是在哪个元素的前面插入
+         */
+
+        document.body.insertBefore(a, document.body.children[0])
+
+     
+
+
+
+    </script>
+</body>
+
+</html>

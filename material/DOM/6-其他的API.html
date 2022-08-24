@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <p>·12345678</p>
+    <span>分贝舞和服务费服务</span>
+
+    <div>
+        <img src="../images/1.webp" alt="">
+        <p>我是hidiv下面的段楼哦</p>
+    </div>
+
+    <script>
+
+        var p = document.querySelector('p')
+        var span = document.querySelector('span'); 
+        var div = document.querySelector('div'); 
+
+
+        // 父元素.replaceChild(新的节点，被替换的节点)
+
+        // document.body.replaceChild(p,span)
+
+
+        // 复制节点
+        // 语法： 
+        // node.cloneNode()  
+        // 如果没有参数，只复制元素节点，如果参数true 复制节点的同时，也会复制节点里面的内容
+
+
+        console.log(span.cloneNode()); // 只复制元素节点
+        console.log(div.cloneNode(true)); // 复制元素和内容
+
+
+
+
+
+    </script>
+</body>
+</html>

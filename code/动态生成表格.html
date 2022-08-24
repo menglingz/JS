@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <table width="500px" border="1" cellspacing="0">
+      <thead>
+        <tr>
+          <th>序号</th>
+          <th>姓名</th>
+          <th>性别</th>
+          <th>年龄</th>
+          <th>武力值</th>
+          <th>操作</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+    <script>
+      var data = [
+        { name: '刘备', sex: '男', age: 57, len: 100 },
+        { name: '张飞', sex: '男', age: 55, len: 120 },
+        { name: '关羽', sex: '男', age: 56, len: 150 },
+        { name: '周瑜', sex: '男', age: 30, len: 80 },
+        { name: '貂蝉', sex: '女', age: 18, len: 200 },
+        { name: '西施', sex: '女', age: 30, len: 50 }
+      ]
+
+      // 删除后序号重排
+      function indexSort() {
+        let trs = document.querySelectorAll('tbody tr')
+        for (let i = 0; i < trs.length; i++) {
+          trs[i].firstElementChild.innerText = i + 1
+        } 
+      }
+
+      // 隔行变色
+      function changeColor() {
+        let trs = document.querySelectorAll('tbody tr')
+        for (let i = 0; i < trs.length; i++) {
+          if (i % 2 === 0) {
+            trs[i].style.backgroundColor = 'thistle'
+          } else {
+            trs[i].style.backgroundColor = 'white'
+          }
+        }
+      }
+
+      // 承载父元素
+      const tbody = document.querySelector('tbody')
+      // 遍历
+      for (const x of data.entries()) {
+        // 创建tr
+        let tr = document.createElement('tr')
+
+        // 创建每一行的序号
+        let ftd = document.createElement('td')
+        // 赋值
+        ftd.innerText = x[0] + 1
+        // 将序号插入tr中
+        tr.appendChild(ftd)
+
+        // 遍历创建td
+        for (const key in x[1]) {
+          // 创建td
+          let td = document.createElement('td')
+          // 赋值
+          td.innerText = x[1][key]
+          // 将创建好的td插入到tr中
+          tr.appendChild(td)
+        }
+
+        // 每一行末尾的删除
+        let ltd = document.createElement('td')
+        // 删除的a链接
+        let a = document.createElement('a')
+        // 禁止默认跳转
+        a.href = 'javascript:;'
+        a.innerText = '删除'
+        // 将a链接插到td中
+        ltd.appendChild(a)
+        // 将删除这个td插入到tr中
+        tr.appendChild(ltd)
+
+        // 最后将tr插入到tbody中
+        tbody.appendChild(tr)
+
+        // 隔行变色
+        changeColor()
+
+        // 删除的点击操作
+        a.onclick = function () {
+          // 删除节点
+          tbody.removeChild(this.parentNode.parentNode)
+          // 触发序号重新排列
+          indexSort()
+          // 重新触发隔行变色
+          changeColor()
+        }
+      }
+    </script>
+  </body>
+</html>

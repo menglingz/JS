@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>我是上一个兄弟节点</p>
+    <ul>
+        哈哈哈
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+    </ul>
+    <span>我是下一个兄弟节点</span>
+
+    <div class="demo">
+        <div class="box">
+            <span class="span">xxxx</span>
+        </div>
+    </div>
+
+    <script>
+        var oUl = document.getElementsByTagName('ul')[0]; 
+        // 获取所有的子节点 
+        var childs = oUl.childNodes; 
+        console.log(childs[0].nodeType); // 3 -- 文本节点 
+
+        // 获取所有的子元素节点
+        console.log(oUl.children); 
+
+        // 获取第一个子节点
+        console.log(oUl.firstChild); 
+         // 获取第一个子元素节点
+        console.log(oUl.firstElementChild);
+        // 获取最后一个子节点
+        console.log(oUl.lastChild);
+        // 获取最后一个子元素节点
+        console.log(oUl.lastElementChild);
+
+        console.log(oUl.nextSibling);
+        console.log(oUl.previousSibling);
+
+        console.log(oUl.nextElementSibling);
+        console.log(oUl.previousElementSibling);
+
+
+
+
+        // 获取直接的父节点 -- parentNode 
+        var  span = document.querySelector('.span')
+        console.log(span.parentNode);
+
+
+    </script>
+</body>
+</html>

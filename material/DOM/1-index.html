@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+   <!--  什么是DOM  
+        文档模型 document object model  
+        dom的语法标准是w3c组织规定 w3c给你定义了一些列DOM接口  
+    
+    DOM 树  
+        标签元素构成的树形结构
+
+        标签元素可以称为是节点
+        节点：网页中所有的内容，在文档树中都是节点(标签，属性，文本，注释等) 
+        元素可以使用element表示 
+        
+
+        一个节点至少有：
+        nodeType（节点类型，告知是什么节点）
+        nodeName(节点名称) 
+        nodeValue(节点值) 
+ -->
+
+ <div id="box" a="123"></div>
+
+    <ul id="ul">
+        <li id="cs" name="jinan">济南</li>
+        <li>北</li>
+        <li>上</li>
+        <li>广</li>
+    </ul>
+    
+    name: <input type="text" name="username" id="name" value="asd">
+
+    <script>
+        // 获取元素
+        var jinan = document.getElementById('cs'); 
+        var nameAttr = document.getElementById('name').getAttributeNode('name') 
+
+        console.log(jinan.nodeType);  // 1 -- 元素节点  
+        console.log(jinan.nodeName);  // LI -- 名字是大写的 
+        console.log(jinan.nodeValue); // null 
+
+        console.log('---------------------------');
+
+        console.log(nameAttr.nodeType);  // 2 -- 属性节点  
+        console.log(nameAttr.nodeName);  // name 
+        console.log(nameAttr.nodeValue); // username
+
+
+        console.log('***下面是获取原有属性和非原有属性的方法 -- 获取、设置、删除');
+        var box = document.getElementById('box');
+        console.log(box.id);
+        console.log(box.a);
+        
+
+        // getAttribute: 获取原有属性和非原有属性
+        console.log(box.getAttribute('a'));
+        console.log(box.getAttribute('id'));
+
+        // setAttribute： 设置原有属性和非原有属性
+        box.setAttribute('a','456');
+        box.setAttribute('id','div');
+
+
+         // removeAttribute： 移除原有属性和非原有属性
+         box.removeAttribute('a');
+         box.removeAttribute('id');
+
+
+
+    </script>
+
+</body>
+</html>

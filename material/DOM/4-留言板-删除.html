@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <textarea name="" id=""></textarea>
+    <button>发布</button>
+    <ul>
+        <!-- 存放留言内容 -->
+        <li>默认留言</li>
+    </ul>
+
+    <script>
+        // 获取元素
+        var btn = document.querySelector('button');
+        var text = document.querySelector('textarea');
+        var ul = document.querySelector('ul');
+        /* 
+                事件发生后：
+                1、把textarea获取到赋值给 li元素 
+                2、先去创建一个li元素 
+                3、把创建的li元素给 ul 
+         */
+        btn.onclick = function () {
+            // var textValue = text.value; 
+            // var li = document.createElement('li'); // 创建元素 
+            // // 把textarea的内容赋值给 li元素
+            // li.innerHTML = textValue
+
+            // // ul.appendChild(li)
+            // ul.insertBefore(li,ul.children[0])
+
+            if (text.value == '') {
+                alert('请输入内容');
+                return false
+            } else {
+                var li = document.createElement('li'); // 创建元素 
+                var a = document.createElement('a'); // 创建元素 
+                a.href = 'javascript:;'
+                a.innerHTML = '删除'
+                li.innerHTML = text.value
+                li.appendChild(a)
+
+                // 添加元素
+                ul.insertBefore(li, ul.children[0])
+
+                // 删除元素 -- 获取所有的a元素
+                var as = document.querySelectorAll('a');
+
+                for (var i = 0; i < as.length; i++) {
+                    as[i].onclick = function () {
+                        ul.removeChild(this.parentNode)
+                    }
+                }
+
+                // 清空
+                text.value = ''
+            }
+        }
+
+    </script>
+</body>
+
+</html>
