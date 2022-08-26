@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            font-size: 20px;
+            color: #fff;
+            position: fixed;
+            bottom: 0;
+            right: 0;
+            display: none;
+        }
+    </style>
+</head>
+
+<body style="height: 3000px;">
+    <div>
+        返回顶部
+    </div>
+    <script>
+        // 1、事件onscroll监听滚动事件  
+        // 2、获取卷出去的高度  
+        // 3、如果是大于等于800 元素显示
+
+        var box = document.querySelector('div')
+
+        window.onscroll = function () {
+            var top = document.documentElement.scrollTop || document.body.scrollTop
+            if (top >= 800) {
+                box.style.display = 'block'
+            }
+
+            // 添加点击事件
+            box.onclick = function () {
+                var time = setInterval(function () {
+                    var top = document.documentElement.scrollTop || document.body.scrollTop
+
+                    document.documentElement.scrollTop -= 50
+                    document.body.scrollTop -= 50
+
+                    if (top <= 0) {
+                        console.log(1);
+                        clearInterval(time)
+                    }
+                }, 50)
+            }
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            border: 1px solid red;
+            margin: 50px;
+        }
+    </style>
+</head>
+<body style="height: 3000px;">
+    <div></div>
+    <script>
+        var btn = document.querySelector('div')
+        btn.onclick = function(event){
+            // 注意：一般会使用 e 或者 event 
+            // console.log(e);
+            // alert('事对象是有兼容的')
+
+            // 注意：非标准浏览器，只能使用window.event  
+            // console.log(window.event);
+
+            // 兼容
+            // var event = event || window.event 
+            console.log(event);
+
+
+            // 常用的属性和方法
+            console.log(event.target); // 事件源 -- 发生事件的元素 -- 标准浏览器
+            console.log(event.srcElement);
+            var target = event.target || event.srcElement
+
+            // 鼠标距离浏览器左上角的距离
+            console.log(event.clientX); 
+            console.log(event.clientY);
+
+            // 鼠标到屏幕左上角的距离
+            console.log(event.screenX);
+            console.log(event.screenY);
+
+            // 鼠标距离文档左上角的距离(包含被卷出去的距离)
+            console.log(event.pageX);
+            console.log(event.pageY);
+
+
+
+        }
+
+    </script>
+</body>
+</html>

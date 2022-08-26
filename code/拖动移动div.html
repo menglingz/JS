@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        width: 200px;
+        height: 300px;
+        border: 1px solid red;
+        position: absolute;
+        left: 45%;
+        top: 37%;
+      }
+      .box p {
+        width: 100%;
+        height: 50px;
+        text-align: center;
+        line-height: 50px;
+        font-size: 22px;
+        background-color: blue;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <p>我是标题</p>
+    </div>
+    <script>
+      const box = document.querySelector('.box')
+      var tag = false
+      var x, y, l, t
+      box.addEventListener('mousedown', function (event) {
+        const e = event || window.event
+        // 存取拖拽刚开始时的鼠标位置
+        x = e.clientX
+        y = e.clientY
+
+        // 存取拖拽刚开始时元素左部和顶部的偏移量
+        l = box.offsetLeft
+        t = box.offsetTop
+
+        tag = true
+      })
+      document.addEventListener('mousemove', function (event) {
+        const e = event || window.event
+        let boxRight = window.innerWidth - box.offsetWidth // 右边界
+        let boxBottom = window.innerHeight - box.offsetHeight - 1 // 下边界
+        if (tag) {
+          //拖拽时元素的左偏移量和顶部的偏移量
+          var newL = e.clientX - (x - l)
+          var newT = e.clientY - (y - t)
+
+          // 左右运动
+          if (newL < 0) {
+            box.style.left = '0px'
+          } else if (newL > boxRight) {
+            box.style.left = boxRight + 'px'
+          } else {
+            box.style.left = newL + 'px'
+          }
+
+          // 上下运动
+          if (newT < 0) {
+            box.style.top = '0px'
+          } else if (newT > boxBottom) {
+            box.style.top = boxBottom + 'px'
+          } else {
+            box.style.top = newT + 'px'
+          }
+        }
+      })
+      document.addEventListener('mouseup', function () {
+        tag = false
+      })
+    </script>
+  </body>
+</html>

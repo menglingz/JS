@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box"></div>
+    <script>
+        /* 
+                box.onclick = function () {
+                    console.log('我是红色的');
+                    // 解绑事件
+                    // box.onclick = null;
+                }
+        
+                box.onclick = function () {
+                    console.log('我是红色的111111');
+                    // 解绑事件
+                    // box.onclick = null;
+                }
+         */
+
+
+        //  标准浏览器
+        // var box = document.getElementById('box');
+        /* 
+                语法： 
+                元素.addEventListener(事件名称，事件函数，布尔值)
+                事件名称：这个事件名称是不带的 on 的 比如onclick应该写成 click  是一个字符串
+                事件函数：是一个匿名函数，事件触发后执行的函数 
+                布尔值：值有true和false，代表的是元素是否支持冒泡 或者是捕获
+         */
+
+        // box.addEventListener('click', move)
+
+
+        /*  // 解绑事件 
+         语法：
+         元素.removeEventListener(事件名称，事件函数)
+         事件名称：这个事件名称是不带的 on 的 比如onclick应该写成 click  是一个字符串
+         事件函数：是一个匿名函数，事件触发后执行的函数 
+     */
+
+        /*   box.addEventListener('click', move) // 注意：如果事件函数被独立，调用的时候不带小括号
+          
+          function move () {
+              console.log('我是新绑定事件的方式');
+              // 解绑事件
+              box.removeEventListener('click',move)
+          } */
+
+
+        // 非标准浏览器
+        // 事件名称是需要带的 on 的 
+        // box.attachEvent('onclick', move)
+
+
+        // function move () {
+        //     console.log(123456);
+
+        //     // 解绑事件
+        //     box.detachEvent('onclick', move)
+        // }
+
+        // 兼容处理
+
+        /* 
+            注意：标准浏览器事件名不带 on 非标准浏览器事件名称要带 on 
+            @params: obj：元素
+            @params: eventName：事件名称
+            @params: callback：事件函数
+        */
+
+        var box = document.getElementById('box');
+
+        getEvent(box, 'click', move)
+
+        function move () {
+            console.log('处理兼容');
+            remEvent(box, 'click', move)
+        }
+
+        // 绑定事件的兼容
+        function getEvent (obj, eventName, callback) {
+            if (obj.addEventListener) {
+                // 标准浏览器
+                obj.addEventListener(eventName, callback, false)
+            } else {
+                // 非标准浏览器
+                obj.attachEvent('on' + eventName, callback)
+            }
+        }
+
+
+
+        // 解绑事件的兼容
+        function remEvent (obj, eventName, callback) {
+            if (obj.removeEventListener) {
+                // 标准浏览器
+                obj.removeEventListener(eventName, callback)
+            } else {
+                // 非标准浏览器
+                obj.detachEvent('on' + eventName, callback)
+            }
+        }
+
+
+
+
+
+    </script>
+</body>
+
+</html>

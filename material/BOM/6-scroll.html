@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0px;
+            padding: 0px;
+        }
+
+        .box {
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+
+        }
+
+        .div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid blue;
+
+        }
+    </style>
+</head>
+
+<body style="height: 3000px;">
+    <div class="box">
+        <div class="div"></div>
+    </div>
+    <script>
+
+        // 事件监听
+        window.onscroll = function () {
+            // 获取值
+            var top = document.documentElement.scrollTop || document.body.scrollTop
+            
+            // 赋值
+            document.documentElement.scrollTop = 500
+            document.body.scrollTop = 500
+            console.log(top);
+        }
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

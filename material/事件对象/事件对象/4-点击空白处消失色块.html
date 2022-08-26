@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box1{
+            width: 400px;
+            height: 400px;
+            background-color: red;
+            display: none;
+        }
+        #box2{
+            width: 200px;
+            height: 200px;
+            background-color: blue;
+        }
+        #box3{
+            width: 100px;
+            height: 100px;
+            background-color: green;
+        }
+    </style>
+</head>
+
+<body>
+    <button>按钮</button>
+    <div id="box1">
+     
+    </div>
+
+    <script>
+        var btn = document.querySelectorAll('button')[0]; 
+        var div = document.querySelectorAll('div'); 
+
+        
+        btn.onclick = function(e){
+            var e = e || window.event
+            div[0].style.display = 'block'
+            // e.stopPropagation()
+            // e.cancelBubble = true
+            stopPropagation(e)
+        }
+
+        document.onclick = function(){
+            div[0].style.display = 'none'
+        }
+
+        // 阻止冒泡兼容
+        /* 
+        @params： stopPropagation： 标准
+        @params： cancelBubble 非标准
+        */
+        function stopPropagation(e){
+            if(e.stopPropagation){
+                e.stopPropagation()
+            }else{
+                e.cancelBubble = true
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

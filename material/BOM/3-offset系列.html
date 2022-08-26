@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0px;
+            padding: 0px;
+        }
+        .box{
+            width: 500px;
+            height: 500px;
+            border: 1px solid red;
+            /* position: absolute;
+            margin-top: 10px; */
+        }
+        .div{
+            width: 200px;
+            height: 200px;
+            border: 1px solid blue;
+            /* margin-top: 10px; */
+            padding: 10px;
+            /* box-sizing: border-box; */
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="div"></div>
+    </div>
+    <script>
+
+        var box = document.querySelector('.box')
+        var div = document.querySelector('.div')
+
+        console.log(div.offsetParent);
+        console.log(div.offsetTop);
+        console.log(div.offsetLeft);
+        console.log(div.offsetWidth);
+        console.log(div.offsetHeight)
+
+
+        box.style.width
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        ul {
+            border: 1px solid red;
+            height: auto;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text">
+    <button>按钮</button>
+    <ul>
+        <li>1111</li>
+        <li>2222</li>
+        <li>3333</li>
+    </ul>
+    <script>
+        var ul = document.getElementsByTagName('ul')[0];
+        var btn = document.getElementsByTagName('button')[0];
+        var input = document.getElementsByTagName('input')[0];
+        var aLi = document.getElementsByTagName('li')
+
+        btn.onclick = function () {
+            var li = document.createElement('li');
+            li.innerHTML = input.value
+            ul.appendChild(li)
+        }
+
+        input.onkeydown = function(e){
+            var e = e || window.event
+
+            if(e.keyCode === 13) {
+                var li = document.createElement('li');
+                li.innerHTML = input.value
+                ul.appendChild(li)
+            }
+        }
+
+
+
+        // 给每个li元素添加事件
+        // for (var i = 0; i < aLi.length; i++) {
+        //     aLi[i].onclick = function () {
+        //         this.style.background = 'red'
+        //     }
+        // }
+
+        // 事件代理（事件委托）
+        ul.onclick = function (e) {
+            var e = e || window.event
+            var target = e.target || e.srcElement; // 事件源  
+            // if(target.nodeName === 'LI'){
+            if (target.tagName === 'LI') {
+                target.style.background = 'red'
+            }
+
+        }
+
+
+
+    </script>
+</body>
+
+</html>

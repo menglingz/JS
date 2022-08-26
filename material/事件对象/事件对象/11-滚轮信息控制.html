@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 200px;
+            height: 600px;
+            background-color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+
+        /* 
+        1、给元素绑定滚轮事件 
+        2、获取滚轮信息 
+        3、根据值判断，滚轮是向上还是向下滚动，让高度增减 
+        */
+
+        var div = document.querySelector('div');
+        var h = div.clientHeight
+
+        // 标准浏览器和IE  
+        div.onmousewheel = fun;
+        // 火狐 
+        div.addEventListener('DOMMouseScroll', fun, false)
+
+        function fun (e) {
+            // 判断向上向下
+            var e = e || window.event; 
+            if(wheelDelta (e) > 0){
+                // 上 
+                h--
+            }else{
+                // 下
+                h++
+            }
+            div.style.height = h + 'px'
+        }
+
+        // 滚轮信息
+        function wheelDelta (e) {
+            if (e.wheelDelta) {
+                return e.wheelDelta
+            } else {
+                return e.detail * -50
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

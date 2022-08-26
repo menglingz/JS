@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script>
+
+        var box = document.getElementById('box'); 
+
+        // 标准浏览器和IE  
+        box.onmousewheel = fun;  
+
+        // 火狐 
+        box.addEventListener('DOMMouseScroll',fun,false)
+
+        function fun(e){
+            // console.log('滚动');
+            // 滚轮信息
+            // console.log(e.wheelDelta);
+            // console.log(e.detail); // 火狐   
+
+            console.log(wheelDelta(e));
+
+        }
+
+        function wheelDelta(e){
+            if(e.wheelDelta){
+               return e.wheelDelta
+            }else{
+               return e.detail * -50
+            }
+        }
+
+    </script>
+</body>
+</html>
