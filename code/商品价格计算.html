@@ -355,34 +355,7 @@
       const priceTotal = document.querySelector('#priceTotal'); //总计
       const deleteAll = document.querySelector('#deleteAll'); // 删除全部按钮
       const selected = document.querySelector('#selected'); //已选商品
-      // 点击选择框
-      for (let i = 0; i < selectInputs.length; i++) {
-        selectInputs[i].addEventListener('click', function () {
-          // 类名中有check-all是全选按钮
-          if (this.className.indexOf('check-all') >= 0) {
-            for (let j = 0; j < selectInputs.length; j++) {
-              selectInputs[j].checked = this.checked;
-            }
-          }
-          //只要有一个未勾选，则取消全选框的选中状态
-          if (!this.checked) {
-            for (let i = 0; i < checkAllInputs.length; i++) {
-              checkAllInputs[i].checked = false;
-            }
-          }
-          // 当所有check-one选中之后，check-all的选中状态为true
-          let allState = selectOneInputs.every(function (item) {
-            return item.checked === true
-          })
-          if (allState) {
-            for (let i = 0; i < checkAllInputs.length; i++) {
-              checkAllInputs[i].checked = allState
-            }
-          }
-          //选完更新总计
-          getTotal();
-        })
-      }
+      
       // 计算商品总数和价格
       function getTotal() {
         var seleted = 0;
@@ -399,6 +372,7 @@
         selectedTotal.innerHTML = seleted;
         priceTotal.innerHTML = price.toFixed(2);
       }
+
       // 计算单行价格
       function getSubtotal(tr) {
         // cells 集合返回表格行中所有 <td> 或 <th> 元素的个数
@@ -416,6 +390,34 @@
           span.innerHTML = '-';
         }
       }
+
+      // 点击选择框
+      for (let i = 0; i < selectInputs.length; i++) {
+        selectInputs[i].addEventListener('click', function () {
+          // 类名中有check-all是全选按钮
+          if (this.className.indexOf('check-all') >= 0) {
+            for (let j = 0; j < selectInputs.length; j++) {
+              selectInputs[j].checked = this.checked;
+            }
+          }
+          //只要有一个未勾选，则取消全选框的选中状态
+          if (!this.checked) {
+            for (let i = 0; i < checkAllInputs.length; i++) {
+              checkAllInputs[i].checked = false;
+            }
+          }
+          // 当所有check-one选中之后，check-all的选中状态为true
+          let allState = selectOneInputs.every((item)=>item.checked === true)
+          if (allState) {
+            for (let i = 0; i < checkAllInputs.length; i++) {
+              checkAllInputs[i].checked = allState
+            }
+          }
+          //选完更新总计
+          getTotal();
+        })
+      }
+
       //为每行元素添加事件
       for (let i = 0; i < tr.length; i++) {
         //将点击事件绑定到tr元素
@@ -458,6 +460,7 @@
           getTotal(); //更新总数
         })
       }
+      
       // 点击全部删除
       deleteAll.addEventListener('click',function () {
         if (selectedTotal.innerHTML != 0) {

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      #small {
+        width: 130px;
+        height: 130px;
+        float: left;
+        margin: 100px;
+        position: relative;
+        border: 1px solid red;
+      }
+
+      #moveBox {
+        width: 60px;
+        height: 40px;
+        background: rgba(255, 0, 0, 0.2);
+        position: absolute;
+        top: 0;
+        cursor: all-scroll;
+        display: none;
+      }
+
+      /*130/60 == 800/?*/
+      #big {
+        width: 369px;
+        height: 246px;
+        border: 1px solid blue;
+        overflow: hidden;
+        position: relative;
+        top: 100px;
+        display: none;
+      }
+
+      #big img {
+        position: absolute;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="small">
+      <img src="../img/small.jpg" alt="" />
+      <div id="moveBox"></div>
+    </div>
+    <div id="big">
+      <img src="../img/big.jpg" alt="" id="img" />
+    </div>
+
+    <script>
+      const small = document.querySelector('#small')
+      const big = document.querySelector('#big')
+      const moveBox = document.querySelector('#moveBox')
+      const bigImg = document.querySelector('#img')
+
+      small.addEventListener('mouseover', function () {
+        moveBox.style.display = 'block'
+        big.style.display = 'block'
+      })
+      small.addEventListener('mouseout', function () {
+        moveBox.style.display = 'none'
+        big.style.display = 'none'
+      })
+      small.addEventListener('mousemove', function (e) {
+        var e = e || window.event
+        let l = e.clientX - this.offsetWidth
+        let t = e.clientY - this.offsetHeight
+
+        if (l < 0) l = 0
+        if (l > small.offsetWidth - moveBox.offsetWidth) l = small.offsetWidth - moveBox.offsetWidth
+
+        if (t < 0) t = 0
+        if (t > small.offsetHeight - moveBox.offsetHeight) t = small.offsetHeight - moveBox.offsetHeight
+
+        moveBox.style.left = l + 'px'
+        moveBox.style.top = t + 'px'
+
+        bigImg.style.left = (-bigImg.offsetWidth * l) / small.offsetWidth + 'px'
+        bigImg.style.top = (-bigImg.offsetHeight * t) / small.offsetHeight + 'px'
+      })
+    </script>
+  </body>
+</html>

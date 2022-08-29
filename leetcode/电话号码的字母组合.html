@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var letterCombinations = function (digits) {
+        // 存放结果的数组
+        var combinations = new Array()
+        // 边界值
+        if (digits.length === 0) {
+          return combinations
+        }
+        // map集合
+        var phoneMap = new Map().set('2', 'abc').set('3', 'def').set('4', 'ghi').set('5', 'jkl').set('6', 'mno').set('7', 'pqrs').set('8', 'tuv').set('9', 'wxyz')
+        // 调用递归函数
+        backtrack(combinations, phoneMap, digits, 0, new Array())
+        // 处理结果
+        return combinations.map((item) => item.split(',').join(''))
+      }
+
+      // 递归函数
+      function backtrack(combinations, phoneMap, digits, index, combination) {
+        if (index === digits.length) {
+          combinations.push(combination.toString())
+        } else {
+          // index从0开始，digits为'234'，分别取值'2','3','4'
+          var digit = digits.charAt(index)
+          // 获取数字键对应的子母值，'2'取值为'abc'
+          var letters = phoneMap.get(digit)
+          var lettersCount = letters.length
+          // 遍历字母值
+          for (let i = 0; i < lettersCount; i++) {
+            combination.push(letters.charAt(i))
+            // 递归
+            backtrack(combinations, phoneMap, digits, index + 1, combination)
+            // 执行完一次总的循环就删除最后一个字母
+            combination.splice(combination.length - 1, 1)
+          }
+        }
+      }
+
+      console.log(letterCombinations('234'))
+    </script>
+  </body>
+</html>

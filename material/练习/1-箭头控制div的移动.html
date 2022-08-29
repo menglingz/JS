@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: absolute;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <script>
+
+        var box = document.querySelector('div');
+
+       /*  document.onkeydown = function (e) {
+            var e = e || window.event;
+
+            // 获取键码值 
+            switch (e.keyCode) {
+                case 37:
+                    box.style.left = box.offsetLeft - 10 + 'px';
+                    break
+                case 38:
+                    box.style.top = box.offsetTop - 10 + 'px';
+                    break
+                case 39:
+                    box.style.left = box.offsetLeft + 10 + 'px';
+                    break
+                case 40:
+                    box.style.top = box.offsetTop + 10 + 'px';
+                    break
+            }
+        } */
+
+
+        // 鼠标移动  
+
+        // 按下事件
+        box.onmousedown = function(e){
+            var e = e || window.event; 
+            var disX = e.clientX - box.offsetLeft; // 鼠标到盒子的距离 
+            var disY = e.clientY - box.offsetTop; // 鼠标到盒子的距离 
+
+            // 拖动
+            document.onmousemove = function(e){
+                var e = e || window.event; 
+                var L = e.clientX - disX; // 元素在新的位置上左边的距离值
+                var T = e.clientY - disY; // 元素在新的位置上上边的距离值
+
+                // 左上
+                if(L <=0) L = 0
+                if(T <=0) T = 0
+
+                // 右下
+
+                
+                // 赋值
+                box.style.left = L + 'px'
+                box.style.top = T + 'px'
+            }
+            document.onmouseup = function(){
+                document.onmousemove =  document.onmouseup = null;
+            }
+        }
+
+        
+
+
+    </script>
+</body>
+
+</html>

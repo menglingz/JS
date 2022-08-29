@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        #small {
+            width: 130px;
+            height: 130px;
+            float: left;
+            margin: 100px;
+            position: relative;
+            border: 1px solid red;
+        }
+
+        #moveBox {
+            width: 60px;
+            height: 40px;
+            background: rgba(255, 0, 0, 0.2);
+            position: absolute;
+            top: 0;
+            cursor: all-scroll;
+            display: none;
+        }
+
+        /*130/60 == 800/?*/
+        #big {
+            width: 369px;
+            height: 246px;
+            border: 1px solid blue;
+            overflow: hidden;
+            position: relative;
+            top: 100px;
+            display: none;
+        }
+
+        #big img {
+            position: absolute;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div id="small">
+        <img src="./images/small.jpg" alt="">
+        <div id="moveBox"></div>
+    </div>
+    <div id="big">
+        <img src="./images/big.jpg" alt="" id="img">
+    </div>
+
+    <script>
+
+        // 获取元素
+        var smallDiv = document.getElementById('small'); // 小图div 
+        var moveDiv = document.getElementById('moveBox'); // 遮罩
+        var bigImg = document.getElementById('img'); // 大图 
+        var bigDiv = document.getElementById('big'); // 大图的div 
+
+        // 遮罩和大图出现
+        smallDiv.onmouseover = function () {
+            moveDiv.style.display = 'block';
+            bigDiv.style.display = 'block'
+        }
+        // 遮罩和大图消失
+        smallDiv.onmouseout = function () {
+            moveDiv.style.display = 'none';
+            bigDiv.style.display = 'none'
+        }
+
+        smallDiv.onmousemove = function (e) {
+            var e = e || window.event;
+            var l = e.clientX - smallDiv.offsetLeft - moveDiv.offsetWidth / 2
+            var t = e.clientY - smallDiv.offsetTop - moveDiv.offsetHeight / 2
+            
+            // 限制范围
+            if( l < 0 ) l = 0
+            if( l > smallDiv.clientWidth - moveDiv.offsetWidth) l = smallDiv.clientWidth - moveDiv.offsetWidth
+
+            if( t < 0) t = 0;
+            if( t > smallDiv.clientHeight - moveDiv.offsetHeight ) t = smallDiv.clientHeight - moveDiv.offsetHeight
+
+            // 赋值 
+            moveDiv.style.left = l + 'px'
+            moveDiv.style.top = t + 'px'
+
+            // 大图移动 1 / 130 = ? / 800
+
+            bigImg.style.left = - bigImg.clientWidth * l / smallDiv.clientWidth + 'px'; 
+            bigImg.style.top = - bigImg.clientHeight * t / smallDiv.clientHeight + 'px'; 
+
+        }
+
+
+    </script>
+
+</body>
+
+</html>

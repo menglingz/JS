@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -o-user-select: none;
+        }
+
+        ul,
+        ol,
+        li {
+            list-style: none;
+        }
+
+        #srcoll {
+            width: 500px;
+            height: 600px;
+            margin: 0 auto;
+            position: relative;
+            background-color: bisque;
+            overflow: hidden;
+
+        }
+
+        #scroll-content {
+            padding-left: 10px;
+            position: absolute;
+            left: 0;
+            top: 0;
+        }
+
+        #scroll-content li {
+            height: 30px;
+            line-height: 30px;
+        }
+
+        #scroll-box {
+            width: 10px;
+            position: absolute;
+            right: 0;
+            height: 600px;
+            background-color: chartreuse;
+        }
+
+        #scroll-box span {
+            position: absolute;
+            width: 10px;
+            height: 20px;
+            right: 0;
+            background-color: red;
+            border-radius: 10px;
+
+        }
+    </style>
+</head>
+
+<body style="height: 3000px;">
+    <div id="srcoll">
+        <div id="scroll-content">
+            <ul>
+                <li>你好啊123456789</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊</li>
+                <li>你好啊wertyuiop[</li>
+            </ul>
+        </div>
+        <div id="scroll-box">
+            <span></span>
+        </div>
+    </div>
+    <script>
+        // 获取元素
+        var srcoll = document.getElementById('srcoll'); // 内容的可视区域
+        var scrollContent = document.getElementById('scroll-content'); // 内容大区域
+        var scrollBox = document.getElementById('scroll-box'); // 轨道
+        var span = document.getElementsByTagName('span')[0]; // 滑块 
+        var spanTop = null;
+
+        span.onmousedown = function (e) {
+            var e = e || window.event;
+            var y = e.clientY - this.offsetTop;
+
+            document.onmousemove = function (e) {
+                var e = e || window.event;
+                // top值
+                spanTop = e.clientY - y
+
+                // 控制范围
+                // 上部固定
+                if (spanTop <= 0) spanTop = 0
+                // 下部固定
+                var maxTop = scrollBox.offsetHeight - span.offsetHeight
+                if (spanTop >= maxTop) spanTop = maxTop
+
+                // 赋值
+                span.style.top = spanTop + 'px'
+
+                // 设置内容滚动距离 
+                var ration = (scrollContent.offsetHeight - srcoll.offsetHeight) / (scrollBox.offsetHeight - span.offsetHeight)
+                scrollContent.style.top = -ration * spanTop + 'px';
+            }
+            document.onmouseup = function () {
+                document.onmousemove = document.onmouseup = null;
+            }
+        }
+
+        // 鼠标滑轮 -- 滚动事件
+        // IE 谷歌
+        srcoll.onmousewheel = function (e) {
+            var e = e || window.event;
+            // 根据滚轮信息 判断是向上还是向下滚动
+            gunD(e)
+        }
+
+        // 火狐 
+        srcoll.addEventListener('DOMMouseScroll', function (e) {
+            var e = e || window.event;
+            gunD(e)
+        })
+
+        function gunD (e) {
+            e.preventDefault ? e.preventDefault() : e.returnValue = false
+            if (wheelEvent(e) > 0) {
+                spanTop -= 5
+            } else {
+                spanTop += 5
+            }
+
+            // 控制范围
+            // 上部固定
+            if (spanTop <= 0) spanTop = 0
+            // 下部固定
+            var maxTop = scrollBox.offsetHeight - span.offsetHeight
+            if (spanTop >= maxTop) spanTop = maxTop
+            // 赋值
+            span.style.top = spanTop + 'px'
+
+
+            // 设置内容滚动距离 
+            var ration = (scrollContent.offsetHeight - srcoll.offsetHeight) / (scrollBox.offsetHeight - span.offsetHeight)
+            scrollContent.style.top = -ration * spanTop + 'px'
+        }
+
+        // 滚轮信息
+        function wheelEvent (e) {
+            if (e.wheelDelta) {
+                return e.wheelDelta
+            } else {
+                return e.detail * -50
+            }
+        }
+    </script>
+</body>
+
+</html>
