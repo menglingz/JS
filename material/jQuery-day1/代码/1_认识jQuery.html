@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+    </ul>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        /* 
+            jQuery：js+选择
+            方法()
+            + 就是一个前端的类库
+            插件  完整的家具————一个桌子
+            类库  工具材料包————自行组装
+            框架  精装修的房子————带把手的房子
+
+            jQuery的灵活性决定了它的自身的地位
+            +封装了我么们能想到的网页上用到的DOM，只多不少
+
+            + 三大突出的优势
+                选择器
+                链式编程
+                隐式迭代
+
+            $ === jQuery 完全一样，相互替代，就是一个函数
+                    =>用哪个都一样
+
+            jQuery方法和原生jsDOM方法不能通用
+            
+            // 查询jQuery是否引入成功以及版本号
+            //  在console中使用$().jquery查询
+            
+
+
+        */
+       console.log($ === jQuery);// true
+        // 初体验
+        // jQuery对象是伪数组
+        // 隐式迭代
+        // 链式编程
+        $('ul > li').click(function(){console.log('你好认识一下我是$$$');}).mouseover(function(){console.log('鼠标移入事件');})
+       
+    </script>
+</body>
+</html>

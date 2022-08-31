@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;margin: 0;
+        }
+        div{
+            width: 100px;height: 100px;background-color: pink;
+            position: absolute;
+        }
+    </style>
+</head>
+<body>
+    <button>走你</button>
+    <div></div>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        /* 
+            1.animate() 动画方法
+            第一个参数：要运动的样式，对象
+            第二个参数：运动时间
+            第三个参数：运动曲线
+            第四个参数：结束后的回调函数
+
+            +样式都能运动
+            除了颜色相关不能
+            变形相关不能
+        */
+        $('button').click(function(){
+            $('div').animate({
+                width:300,
+                height:300,
+                'background-color':'skyblue',
+                left:500,
+                top:300,
+                
+
+            },3000,'linear',function(){
+                console.log('动画结束');
+            })
+        })
+    </script>
+
+    
+</body>
+</html>

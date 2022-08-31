@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;margin: 0;
+        }
+        .outer{
+            width: 500px;height: 500px;
+            position: relative;
+        }
+        .inner{
+            width: 100%;
+            height: 100%;
+            background-color: aqua;
+            display: none;
+            position: absolute;
+            left: 0;bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <button>show</button>
+    <button>hide</button>
+    <button>toggle</button>
+    <div class="outer">
+        <div class="inner">阿斯顿法国红酒看来</div>
+    </div>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        // 折叠动画
+        // 1.slideDown()
+        $('button:nth-child(1)').click(function(){
+            $('div.inner').slideDown(1000,'linear',function(){
+                console.log('动画结束');
+            })
+       })
+       $('button:nth-child(2)').click(function(){
+            $('div.inner').slideUp(1000,'linear',function(){
+                console.log('动画结束');
+            })
+       })
+       $('button:nth-child(3)').click(function(){
+            $('div.inner').slideToggle(1000,'linear',function(){
+                console.log('动画结束');
+            })
+       })
+    </script>
+</body>
+</html>

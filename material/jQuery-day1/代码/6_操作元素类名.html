@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="a b c d e f"></div>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        /* 
+            类名的操作
+            1.添加类名
+            addClass()
+                元素集合.addClass('你要添加的类名')
+            2.删除类名
+            removeClass()
+                元素集合.removeClass('你要删除的类名')
+            3.切换类名
+            toggleClass()
+                元素集合.toggleClass('你要切换的类名')
+                如果有次类名，就执行删除该类名的操作，如果没有，就添加上该类名
+            4.判断类名
+            hasClass('判断一个类名是否存在')
+                返回的是一个布尔值
+
+
+
+        */
+        $('div').addClass('g');
+        $('div').removeClass('a');
+        $('div').toggleClass('f');
+        console.log($('div').hasClass('b'));
+        
+        
+    </script>
+</body>
+</html>

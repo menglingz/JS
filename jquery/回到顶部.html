@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      .box {
+        position: fixed;
+        width: 100px;
+        height: 100px;
+        text-align: center;
+        line-height: 100px;
+        color: white;
+        right: 20px;
+        bottom: 50px;
+        background-color: pink;
+        cursor: pointer;
+        font-size: 20px;
+      }
+    </style>
+  </head>
+  <body style="height: 2000px">
+    <div class="box">回到顶部</div>
+
+    <script src="./js/jquery-3.6.1.min.js"></script>
+    <script>
+      $(function () {
+        $('.box').click(function () {
+          // 跳转到文档顶部
+          $('body,html').animate({ scrollTop: 0 }, 1200)
+          return
+        })
+      })
+    </script>
+  </body>
+</html>

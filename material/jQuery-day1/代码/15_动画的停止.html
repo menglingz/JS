@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;margin: 0;
+        }
+        div{
+            width: 200px;height: 200px;
+            background-color: yellowgreen;
+        }
+    </style>
+</head>
+<body>
+    <button>走你</button>
+    <button>停止</button>
+    <button>完成</button>
+
+    <div></div>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        /* 
+            停止动画
+            1.stop()
+            +语法：元素集合.stop()
+            立即停止该元素的所有动画，运动到哪里停到哪里
+
+            2.finish()
+            把该元素所用到的动画都立即完成，不管运动到哪个位置，立即去到结束位置，结束位置和执行了几次动画有关
+        */
+        $('button:nth-child(1)').click(function(){
+            $('div').slideToggle(3000)
+       })
+       $('button:nth-child(2)').click(function(){
+            $('div').stop()
+       })
+       $('button:nth-child(3)').click(function(){
+            $('div').finish()
+       })
+    </script>
+</body>
+</html>

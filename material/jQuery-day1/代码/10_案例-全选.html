@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+            width: 100px;
+            padding: 20px;
+            border: 5px solid pink;
+        }
+    </style>
+</head>
+<body>
+    <!-- 一个是全选按钮，点击都选上，再点都取消
+            当所有的下面的按钮都被勾选时，全选按钮也选上
+    -->
+
+    <div class="box">
+        <input type="checkbox" name="" id="" class="all">全选
+        <hr>
+        选项一<input type="checkbox" name="" id="" class="item"><br>
+        选项二<input type="checkbox" name="" id="" class="item"><br>
+        选项三<input type="checkbox" name="" id="" class="item"><br>
+        选项四<input type="checkbox" name="" id="" class="item">
+    </div>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        // 点击全选按钮
+        $('.all').click(function(){
+            // 给每一个按钮设置checked属性
+            $('input.item').prop('checked',this.checked)
+        })
+
+        // 点击每个按钮，拿到选中了多少个
+        $('input.item').click(function(){
+            // 拿到一共多少个input
+            // console.log($('input.item').length);
+            // 拿到一共选中的input有多少个
+            // console.log($('input.item:checked').length);
+
+            // 通过对比以上两个长度，得到一个布尔值
+            $('.all').prop('checked',$('input.item').length === $('input.item:checked').length)
+
+            
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      img {
+        display: block;
+      }
+
+      ul {
+        list-style: none;
+      }
+
+      .box {
+        width: 500px;
+        margin: 100px auto;
+        overflow: hidden;
+      }
+      .box ul {
+        overflow: hidden;
+      }
+
+      .box li {
+        float: left;
+        width: 100px;
+        height: 200px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <ul>
+        <li>
+          <a href="#">
+            <img src="../img/1.jpeg" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="../img/2.jpeg" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="../img/3.jpeg" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="../img/4.jpeg" />
+          </a>
+        </li>
+        <li>
+          <a href="#">
+            <img src="../img/5.jpeg" />
+          </a>
+        </li>
+      </ul>
+    </div>
+
+    <script src="./js/jquery-3.6.1.min.js"></script>
+    <script type="text/javascript">
+      $(function () {
+        // 鼠标经过某个小li：
+        $('.box li').mouseenter(function () {
+          // 首先除了经过的li其余Li的宽度变为75
+          $(this).siblings('li').stop().animate(
+            {
+              width: 75
+            },
+            'linear'
+          )
+          // 当前经过li的宽度变为200
+          $(this).finish().animate(
+            {
+              width: 200
+            },
+            'linear'
+          )
+        })
+        $('.box').mouseleave(function () {
+          $('.box li').finish().animate(
+            {
+              width: 100
+            },
+            'linear'
+          )
+        })
+      })
+    </script>
+  </body>
+</html>

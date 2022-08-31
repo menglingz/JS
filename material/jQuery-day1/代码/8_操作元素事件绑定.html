@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;margin: 0;
+        }
+        ul{
+            width: 600px;
+            height: 500px;
+            background-color: pink;
+            /* display: flex; */
+        }
+        ul > li{
+            width: 80px;
+            height: 80px;
+            background-color: skyblue;
+            float: left;
+            margin: 10px;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>1</li>
+        <li>2</li>
+        <li>3</li>
+        <li>4</li>
+        <li>5</li>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li>9</li>
+        <li>10</li>
+    </ul>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        /* 
+            jQuery操作元素事件绑定
+
+            1.on() 方法
+            +语法1：基础事件绑定
+            =>元素集合.on('事件类型',事件处理函数)
+            =>是给集合中的每一个元素绑定一个事件
+            +语法2：事件委托绑定
+            =>元素集合.on('事件类型','选择器',事件处理函数)
+            =>把选择器元素的事件委托给元素集合来绑定
+            +语法3：传递参数给事件处理函数
+            =>元素集合.on('事件类型',复杂数据类型，事件处理函数)
+            +语法4：事件委托+传递参数
+            =>元素集合.on('事件类型','选择器',复杂数据类型,事件处理函数)
+            +语法5：批量绑定
+            =>元素集合.on({
+                事件类型 () {事件函数内容},
+                事件类型 () {事件函数内容},
+                事件类型 () {事件函数内容}
+            })
+            $('ul > li').on({
+            click () {console.log('点击事件');},
+            mouseover () {console.log('移入事件');}
+        })
+
+
+            2.one()方法
+            +语法1：基础事件绑定
+            =>元素集合.one('事件类型',事件处理函数)
+            =>给集合中的每一个元素绑定上一次事件
+            +语法2：事件委托绑定
+            =>元素集合.one('事件类型','选择器',事件处理函数)
+            =>把选择器元素的事件委托给元素集合来绑定
+            +语法3：传递参数给事件处理函数
+            =>元素集合.one('事件类型',复杂数据类型，事件处理函数)
+            +语法4：事件委托+传递参数
+            =>元素集合.one('事件类型','选择器',复杂数据类型,事件处理函数)
+            +语法5：批量绑定
+            =>元素集合.one({
+                事件类型 () {事件函数内容},
+                事件类型 () {事件函数内容},
+                事件类型 () {事件函数内容}
+            })
+            实例：
+            $('ul > li').one({
+            click () {console.log('点击事件');},
+            mouseover () {console.log('移入事件');}
+        })
+
+
+            3.常用的事件处理函数
+             语法1
+                $('ul > li').click(function(){
+                    console.log('点击事件');
+                })
+
+            语法2：传递参数给到事件处理函数
+                $('ul > li').click({name:'qq'},function(e){
+                    console.log(e);
+                })
+
+            4.特殊事件函数
+            .hover(移入函数 || 移出函数)
+            => 鼠标移入和移出时发生的事件
+                相当于移入移出事件的结合
+            如果只写了一个函数，那就是都按照此函数执行
+        */ 
+
+        // 基础事件绑定
+        // $('ul > li').on('click',function(){
+        //     console.log('我是一个普通的点击事件');
+        // })
+
+        // 事件委托绑定
+        // $('ul').on('click','li',function(){
+        //     console.log('我是通过委托给ul来绑定上的li的事件');
+        // })
+
+        // 传递参数
+        // $('ul > li').on('click',{name:'jj'},function(e){
+        //     console.log('我能传递一些参数');
+        //     console.log(e);
+        // })
+
+        // 事件委托+传递参数
+        // $('ul').on('click','li','hello',function(e){
+        //     console.log('事件委托+传递一些参数');
+        //     console.log(e);
+        // })
+        
+        // 批量绑定的语法
+        // $('ul > li').on('click',function(){
+        //     console.log('点击事件');
+        // }).on('mouseover',function(){
+        //     console.log('移入事件');
+        // })
+        // $('ul > li').on({
+        //     click () {console.log('点击事件');},
+        //     mouseover () {console.log('移入事件');}
+        // })
+
+        // one()方法
+        // $('ul > li').one('click',function(){
+        //     console.log('我是one方法来点击事件');
+        // })
+
+        // 常用的事件处理函数
+        // 语法1
+        // $('ul > li').click(function(){
+        //     console.log('点击事件');
+        // })
+
+        // 语法2：传递参数给到事件处理函数
+        // $('ul > li').click({name:'qq'},function(e){
+        //     console.log(e);
+        // })
+
+        // 特殊事件函数
+        $('ul > li').hover(
+            function(){console.log('aaaaa');}
+            // function(){console.log('bbbbb');}
+        )
+
+    </script>
+</body>
+</html>

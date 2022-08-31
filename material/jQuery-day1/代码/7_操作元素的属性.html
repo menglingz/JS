@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box" hello="world" a="100"></div>
+    <div id="box" hello="world" a="100"></div>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        /* 
+            操作元素属性
+            1.attr() 查询
+            +语法：元素集合.attr('属性名')
+            +返回值：元素集合内第一个元素的指定属性名的属性值
+            +注意：不管这个值是什么，拿到的一定是一个字符串类型
+            2.attr() 设置
+            +语法：元素集合.attr('属性名字','属性值')
+            +注意：集合中的都会被设置
+            3.removeAttr()删除属性操作
+            +语法：元素集合.attr('属性名') 要删掉的属性名字
+            +注意：集合中的都会被删掉
+            +原生的属性和自定义属性都能删掉，但是一般不用他来删除原生属性
+            +prop方法设置的自定义也无法操作
+            => 一般不用sttr操作原生，操作自定义
+
+            1.prop() 查询
+            +语法：元素集合.prop('属性名')
+            +返回值：元素集合内第一个元素的指定属性名的属性值
+            +注意：只能查询原生属性
+            +不能查到直接设置的自定义属性和attr方法设置的自定属性
+            2.prop() 设置
+            +如果设置的是原生属性，会直接显示在元素标签上
+            +通过prop()方法添加的自定义属性，不会出现在标签中，而是在元素对象里，值也是可以获取的
+            3.removeProp()删除操作
+            +无法删除原生属性
+            +只能操作自己方法中自定义的属性
+
+            => 注意：一般用prop方法来操作原生属性，一半原生属性不删除
+
+
+
+        */
+       console.log($('div').attr('id'));
+       console.log($('div').attr('a'));
+       console.log($('div').attr('hello'));
+       console.log(typeof $('div').attr('a'));
+       
+    //    设置属性
+        $('div').attr('b',200);
+        $('div').attr('d',200);
+        console.log($('div').attr('b'));
+
+        // 删除属性操作
+        // $('div').removeAttr('a')
+        // $('div').removeAttr('id')
+
+        // 查询属性
+        console.log($('div').prop('id'));
+        // console.log($('div').prop('a'));
+        $('div').prop('c','111');
+        console.log($('div').prop('c'));
+        console.log($('div'));
+
+        // 以下这些非prop自己设置的自定义属性都无法删除
+        // $('div').removeProp('id');
+        // $('div').removeProp('a');
+        // $('div').removeProp('d');
+        $('div').removeProp('c');
+        
+    </script>
+</body>
+</html>

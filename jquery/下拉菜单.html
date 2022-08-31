@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      li {
+        list-style: none;
+        cursor: pointer;
+        margin-bottom: 5px;
+      }
+      li.last {
+        margin-bottom: 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="box">
+      <li>
+        <span class="icon">+</span> 一级菜单
+        <ul class="child">
+          <li><span>+</span> 二级菜单</li>
+          <li><span>+</span> 二级菜单</li>
+          <li class="last"><span>+</span> 二级菜单</li>
+        </ul>
+      </li>
+      <li>
+        <span class="icon">+</span> 一级菜单
+        <ul class="child">
+          <li><span>+</span> 二级菜单</li>
+          <li><span>+</span> 二级菜单</li>
+          <li class="last"><span>+</span> 二级菜单</li>
+        </ul>
+      </li>
+      <li class="last">
+        <span class="icon">+</span> 一级菜单
+        <ul class="child">
+          <li><span>+</span> 二级菜单</li>
+          <li><span>+</span> 二级菜单</li>
+          <li class="last"><span>+</span> 二级菜单</li>
+        </ul>
+      </li>
+    </ul>
+
+    <script src="./js/jquery-3.6.1.min.js"></script>
+    <script>
+      $(function () {
+        // 让所有二级菜单隐藏
+        $('ul.child').hide()
+        $('ul.box>li').click(function () {
+          // 点击当前li的二级菜单显示
+          $(this).find('.child').stop().show('linear')
+          // 点击当前li显示-号
+          $(this).find('.icon').text('-')
+          // 其余li显示+号
+          $(this).siblings('ul.box>li').find('.icon').text('+')
+          // 其余li的二级菜单隐藏
+          $(this).siblings('ul.box>li').stop().find('.child').hide('linear')
+        })
+      })
+    </script>
+  </body>
+</html>

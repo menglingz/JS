@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: pink;
+        }
+    </style>
+</head>
+
+<body>
+    <div></div>
+    <button>抢票</button>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        /* 
+            解绑
+            .off()方法
+            +语法1：解绑所有时间处理函数
+            $('div').off('click')
+            +语法2：指定解绑的函数
+            $('div').off('click',bb)
+
+            // 触发事件
+
+        */
+
+        function aa() { console.log('aa'); }
+        function bb() { console.log('bb'); }
+        function cc() { console.log('cc'); }
+        $('div')
+            .on('click', aa)
+            .on('click', bb)
+            .on('click', cc)
+
+        // 解绑全部事件
+        $('button').click(function () {
+            // 解绑所有事件处理函数
+            // $('div').off('click')
+
+            // 指定解绑的事件处理函数
+            // $('div').off('click',bb)
+        })
+
+        // $('div').trigger('click')
+
+        $('button').click(function () {
+            setInterval(function () {
+                $('div').trigger('click')
+            })
+        })
+
+    </script>
+</body>
+
+</html>

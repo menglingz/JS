@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;margin: 0;
+        }
+        div{
+            width: 500px;height: 500px;
+            background-color: hotpink;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <button>show</button>
+    <button>hide</button>
+    <button>toggle</button>
+    <div></div>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        /* 
+            基础动画
+            1.show()    显示
+            2.hide()    隐藏
+            3.toggle()  切换以上两种状态
+
+            +以上三个方法的参数一样
+            =>第一个：运动时间，单位是ms
+            =>第二个：运动曲线
+            =>第三个：运动结束之后的回调函数
+        */
+       $('button:nth-child(1)').click(function(){
+            $('div').show(1000,'linear',function(){
+                console.log('动画结束');
+            })
+       })
+       $('button:nth-child(2)').click(function(){
+            $('div').hide(1000,'linear',function(){
+                console.log('动画结束');
+            })
+       })
+       $('button:nth-child(3)').click(function(){
+            $('div').toggle(500,'linear',function(){
+                console.log('动画结束');
+            })
+       })
+
+    </script>
+</body>
+</html>

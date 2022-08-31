@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      li {
+        list-style: none;
+        cursor: pointer;
+        margin-bottom: 3px;
+      }
+      a {
+        text-decoration: none;
+      }
+      .box {
+        width: 150px;
+        margin: 100px auto;
+      }
+      ul {
+        width: 150px;
+      }
+      li.last {
+        margin-bottom: 0px;
+      }
+      ul.box > li > a {
+        height: 30px;
+        display: block;
+        background-color: rgb(46, 45, 45);
+        font-size: 20px;
+        color: white;
+        line-height: 30px;
+        box-sizing: border-box;
+        padding-left: 20px;
+      }
+      ul.box > li > .child > li {
+        margin-bottom: 0px;
+      }
+      ul.box > li > .child > li > a {
+        width: 150px;
+        height: 30px;
+        display: block;
+        border: 1px solid #ccc;
+        font-size: 20px;
+        color: lightblue;
+        line-height: 30px;
+        box-sizing: border-box;
+        padding-left: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <ul class="box">
+      <li>
+        <a href="javascript:;">日漫</a>
+        <ul class="child">
+          <li><a href="javascript:;">良医</a></li>
+          <li><a href="javascript:;">旺达幻视</a></li>
+          <li><a href="javascript:;">权力的游戏</a></li>
+          <li class="last"><a href="javascript:;">无耻之徒</a></li>
+        </ul>
+      </li>
+      <li>
+        <a href="javascript:;">美剧</a>
+        <ul class="child">
+          <li><a href="javascript:;">良医</a></li>
+          <li><a href="javascript:;">旺达幻视</a></li>
+          <li><a href="javascript:;">权力的游戏</a></li>
+          <li class="last"><a href="javascript:;">无耻之徒</a></li>
+        </ul>
+      </li>
+      <li class="last">
+        <a href="javascript:;">国漫</a>
+        <ul class="child">
+          <li><a href="javascript:;">良医</a></li>
+          <li><a href="javascript:;">旺达幻视</a></li>
+          <li><a href="javascript:;">权力的游戏</a></li>
+          <li class="last"><a href="javascript:;">无耻之徒</a></li>
+        </ul>
+      </li>
+    </ul>
+
+    <script src="./js/jquery-3.6.1.min.js"></script>
+    <script>
+      $(function () {
+        // 让所有二级菜单隐藏
+        $('.box>li>.child').hide()
+        $('ul.box>li').mouseenter(function () {
+          // 点击当前li的二级菜单显示
+          $(this).find('.child').finish().show('linear')
+          // 其余li的二级菜单隐藏
+          $(this).siblings('ul.box>li').finish().find('.child').hide('linear')
+        })
+      })
+    </script>
+  </body>
+</html>

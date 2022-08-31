@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <i>sss</i>
+        <li>1</li>
+        <li id="aa">2
+            <i>sss</i>
+        </li>
+        <li>3</li>
+        <li>4</li>
+        <li>5
+            <span>
+                <i>sss</i>
+            </span>
+        </li>
+        <span>我是一个span</span>
+        <li>6</li>
+        <li>7</li>
+        <li>8</li>
+        <li class="box">9</li>
+        <li class="box">10</li>
+    </ul>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        /* 
+            筛选器
+            就是一个一个的方法，对选择器获取的元素进行二次筛选
+
+        */
+        //1. first()   第一个
+        console.log($('ul > li').first());
+        //2. .last()  最后一个
+        console.log($('ul > li').last());
+        //3. eq(n)     索引第n个
+
+
+        console.log($('ul > li').eq(2));
+        //4. next()   下一个
+        console.log($('ul > span').next());
+        //5. nextAll()    后面的所有兄弟元素
+        // (条件) 选中后面的所有符合条件的兄弟元素
+        console.log($('ul > span').nextAll());
+        console.log($('ul > span').nextAll('.box'));
+        //6. nextUntil() 后面的所有兄弟元素直到（中的选择器），不包含条件对应的这个元素
+        // 不写条件就和nextAll一样，把后面的兄弟元素都选上
+        console.log($('ul > span').nextUntil('.box'));
+        console.log($('ul > span').nextUntil());
+
+        
+        //7. prev()   获取上一个兄弟元素
+        console.log($('ul > span').prev());
+        //8. prevAll()    获取上面的所有兄弟元素  获取到的数组顺序是按照从下到上的，依次获取前面的每一个兄弟元素
+        console.log($('ul > span').prevAll());   
+        // 括号中写选择器条件的，获取的是前面的符合条件的元素集合
+        //9. prevUntil()  括号中也是写选择器条件，获取的也不包含该条件对应的元素
+        console.log($('ul > span').prevUntil('#aa'));
+        // 不写条件时和All不写条件用法一样
+
+
+        //10. parent() 获取的是亲父级元素
+        console.log($('ul > span').parent());
+        //11. parents()    获取所有父级，直到html
+        // (选择器)     单一的获取 条件所指的父级元素
+        console.log($('ul > span').parents('body'));
+        //12. parentsUntil()   不写条件和parents()获取所有父级，写选择器条件，那就获取到父级中截止到该条件的父级
+        console.log($('ul > span').parentsUntil('html'));
+
+
+        //13. siblings()     获取除了自己以外的所有兄弟元素
+        console.log($('ul > span').siblings());
+        //14. find()   元素集合.find(选择器)
+        // 在该元素的所有后代中查找所有符合条件的元素
+        console.log($('ul').find('i'));
+        //15. .index()
+        // 元素集合.index()
+        // 返回：该元素在html结构中的索引
+        console.log($('ul').index());
+        console.log($('ul').find('i').last().index());
+
+
+    </script>
+</body>
+</html>

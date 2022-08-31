@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            height: 100px;
+            background-color: hotpink;
+        }
+    </style>
+</head>
+<body>
+    <div style="width: 100px;"></div>
+    <!-- <div style="width: 100px;"></div> -->
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        /* 
+            操作元素样式
+            + css()
+            + 形式1：获取样式
+             => 语法：元素集合.css('样式名')
+             => 返回值：元素集合内的第一个元素的指定样式的值
+                        行内和非行内都能拿到
+            + 形式2：设置样式
+             => 语法：元素集合.css('样式名','样式值')
+             => 取值数值px单位可以省略
+             => 纯数字的取值可以不放在引号里，比如透明度
+            + 形式3：批量设置样式
+            => 语法：元素集合.css({对象，你要用添加所有样式  样式名:样式值,样式名:样式值,...})
+        */
+    //    获取样式
+       console.log($('div').css('width'));
+       console.log($('div').css('height'));
+       console.log($('div').css('background-color'));
+
+    //    设置样式
+        $('div').css('width','200px').css('height','300').css('opacity',0.5)
+    //    console.log($('div').css('width'));
+
+    // 批量设置样式
+    $('div').css({
+        width:300,
+        height:400,
+        'border-radius':20,
+        opacity:0.8
+    })
+
+
+    </script>
+</body>
+</html>
