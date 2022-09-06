@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 300px;
+            height: 300px;
+            background-color: pink;
+
+        }
+    </style>
+</head>
+
+<body>
+    <b>Hello</b>
+    <p>, how are you?</p>
+    <div></div>
+    <button>按钮</button>
+    
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+
+        $("b").clone().insertAfter("p");
+
+        $('div').clone()
+        $("button").click(function () {
+            $('div').clone().insertAfter(this);
+        });
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        span{
+            font-size: 80px;
+            cursor: pointer;
+        }
+    </style>
+
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        $(function(){
+            // jQuery的入口函数
+            // jQuery代码都在这个{}里面
+
+            // 鼠标移入事件：
+            
+            $('span').mouseenter(function(){
+            // 当前产生事件的元素的文本内容和前面的所有元素的文本内容要替换成实心星星，后面的所有元素的文本内容要替换成空心
+
+            $(this).text('★').prevAll().text('★').end().nextAll().text('☆')
+            })
+
+            // 鼠标移出事件
+            $('div').mouseleave(function(){
+                // each():函数遍历，虽然有隐式迭代，但是对每个元素进行不同的处理，这时候用到each方法
+                $('span').each(function(index,ele){
+                    // 参数一：表示当前元素所有匹配元素怒中索引号
+                    // 参数二：表示当前元素（DOM对象）
+
+                    if($(ele).attr('lighted') == 1){
+                        $(ele).text('★')
+                    }else{
+                        $(ele).text('☆');
+                        console.log(index);
+                    }
+                });
+            });
+            // 鼠标点击事件
+            // 是给当前点击的元素，前面所有的元素设置lighted属性
+            $('span').click(function(){
+                // .attr给当前的span元素设置lighted属性和值
+                $(this).attr('lighted',1);
+                // 前面都设置上lighted
+                $(this).prevAll().attr('lighted',1);
+
+                // 把后面的都设置为0
+                $(this).nextAll().attr('lighted',0);
+            });
+        })
+
+    </script>
+</head>
+<body>
+    <div>
+
+        <!--☆★  -->
+        <span>☆</span>
+        <span>☆</span>
+        <span>☆</span>
+        <span>☆</span>
+        <span>☆</span>
+    </div>
+</body>
+</html>

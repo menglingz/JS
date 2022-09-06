@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <form action="">
+      <select name="province" id="province">
+        <option value="">请选择省份</option>
+      </select>
+      <select name="city" id="city">
+        <option value="">请选择城市</option>
+      </select>
+      <select name="area" id="area">
+        <option value="">请选择地区</option>
+      </select>
+    </form>
+
+    <script src="../js/check.js"></script>
+    <script src="../js/三级联动.js"></script>
+
+    <script>
+      new Select({
+        province: document.querySelector('#province'),
+        city: document.querySelector('#city'),
+        area: document.querySelector('#area')
+      })
+    </script>
+  </body>
+</html>

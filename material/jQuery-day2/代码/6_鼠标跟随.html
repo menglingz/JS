@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      div.box {
+        width: 600px;
+        height: 200px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        border: 3px solid pink;
+        margin: 50px auto;
+      }
+
+      div.box > p {
+        width: 100px;
+        height: 100px;
+      }
+      p > img {
+        width: 100%;
+        height: 100%;
+      }
+      .show {
+        width: 288px;
+        height: 180px;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        display: none;
+
+        /* 相当于鼠标可以穿透该标签 */
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <p><img src="./imgs/1.png" alt="" /></p>
+      <p><img src="./imgs/2.png" alt="" /></p>
+      <p><img src="./imgs/3.png" alt="" /></p>
+    </div>
+    <div class="show"><img src="./imgs/1.png" alt="" /></div>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+      /* 
+        鼠标跟随-案例
+        1.每个p标签绑定一个鼠标移入，移出，移动的事件
+
+        */
+      $('.box > p').on({
+        mouseover() {
+          // 修改show标签下的img的src
+          // 自己是哪个img路径，就改成什么
+          // 获取到当前鼠标进入的p标签下的img标签的src属性值，给了url
+          const url = $(this).find('img').prop('src')
+          // 将.show下的img的src属性值改为获得到的url
+          $('.show > img').prop('src', url)
+          // 让show显示
+          $('.show').stop().fadeIn(100)
+        },
+        mouseout() {
+          // 让show消失、
+          $('.show').stop().fadeOut(100)
+        },
+        mousemove(e) {
+          // 拿到光标距离文档左上角的位置
+          // offsetX和offsetY 相对于事件目标左上角的坐标位置
+          // clientX 和clientY 相对于浏览器可视窗口的左上角的坐标位置
+          // pageX 和pageY 向对于文档流左上角的坐标位置
+
+          $('.show').offset({
+            left: e.pageX,
+            top: e.pageY
+          })
+        }
+      })
+    </script>
+  </body>
+</html>

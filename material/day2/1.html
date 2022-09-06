@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+   
+
+
+
+
+    //构造函数：创建对象
+    
+    function Person(name,age)
+    {
+        //var obj = {}
+        // 1.生成一个空对象
+        // 2.this指向空对象
+        // 3.给this赋值this = obj
+        console.log(this);
+        // this.name = name;//给对象新增name(this.name)  = name(形式参数)
+        // this.age = age;
+        // 4.将对象返回
+        // return Person
+
+    }
+    var obj = new Person()//0.实例化对象 
+    // 1.产生{},this默认指向xiaoli,this<--->xiaoli
+    // 4.将对象返回
+    // console.log(obj);
+
+
+
+    // function Dog(sex,age,price)
+    // {
+    //     this.sex =sex;
+    //     this.age = age;
+    //     this.price = price;
+    // }
+
+    // // Dog.prototype = {}
+    // var one = new Dog("nan",2,"$100");
+    // var two = new Dog("nv",1,"$300");
+    // var three = new Dog("nan",2,"$400");
+    // console.log(one,two,three);
+
+ //     //new  1.自动创建一个对象，2.this指向对象3.将创建的对象返回
+    //     // 当我是一个构造函数时，
+    // function Student(name,age,sex)//首字母大写
+    // {
+    //     // var obj = new Object();//1.帮你创建一个对象
+    //     // 2.把this指向obj，new帮你完成的
+    //     this.name = name;
+    //     this.age = age;
+    //     this.sex = sex;
+    //     //return obj;  //3.将创建的对象返回
+
+    // }
+
+    // var a = new Student() //利用new关键字来进行实例化，自动帮你创建一个对象
+
+
+
+    // //构造函数找原型
+    // Student.prototype = {
+    //     constructor:Student,//构造器指向构造函数，原型对象找构造函数
+    //     money:1000,
+    //     car:"qqq"
+    // }
+
+    // console.log(Array.prototype);
+    // console.log(String.prototype);
+    // console.log(Object.prototype);
+
+
+
+
+
+
+
+    
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // var obj = {
+        //     user:"小李",
+        //     fn:function()
+        //     {
+        //             console.log(this.user + "能吃");
+        //     }
+        // }
+        // newObj = {
+        //     user:"小王"
+        // }
+        // //  obj.fn()//15行this指向小李
+        //  obj.fn.apply(newObj)
+
+
+        // function fn(a,b)
+        // {
+        //     var user = "xiaoli";
+        //     console.log(a,b,this);
+        // }
+        // fn(1,2);
+        // fn.call("xiaowang",1,2)
+
+        var obj = {
+            user:"xiaoli",
+            score:85,
+            fn:function(){
+                console.log(this);
+                console.log(this.user+ "就考了" + this.score + "分");
+            }
+        }
+        var newObj ={
+            user:"yanlu",
+            score:9999
+        }
+        // obj.fn();//只有在调用之后才可以确定this的指向
+        obj.fn.bind(newObj)();
+        
+
+    
+    </script>
+</body>
+</html>

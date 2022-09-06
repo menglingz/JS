@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;margin: 0;
+        }
+        div{
+            width: 300px;
+            height: 300px;
+            padding: 20px;
+            border: 20px solid;
+            margin: 20px;
+            background-color: skyblue;
+            /* 怪异盒子 */
+            box-sizing: border-box;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        /* 
+            获取元素的尺寸
+            原生js
+            +offsetWidth和offsetHeight
+            => 获取到的是：元素 内容+padding+border 区域的尺寸
+            +clientWidth和clientHeight
+            => 获取到的是元素内容+padding区域的尺寸
+            +当元素display为none时，拿不到尺寸
+
+            jQuery获取元素尺寸
+
+        */
+
+        // 1.width()和height()方法
+        // 获取到的就是 元素 内容区域的尺寸 
+        console.log('width:',$('div').width());// 300
+        console.log('height:',$('div').height());// 300
+
+        // 2.innerWidth()和innerHeight()
+        // 获取到的时元素 内容+padding的尺寸
+        console.log('innerWidth:',$('div').innerWidth());// 
+        console.log('innerHeight:',$('div').innerHeight());// 
+        // 3.outerWidth()
+        // 获取到的是元素 内容+padding+边框的尺寸
+        console.log('outerWidth:',$('div').outerWidth());// 
+        console.log('outerHeight:',$('div').outerHeight());// 
+
+        // 4.outerWidth(true)和outerHeight(true)
+        // 获取到的是元素 内容+padding+边框+外边距的尺寸和
+        console.log('outerWidth:',$('div').outerWidth(true));// 
+        console.log('outerHeight:',$('div').outerHeight(true));// 
+
+        // 特点：不管盒子模型是什么样子，拿到的区域都不变
+        // 如果是怪异盒子，则仅仅改变实际拿到的值，因为边框，内边距，内容都会限制在设定的宽高值中
+        // 特点2：不管在页面上是否占位，都能拿到元素的尺寸
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>我是div中的第一个p标签</p>
+        <p>我是div中的第二个p标签</p>
+        <p>我是div中的第三个p标签</p>
+    </div>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        /* 
+            插入节点
+            内部插入（父子关系）
+            1.append()
+            +语法：父节点.append(子节点)
+            +把子节点放在父节点的内部，并且排列在最后的位置
+            2.appendTo()
+            +语法：子节点.appendTo(父节点)
+            +把子节点放在父节点的内部，并且排列在最后的位置
+            3.prepend()
+            把子节点放在父节点内部，并且排列在最前面
+            4.prependTo()
+            写法同2
+
+
+            外部插入（兄弟关系）
+            5.before
+
+            6.insertBefore()
+            +写法不同，与2，4写法相同
+
+            7.after()
+            在原有节点后面插入新创建的节点
+
+            8.insertAfter()
+            在原有节点后面插入新创建的节点
+            +写法同2，4，6
+        */
+
+        // 创建一个span节点
+        const aSpan = $('<span>我是创建出来的一个span节点</span>')
+        // 1.append()
+        // $('div').append(aSpan)
+
+        // 2.appendTo()
+        // aSpan.appendTo($('div'))
+
+        // 3.prepend()
+        // $('div').prepend(aSpan)
+
+        // 4.prependTo()
+        // aSpan.prependTo($('div'))
+
+        // 5.
+        // $('div').before(aSpan)
+
+        // 6.insertBefore()
+        // aSpan.insertBefore($('div'))
+
+        // 7.
+        // $('div').after(aSpan)
+
+        // 8.
+        aSpan.insertAfter($('div'))
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <p>我是div内本身的第一个 p标签</p>
+        <span>我是div内本身的 span标签</span>
+        <p>我是div内本身的第二个 p标签</p>
+    </div>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        // 创建一个新节点
+        const aH1 = $('<h1>我是一个创建出来的h1标签</h1>')
+
+        // 语法不一样
+        // 1.原来的节点.replaceWith(新节点)
+        // $('div > span').replaceWith(aH1)
+
+        // 2.新节点.replaceAll(原来的节点)
+        aH1.replaceAll($('div > p'))
+
+        // 作用都是把节点替换
+    </script>
+</body>
+</html>

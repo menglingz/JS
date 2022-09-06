@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function car(name,color,height)
+        // {
+        //     var obj = new Object();
+        //     obj.name = name;//等号左边的新增，右边是形式参数
+        //     obj.color = color;
+        //     obj.height = height;
+        //     return obj;
+        // }
+        function car(id)
+        {
+            return {
+                name:"BMW",
+                kg:"200kg",
+                color:"red",
+                idCard:id,
+                run:function()
+                {
+                    console.log("跑的贼快");
+                }
+            }
+        }
+        var arr = [];
+        for(var i=1;i<=100;i++)
+        {
+            arr.push(car(i))
+        }
+        console.log(arr);
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;margin: 0;
+        }
+        ul,ol,li{
+            list-style: none;
+        }
+        ul{
+            width: 200px;
+            padding: 20px;
+            margin: 50px auto;
+            border: 3px solid pink;
+        }
+        ul li::before{
+            content: '+';
+        }
+        /* 通过类名.active给到当前点击的ul中的li，改变伪元素为- */
+        ul li.active::before{
+            content: '-';
+        }
+        ul ol{
+            padding-left: 20px;
+            display: none;
+        }
+
+    </style>
+</head>
+<body>
+    <ul>
+        <li>
+            一级菜单
+            <ol>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+            </ol>
+        </li>
+        <li>
+            一级菜单
+            <ol>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+
+            </ol>
+        </li>
+        <li>
+            一级菜单
+            <ol>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+                <li>二级菜单</li>
+
+            </ol>
+        </li>
+    </ul>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        /* 
+            二级菜单的打开关闭效果
+        */
+    //    1.ul 下的li添加点击事件
+    $('ul > li').click(function(){
+        // 自己切换类名active
+        // 自己下面的ol切换显示和隐藏
+        $(this).toggleClass('active').find('ol').stop().slideToggle(500)
+
+        // 取消兄弟的active
+        $(this).siblings().removeClass('active').find('ol').slideUp(500)
+    })
+    </script>
+</body>
+</html>

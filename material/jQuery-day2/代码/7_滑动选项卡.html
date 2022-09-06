@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;margin: 0;
+        }
+        ul{
+            width: 1000px;
+            height: 60px;
+            border-bottom: 3px solid pink;
+            margin: 50px auto;
+            display: flex;
+            position: relative;
+        }
+
+        ul li{
+            width: 100px;
+            height: 100%;
+            list-style: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            position: relative;
+            z-index: 999;
+
+        }
+        ul span{
+            position: absolute;
+            width: 100px;height: 100%;
+            border-bottom: 3px solid red;
+            background-color: skyblue;
+            z-index: 10;
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li>第1项标题</li>
+        <li>第2项标题</li>
+        <li>第3项标题</li>
+        <li>第4项标题</li>
+        <li>第5项标题</li>
+        <li>第6项标题</li>
+        <li>第7项标题</li>
+        <li>第8项标题</li>
+        <li>第9项标题</li>
+        <li>第10项标题</li>
+        <span></span>
+    </ul>
+
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        /* 
+            滑动选项卡
+
+        */
+    //   1.给每一个li绑定鼠标移入事件
+    $('ul > li').mouseover(function(){
+
+        // 先把颜色设置为黑
+        $('ul > li').css('color','#333')
+        // 给span的left设置当前li的位置
+        // 使用当前鼠标经过的li的索引100倍，作为left即可
+        // $(this).index() 获得了当前鼠标经过的li的索引
+        $('ul > span').stop().animate({left:$(this).index() * 100},300,'linear')
+    })
+    </script>
+</body>
+</html>

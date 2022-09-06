@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            margin: 0;padding: 0;
+        }
+        /* div{
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+            margin: 50px;
+            overflow: hidden;
+
+        } */
+
+        /* p{
+            width: 300px;
+            height: 300px;
+            background-color: skyblue;
+            margin: 50px;
+            overflow: hidden;
+            position: relative;
+        }
+        span{
+            display: block;
+            width: 100px;
+            height: 100px;
+            background-color: orange;
+            margin: 50px;
+            position: absolute;
+            right: 20px;
+            bottom: 30px;
+        } */
+    </style>
+</head>
+<body>
+    <!-- <div>
+        <p>
+            <span></span>
+        </p>
+    </div> -->
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            background-color: pink;
+        }
+        p{
+            width: 100px;
+            height: 100px;
+            background-color: skyblue;
+        }
+    </style>
+    <div>
+        <p></p>
+    </div>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        // 1.offset()
+        /* +读：
+            返回值：是一个对象数据类型
+            {left:XXX,top:YYY}
+            相对于谁：永远都是相对于文档流左上角的偏移量
+            +写
+            语法：元素集合.offset({left:xxx,top:yyy})
+            =》作用：一定会把元素显示到你设置的偏移量位置上
+        */
+        // 1-1.获取
+        console.log('div:',$('div').offset());
+        console.log('p:',$('p').offset());
+        console.log('span:',$('span').offset());
+
+        // 1-2 设置
+        // $('span').offset({left:70,top:70})
+        // console.log('span:',$('span').offset());
+
+        //++++注意 改变顺序的差别
+        // 先改父容器，再改子元素，都是相对于文档左上角的定位，（从外向内的设置顺序）
+        // 先改子元素，再改父元素，那么子元素改后会随着父元素走（从内向外的设置顺序）
+        $('p').offset({left:100,top:60})
+        $('div').offset({left:500,top:300})
+        /* 
+            2.position()
+            +只能读
+            =>语法：元素集合.position()
+            =》返回值：是一个对象数据类型
+            {left:XXX,top:YYY}
+
+            定位设置的是right和bottom，返回的依旧是换算出来的left和top
+
+
+        */
+    //    2.position获取
+    console.log($('span').position());
+    </script>
+</body>
+</html>

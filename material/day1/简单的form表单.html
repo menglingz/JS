@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="用户名"><br>
+    <input type="text" placeholder="密码"><br>
+    <input type="text" placeholder="手机号"><br>
+    <button id="btn">登录</button>
+    <script>
+        // 用户名  严鹿
+        // 密码
+        // 手机号
+        var ipts = document.querySelectorAll("input"),
+        // btn = document.getElementById()
+        btn = document.querySelector('#btn');
+        var obj ={
+            user:/^[\u4e00-\u9fa5]{2,8}$/,//用户名
+            pas:/^\w{6,16}$/,   //密码
+            // tel:/^1[3-9]\d{9}$/  //手机号
+            tel:/^1(3|4|5|6|7|8|9)\d{9}$/
+        } 
+        // 用户名  dom 0级事件
+        ipts[0].onblur = function()
+        {
+            //返回 fasle true
+            // 正则.test(str)
+            console.log(obj.user.test(ipts[0].value));
+            return   obj.user.test(this.value)
+        }
+        //密码
+        ipts[1].onblur = function()
+        {
+            //返回 fasle true
+            // 正则.test(str)
+            console.log(obj.pas.test(ipts[1].value));
+            return   obj.pas.test(this.value)
+        }
+        //手机号
+        ipts[2].onblur = function()
+        {
+            //返回 fasle true
+            // 正则.test(str)
+            console.log(obj.tel.test(ipts[2].value));
+            return   obj.tel.test(this.value)
+        }
+        // dom2级事件
+        btn.addEventListener("click",function()
+        {
+            if(ipts[0].onblur() && ipts[1].onblur() && ipts[2].onblur())
+            {
+                alert("输入正确");
+            }
+            else{
+                alert("输入错误");
+            }
+        })
+
+
+
+
+
+
+
+
+    </script>
+</body>
+</html>

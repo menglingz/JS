@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;margin: 0;
+        }
+        body{
+            height: 5000px;
+        }
+        .go_top{
+            width: 50px;height: 50px;
+            background-color: pink;
+            position: fixed;
+            right: 50px;
+            bottom: 50px;
+            /* 改变光标图案 */
+            cursor: pointer;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="go_top"></div>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        /* 
+            回到顶部案例
+
+        */
+
+        // 1.确定按钮的显示和隐藏
+        $(window).scroll(function(){
+            // 拿到浏览器卷去的高度
+            const scrollTop = document.documentElement.scrollTop || document.body.scrollTop
+
+            // 判断显示和隐藏的临界值(400)
+            scrollTop >= 400 ? $('.go_top').fadeIn(500) : $('.go_top').fadeOut(500)
+
+        })
+        // 2.点击回到顶部
+        $('.go_top').click(function(){
+            // 原生js方法
+            // 操作的是滚动条
+            // window.scrollTo({top:0})
+
+            // 使用jQuery返回
+            // 本质上操作的是html文档
+            // 在移动的是整个网页文档而不是滚动条
+            $('html,body').animate({scrollTo:0},1000)
+        })
+    </script>
+</body>
+</html>

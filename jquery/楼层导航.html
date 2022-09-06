@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      html,
+      body {
+        width: 100%;
+        height: 100%;
+      }
+      ul,
+      li {
+        list-style: none;
+      }
+      a {
+        text-decoration: none;
+        color: black;
+      }
+      .container {
+        width: 1000px;
+        margin: 0 auto;
+      }
+      #app {
+        height: 100%;
+        color: white;
+        position: relative;
+      }
+      header {
+        height: 100px;
+        background-color: lightblue;
+        line-height: 100px;
+        text-align: center;
+        font-size: 22px;
+      }
+      .search {
+        height: 200px;
+        background-color: orange;
+        line-height: 200px;
+        text-align: center;
+        font-size: 22px;
+      }
+      .banner {
+        height: 300px;
+        background-color: purple;
+        line-height: 300px;
+        text-align: center;
+        font-size: 22px;
+      }
+      .area {
+        height: 100px;
+        line-height: 100px;
+        text-align: center;
+        font-size: 22px;
+        background-color: red;
+      }
+      main {
+        height: 500px;
+        background-color: pink;
+        line-height: 500px;
+        text-align: center;
+        font-size: 36px;
+      }
+      .aside {
+        position: fixed;
+        right: 20px;
+        bottom: 100px;
+      }
+      .aside ul li {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+        border: 1px solid black;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="app">
+      <header class="container">顶部</header>
+      <div class="search container">搜索</div>
+      <div class="banner container">轮播</div>
+      <div class="area container">频道广场</div>
+      <main class="container">楼层内容</main>
+      <div class="aside">
+        <ul>
+          <li class="nav1">
+            <a href="javascript:;">顶部</a>
+          </li>
+          <li class="nav2"><a href="javascript:;">搜索</a></li>
+          <li class="nav3"><a href="javascript:;">轮播</a></li>
+          <li class="nav4"><a href="javascript:;">频道广场</a></li>
+          <li class="nav5"><a href="javascript:;">楼层导航</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="./js/jquery-3.6.1.min.js"></script>
+    <script>
+      $(function () {
+        // 首先让第一个导航变色
+        $('.aside ul li:first').css('backgroundColor', $('header').css('backgroundColor'))
+        $('.nav1').click(function () {
+          $('.aside ul li').css('backgroundColor', 'white')
+          $(this).css('backgroundColor', $('header').css('backgroundColor'))
+          $('html,body').animate({ scrollTop: 0 }, 500)
+        })
+        $('.nav2').click(function () {
+          $('.aside ul li').css('backgroundColor', 'white')
+          $(this).css('backgroundColor', $('.search').css('backgroundColor'))
+          $('html,body').animate({ scrollTop: 100 }, 500)
+        })
+        $('.nav3').click(function () {
+          $('.aside ul li').css('backgroundColor', 'white')
+          $(this).css('backgroundColor', $('.banner').css('backgroundColor'))
+          $('html,body').animate({ scrollTop: 300 }, 500)
+        })
+        $('.nav4').click(function () {
+          $('.aside ul li').css('backgroundColor', 'white')
+          $(this).css('backgroundColor', $('.area').css('backgroundColor'))
+          $('html,body').animate({ scrollTop: 600 }, 500)
+        })
+        $('.nav5').click(function () {
+          $('.aside ul li').css('backgroundColor', 'white')
+          $(this).css('backgroundColor', $('main').css('backgroundColor'))
+          $('html,body').animate({ scrollTop: 700 }, 500)
+        })
+      })
+    </script>
+  </body>
+</html>

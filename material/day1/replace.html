@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 1.敏感词替换
+        // var str = prompt("请开始敲字");//输入框
+        // var reg = /[Ss傻杀煞莎][bB比笔币]/gi; 
+        // var result = str.replace(reg,'**');
+        // alert(result)
+
+    // // 数字+2、
+    // var str = 'L5ove2You0';
+    // var reg = /\d/g;
+    // var str1 = str.replace(reg,function($0)//
+    // {
+    //     return $0 = +$0+2;//parseInt
+    // })
+    // console.log(str1);
+    
+    // get-element-by-id  ---> getElementById
+
+    // 应用以前的知识写出来
+    // -   e   E
+    // split('-')
+    // // 利用for    e.toUppercase()
+    //  slice(1)
+
+    // 小驼峰
+    // var str = 'get-element-by-id';//getElementById
+    // var arr = str.split("-");
+    // var newStr = arr[0];
+    // for(var i=1;i<arr.length;i++)
+    // {
+    //     // console.log(arr[i][0].toUpperCase());//
+    //     // //+
+    //     // console.log(arr[i].slice(1));
+    //    newStr += arr[i][0].toUpperCase() + arr[i].slice(1);
+    // }
+    // console.log(newStr);
+    // var str = 'get-element-by-id';//getElementById
+    // // var str1 = str.replace(/-(\w)/g,function($0,$1)
+    var str1 = str.replace(/-([a-z])/g,function($0,$1)
+    {
+        // -[a-z]    -a  -b .....- z
+        //第一个参数每一个匹配项 
+        //第二个参数可以拿到正则表达式小括号的内容  [a -z]
+        return $1.toUpperCase();//大写
+    })
+    console.log(str1);
+
+    // console.log(str.replace(/-(\w)/g,function($0,$1)
+    //  {
+    //      return $1.toUpperCase(); }));
+
+
+    // match()
+    
+    // var str = 'abcdabcda';
+    // var reg = /a/g;//不支持全局匹配，执行一次走一次
+    // console.log(reg.exec(str));
+    // console.log(reg.exec(str));
+    // console.log(reg.exec(str));
+    // console.log(reg.exec(str));
+
+    var str = 'get-element-by-id';
+    var res = str.split(/-/g);//正则表达式 ，不需要加""
+    
+    console.log(res);
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script src="./js/jquery-3.6.1.js"></script>
+    <script>
+        /* 
+        创建节点
+        +语法：$('html结构字符串')
+
+        总结$()
+        + $('选择器') 获取页面元素
+        + $(DOM对象)    把原生的DOM对象转化为jQuery对象（元素集合），为了使用jQuery的方法
+        + $('html结构字符串')   创建节点
+        */
+        var div = $('<div>我是一个新创建的div</div>')
+        console.log($('<div>我是一个新创建的div</div>'));
+        $('body').append(div)
+    </script>
+</body>
+</html>

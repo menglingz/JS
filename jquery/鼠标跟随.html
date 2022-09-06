@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      * {
+        padding: 0;
+        margin: 0;
+      }
+      div.box {
+        width: 600px;
+        height: 200px;
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        border: 3px solid pink;
+        margin: 50px auto;
+      }
+
+      div.box > p {
+        width: 100px;
+        height: 100px;
+      }
+      p > img {
+        width: 100%;
+        height: 100%;
+      }
+      .show {
+        width: 288px;
+        height: 180px;
+        position: absolute;
+        left: 0;
+        top: 0;
+
+        display: none;
+
+        /* 相当于鼠标可以穿透该标签 */
+        pointer-events: none;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box">
+      <p><img src="../img/1.png" alt="" /></p>
+      <p><img src="../img/2.png" alt="" /></p>
+      <p><img src="../img/3.png" alt="" /></p>
+    </div>
+    <div class="show"><img src="../img/1.png" alt="" /></div>
+    <script src="./js/jquery-3.6.1.min.js"></script>
+
+    <script>
+      $(function () {
+        $('.box>p').on({
+          mouseenter() {
+            let url = $(this).find('img').prop('src')
+            $('.show img').prop('src', url)
+            $('.show').stop().fadeIn(100)
+          },
+          mouseleave() {
+            $('.show').stop().fadeOut(100)
+          },
+          mousemove(e) {
+            $('.show').offset({
+              left: e.clientX,
+              top: e.clientY
+            })
+          }
+        })
+      })
+    </script>
+  </body>
+</html>

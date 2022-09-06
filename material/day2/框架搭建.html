@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        // 1.构造函数
+        function Tab(opt)
+        {
+                this.init();
+        }
+        // 2.原型对象
+        Tab.prototype = {
+            constructor:Tab,
+            init:function(){
+                // 初始化函数，管理初始资源 || 方法调用
+            },
+            addEventListener:function()//事件监听的方法
+            {
+
+            }
+        }
+
+        // 3.实例化对象
+        new Tab({
+            //对象的传参
+        })
+    </script>
+</body>
+</html>

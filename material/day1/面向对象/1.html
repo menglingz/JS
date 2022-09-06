@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //对象字面量
+
+        // var obj = {
+        //         键1:值1,  //键值对
+        //         键2:值2,
+        //         ...,
+        //         键n:值n
+
+        // }
+        
+        // var obj = new Object();
+        // console.log(obj);
+        // obj.name = "张三";// .  的
+        // obj.age = 18;
+        // obj.fn = function(){
+
+        // }
+        // console.log(obj);
+
+
+        var dog = {
+            name:"旺财",
+            age:1,
+            sex:'男',
+            eat:function(){
+                console.log("啃骨头");
+            },
+            sleep:function(){
+                    console.log("睡");
+            },
+            run:function(){
+
+            }
+        }
+        // 数组遍历   for[1,2,3,4]
+        // 对象的遍历for  in 循环
+        for(var key in dog){
+            console.log(key,dog[key]);
+        }
+        dog.name = "二狗";//修改对象的内容
+        dog.kg = "180kg";//添加对象的内容
+
+        delete dog.run;// 删除对象中的内容
+        console.log(dog);
+
+
+
+
+    </script>
+</body>
+</html>
