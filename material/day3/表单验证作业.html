@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>验证表单</title>
+    <style type="text/css">
+        .divAll {
+            width: 800px;
+            font-family: '黑体';
+            margin: 50px auto;
+        }
+
+        #titles {
+            font-weight: bold;
+            font-size: 18px;
+            height: 50px;
+            line-height: 50px;
+            background: #FFF9F3;
+            text-align: center;
+            border: 1px solid #CCC;
+            ;
+        }
+
+        #contents {
+            margin-top: 20px;
+            background: #FFF9F3;
+            border: 1px solid #CCC;
+        }
+
+        .form-itemGroup {
+            padding: 10px;
+        }
+
+        .form-itemGroup label {
+            display: inline-block;
+            width: 100px;
+            height: 32px;
+            line-height: 32px;
+            color: #666;
+            text-align: right;
+        }
+
+        .form-itemGroup .userName {
+            width: 200px;
+            height: 40px;
+            line-height: 40px;
+            border: 1px solid #CCC;
+        }
+
+        .form-itemGroup .default {
+            width: 200px;
+            height: 32px;
+            line-height: 32px;
+            color: #999;
+        }
+
+        .form-itemGroup .error {
+            height: 32px;
+            line-height: 32px;
+            color: #F00;
+        }
+
+        .form-itemGroup .success {
+            height: 32px;
+            line-height: 32px;
+            color: #096;
+        }
+
+        .divBtn {
+            margin-top: 20px;
+            margin-left: 200px;
+            width: 100px;
+            height: 32px;
+            line-height: 32px;
+            background-color: #F93;
+            margin-bottom: 10px;
+            color: #ffffff;
+            font-weight: bold;
+            border: none;
+        }
+
+        #phonetest {
+            background: #fff;
+            border: solid 1px #ccc;
+            cursor: pointer;
+        }
+
+        .col {
+            background: red;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="divAll">
+        <div id="titles">新用户注册</div>
+        <div id="contents">
+            <h3>基本信息</h3>
+            <hr width="95%" color="#f2f2f2" />
+
+            <div class="form-itemGroup">
+                <label for="userName">用户名：</label>
+                <input type="text" id="userName" class="userName">
+                <span class="default" id="nameErr">请输入2-4位的汉字</span>
+            </div>
+            <div class="form-itemGroup">
+                <label for="userPasword">密码：</label>
+                <input type="password" id="passWord" class="userName">
+                <span class="default" id="passwordErr">请输入10到16位的密码</span>
+            </div>
+            <div class="form-itemGroup">
+                <label for="userConfirmPasword">确认密码：</label>
+                <input type="password" id="userConfirmPas" class="userName">
+                <span class="default" id="conPasswordErr">请再输入一遍密码</span>
+            </div>
+            <div class="form-itemGroup">
+                <label for="userPhone">手机号码：</label>
+                <input type="text" id="userPhone" class="userName">
+                <span class="default" id="phoneErr">请输入11位手机号码</span>
+            </div>
+            <div class="form-itemGroup">
+                <label for="userPhone">手机验证码：</label>
+                <input type="text" class="userName" id="userYzm">
+                <input type="button" class="default" id="phonetest" value="获取验证码">
+                <div id="yzm" style="width:60px;height:35px;border:1px solid #ccc;float:right; margin-right:190px;">
+                </div>
+            </div>
+            <div>
+                <button type="btn" class="divBtn" id="btn">注册</button>
+            </div>
+
+        </div>
+    </div>
+</body>
+<script>
+    var ipts = [...document.querySelectorAll(".userName")],
+        phoneTest = document.querySelector("#phonetest"),
+        yzm = document.querySelector("#yzm"),
+        btn = document.querySelector("#btn"),
+        timer = null,
+        count = 5,
+        obj = {
+            user: /^[\u4e00-\u9fa5]{2,4}$/,
+            pas: /^\w{10,16}$/,
+            tel: /^1[3-9]\d{9}$/
+        };
+    //用户名框绑定事件
+    ipts[0].onblur = function () {
+        this.nextElementSibling.innerHTML = obj.user.test(this.value) ? "√" : "X";
+        return obj.user.test(this.value);
+    }
+    //密码框绑定事件
+    ipts[1].onblur = function () {
+        this.nextElementSibling.innerHTML = obj.pas.test(this.value) ? "√" : "X";
+        ipts[2].nextElementSibling.innerHTML = ipts[2].value === this.value ? "√" : "X";
+        return obj.pas.test(this.value);
+    }
+    //验证密码绑定事件
+    ipts[2].onblur = function () {
+        this.nextElementSibling.innerHTML = this.value && this.value === ipts[1].value ? "√" : "X";
+        ipts[1].nextElementSibling.innerHTML = ipts[1].value === this.value ? "√" : "X";
+        return this.value === ipts[1].value;
+    }
+    //手机号绑定事件
+    ipts[3].onblur = function () {
+        this.nextElementSibling.innerHTML = obj.tel.test(this.value) ? "√" : "X";
+        return obj.tel.test(this.value);
+    }
+    ipts[4].onblur = function () {
+        return this.value && this.value === yzm.innerHTML;
+    }
+    //给获取验证码按钮绑定事件
+    phoneTest.onclick = function () {
+        this.disabled = true;
+        timer = setInterval(function () {
+            phoneTest.value = --count + "秒后重试";
+            if (count < 1) {
+                clearInterval(timer);
+                phonetest.value = "点击重新获取";
+                count = 5;
+                phonetest.disabled = false;
+            }
+        }, 1000)
+        this.nextElementSibling.innerHTML = Math.random().toString(36).substr(2, 4);
+    }
+
+    btn.onclick = function () {
+        // 
+        if (ipts[0].onblur()&& ipts[1].onblur() && ipts[2].onblur() && ipts[3].onblur() && ipts[4].onblur()) {
+                // location.href = `https://www.taobao.com/`
+                location.href = `default.html?user=${ipts[0].value}&tel=${ipts[3].value}`
+        } else {
+            alert("请完善信息");
+        }
+    }
+</script>
+
+</html>

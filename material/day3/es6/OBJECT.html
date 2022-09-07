@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // var Person = {
+        //     flag: false,
+        //     print: function () {
+        //         console.log(1);
+        //     }
+        // }
+        // //使用create基于原有对象person创建一个对象
+
+        // var me = Object.create(Person);
+        // me.name = "xiali";
+        // me.flag = true;
+        // me.print();
+
+        // console.log(me);
+
+
+        var person1 = {"name":"yl","age":18};
+        var person2 = Object.create(person1,
+        {
+            sex:{
+                value:'男',
+                writable:true,//可修改的
+                configurable:true,//可删除
+                enumerable:true //是否可枚举  是否可遍历（循环）
+            },
+            sex2:{
+                value:'男'
+            },
+            des:{
+                value:"这真的是男的"
+            }
+        })
+        person2.sex = "nv";
+        delete person2.sex;
+
+        for(var attr in person2)
+        {
+            console.log(attr,person2[attr]);
+        }
+        console.log(person2.sex);
+        console.log(person2.sex2);
+        console.log(person2);
+
+    </script>
+</body>
+
+</html>

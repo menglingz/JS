@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // {
+        //     let b = 2;
+        //     var a =1;
+        // }
+
+        // console.log(a);
+        // console.log(b);
+        // for(let i =0;i<=10;i++)
+        // {
+        //     console.log(i);
+        // }
+        // console.log(i);//i is not defined
+
+
+        // var a = [];
+        // for(let i=0;i<10;i++)
+        // {
+        //     a[i] = function()
+        //     {
+        //         console.log(i);
+        //     };
+        // }
+
+        // a[6]()//6
+
+        // for (let i = 0; i < 3; i++) {
+        //     let i='a';
+        //     console.log(i);//3个a
+        // }
+        // // var 的情况
+        // console.log(foo);//undefined
+        // var foo =2;
+        // // let情况
+        // console.log(bar);
+        // let bar =2;//Cannot access 'bar' before initialization
+        // var temp = 123;
+        // if (true) {
+        //     temp = 'abc';  // tem
+        //     let temp;
+        // }
+
+        // if(true)
+        // {
+        //     //TDZ开始
+        //     tmp = 'abc';//
+        //     console.log(tmp);//ReferenceError
+        //     let tmp;//TDZ结束
+        //     console.log(tmp);//undefined
+        //     tmp = 123;
+        //     console.log(tmp);//123
+        // }
+        // console.log(typeof(x));
+
+        // console.log(typeof x);
+        // // let x;
+
+        // function bar( x=y, y =2)//y是变量
+        // {
+        //     return [x,y];
+        // }
+
+        // bar()
+
+        // function bar(x=2,y=x)//y是变量
+        // {
+        //     return [x,y];
+        // }
+        // bar();//2  2
+
+        // let  x = x;
+
+        // function fn()
+        // {
+        //     var a  =1;
+        //     let a =2;
+
+        // }
+
+        // function fn(a) {
+        //     { 
+        //         let a;
+        //      }
+        // }
+        // fn();//
+
+
+        // var tmp = new Date();
+        // function fn()
+        // {
+        //     console.log(tmp);
+        //     if(false)
+        //     {
+        //         var tmp = "hello";
+        //     }
+        // }
+        // fn()//
+
+        // var  s = "hello";
+        // for(var i = 0;i<s.length;i++)
+        // {
+        //     console.log(s[i]);
+        // }
+
+        // console.log(i);
+
+
+        // function fn()
+        // {
+        //     let n = 5;
+        //     if(1)
+        //     {
+        //         let n =10;
+        //     }
+        //     console.log(n);//5
+        // }
+        // fn()
+        // {{{{{{{
+        //     let a =  "hello";}
+        //     let a = 1
+        // }}}}}}
+
+        // if(1)
+        // {
+        //     function fn()
+        //     {
+        //         console.log(1);
+        //     }
+        //     fn();
+        // }
+
+        // try
+        // {
+        //     function f(){}
+        // }catch(e)
+        // {
+        //     //...
+        // }
+
+
+        // function fn()
+        // {
+        //     console.log("out");
+        // }
+        // (function()
+        // {
+        //     if(0)
+        //     {
+        //         //重复声明一次函数fn
+        //         function fn()
+        //         {
+        //             console.log("in");
+        //         }
+
+        //     }
+        //     fn()
+        // }());
+
+
+        function fn(){console.log("out");}
+
+        (function ()
+        {
+            function fn(){console.log("in");}
+            if(0)
+            {
+               
+            }
+            fn()
+        }())
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
