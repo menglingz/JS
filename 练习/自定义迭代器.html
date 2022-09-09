@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      function makeIterator(iter) {
+        let index = 0
+        return {
+          next() {
+            return index < iter.length ? { value: iter[index++], done: false } : { value: undefined, done: true }
+          }
+        }
+      }
+
+      // let it = makeIterator(['a', 'b', 'c'])
+      // console.log(it.next())
+      // console.log(it.next())
+      // console.log(it.next())
+      // console.log(it.next())
+
+      let obj = {
+        a: 1,
+        b: 2,
+        c: 3,
+        d: 4
+      }
+      obj[Symbol.iterator] = function () {
+        let index = 0
+        let keys = Object.keys(obj)
+        return {
+          next() {
+            return index < keys.length
+              ? {
+                  value: {
+                    k: keys[index],
+                    v: obj[keys[index++]]
+                  },
+                  done: false
+                }
+              : { value: undefined, done: true }
+          }
+        }
+      }
+
+      for (const x of obj) {
+        console.log(x)
+      }
+    </script>
+  </body>
+</html>

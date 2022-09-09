@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // let s = Symbol();
+        // console.log(typeof s);
+
+        // let s1  = Symbol("foo");
+        // let s2 = Symbol("bar");
+
+        // console.log(s1);
+        // console.log(s2);
+
+        // console.log(s1.toString());
+        // console.log(s2.toString());
+
+
+    //    let s1 = Symbol();
+    //    let s2 = Symbol();
+    //    console.log(s1===s2);//false
+
+    //    let s3 = Symbol("foo");
+    //    let s4 = Symbol("foo");
+    //    console.log(s3===s4);//false
+
+
+
+    // let mySymbol = Symbol();
+
+
+    // const  a = [];
+
+    // a.mySymbol = "helo";
+    // console.log(a[mySymbol]);//ubdefined
+    // console.log(a["mySymbol"]);//helo
+    // // 1
+    // // let a  ={};
+    // // a[mySymbol] ="hello";
+    // // 2.
+    // let a = {
+    //     [mySymbol]:"hello"
+    // }
+
+
+    // console.log(a[mySymbol]);
+
+
+    // const s = new Set();
+    // [2,3,4,5,2,3].forEach(item=>s.add(item));
+
+    // for (let i of s)
+    // {
+    //     console.log(i);
+    // }
+    let arr = [1,2,3,4,6,1,2,4];
+
+    [...new Set(arr)] //12 346
+
+    </script>
+</body>
+</html>

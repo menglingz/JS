@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+  <script>
+    // //   <!-- yield  -->
+    // function* gen(x)
+    // {
+    //     var y = yield x+2;
+    //     return y;
+        
+    // }
+    // var g   =gen(1);
+
+    // g.next();  // {value:3,done:fasle}
+    // g.next();   // {value:undefined ,done:false}
+
+
+    // function* gen(x){
+    //     var y = yield x+2;
+    //     return y;
+    // }
+    // var g   =gen(1);
+
+    // g.next();  // {value:3,done:fasle}
+    // g.next(2);   // {value:2 ,done:true}
+
+
+    // var it = makeIterator(['a','b']);
+    // console.log(it.next());
+    // console.log(it.next());
+    // console.log(it.next());
+
+    // function makeIterator(array){
+    //         var nextIndex = 0;
+    //         return  {
+    //             next:function()
+    //             {
+    //                 return nextIndex <array.length?
+    //                 {value:array[nextIndex++]}:
+    //                 {done:true}
+    //             }
+    //         }
+    // }
+
+
+    // const obj = {
+    //     [Symbol.iterator]:function()
+    //     {
+    //         return{
+    //             next:function()
+    //             {
+    //                 return{
+    //                     value:1,
+    //                     done:true
+    //                 };
+    //             }
+    //         };
+    //     }
+    // };
+
+//    var j =  {value:1,done:fasle}
+
+
+
+// let aa = new  Set().add('a').add('b').add('c');
+// let [x,y] = aa;//x = 'a'  y = 'b';
+
+// console.log(x,y);
+
+
+// let [first,...rest] = aa;
+// console.log(first,rest);//a  ['b','c']
+
+
+// var str = 'hello';
+// console.log([...str]) 
+
+
+// let arr = ['b','c'];
+// console.log(['a',...arr,'d']);//['a', 'b', 'c', 'd']
+
+
+
+let gen = function* ()
+{
+    yield 1;
+    yield* [2,3,4];
+    yield 5;
+};
+var iterator = gen();
+
+iterator.next()//{value:1,done:fasle}
+
+iterator.next()//2
+
+iterator.next() //3
+
+iterator.next()//4
+
+iterator.next()  //5
+
+iterator.next() //{value:undfined  done:true}
+
+  </script>
+</body>
+</html>

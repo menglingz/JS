@@ -1,0 +1,61 @@
+//请求json数据
+        function getNews(url)
+        {
+            let promise =  new Promise((resolve,reject)=>{
+                //初始化
+                // 创建xmlHTTP实例对象
+                let xhr = new  XMLHttpRequest();
+                //监听readystate
+                xhr.onreadystatechange = function(){
+                    if(xhr.readyState === 4)//成功
+                    {
+                        if(xhr.status === 200)
+                        {
+                            //console.log(xhr.responseText);//数据
+                            resolve(xhr.responseText);//修改Promsie状态为成功
+                        }
+                        else{
+                            //失败
+                            reject('error')//状态修改为失败
+                        }
+                    }
+                };
+                //open设置请求方式以及url
+                xhr.open("GET",url);
+                //发送
+                xhr.send();
+            })
+            return promise;
+        }
+
+        getNews('json/xxx.json')//模拟数据暂时没写
+        .then((data)=>{
+            console.log(data[0]);
+        },(error)=>{
+            console.log(error);
+        }).then((data)=>{
+            console.log(data);
+        },()=>{
+
+        })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

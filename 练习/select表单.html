@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <select name="" id="" multiple>
+      <option value="">a</option>
+      <option value="">b</option>
+      <option value="">c</option>
+      <option value="">d</option>
+      <option value="">a</option>
+      <option value="">b</option>
+      <option value="">c</option>
+      <option value="">d</option>
+    </select>
+
+    <script>
+      const select = document.querySelector('select')
+      console.log(select)
+
+      // 获取当前选中的option的下标索引，没找到返回-1
+      console.log(select.selectedIndex)
+      // 选中第三个option
+      select.options[2].selected = true
+      // 找到了返回索引
+      console.log(select.selectedIndex)
+      // 通过selectIndex获取选中的option项
+      console.log(select.options[select.selectedIndex])
+      // 重新设置selectIndex更改选中项,会移除前面所有的选中项
+      select.selectedIndex = 3
+      // 通过selected = true 更改选中项不会移除前面的选中项
+      select.options[4].selected = true
+      // selectIndex只会返回选中的第一项的索引
+      console.log(select.selectedIndex)
+
+      // 获取所有选中项
+      function getSelectedOption(selectbox) {
+        let result = new Array()
+        for (let option of selectbox.options) {
+          if (option.selected) {
+            result.push(option)
+          }
+        }
+        return result
+      }
+      console.log(getSelectedOption(select))
+
+      // 添加选项
+      // DOM添加
+      let option = document.createElement('option')
+      option.appendChild(document.createTextNode('Option text'))
+      option.setAttribute('value', 'Option text')
+      select.appendChild(option)
+      //通过OPtion构造函数添加
+      let option1 = new Option('Option text1', 'Option text1')
+      select.appendChild(option1)
+      // 通过select元素的add()方法添加
+      let option2 = new Option('Option text2', 'Option text2')
+      select.add(option2, undefined)
+    </script>
+  </body>
+</html>

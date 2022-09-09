@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // function* Gen()
+        // {
+        //     yield 'hello';
+        //     yield 'world';
+        //     return 'ending';
+        // }
+        // var h = Gen();
+        // console.log(h.next());//{value: 'hello', done: false}//done  遍历还没有结束
+        // console.log(h.next());//{value: 'word', done: false}
+        // console.log(h.next());//{value: 'endig', done: true}
+        // console.log(h.next());//{value: 'undefined', done: true}
+        // console.log(h.next());//{value: 'undefined', done: true}
+        // console.log(h.next());//{value: 'undefined', done: true}
+        // console.log(h.next());//{value: 'undefined', done: true}
+
+        // function* gen(){
+        //     console.log("执行了");
+        // }
+
+        // var f = gen();//才会执行，就变成了
+
+
+        // setTimeout(() => {
+        //     gen.next()//只有调用next方法
+        // }, 2000);
+
+        // function fn(){
+        //     yield 1
+        // }
+        // fn()//nexpected number
+
+
+
+        // var arr = [1,[[2,3],4],[5,6]]
+        
+        // var f = function *(a){
+           
+        //     var len = a.length;
+        //     for(var i=0;i<length;i++)
+        //     {
+        //         var item = a[i];
+        //         if (typeof item !=='number')
+        //         {
+        //             yield* f(item);
+        //         }
+        //         else
+        //         {
+        //             yield item;
+        //         }
+        //     }
+        // }
+        // for(var ooo of f(arr))
+        // {
+        //     console.log(ooo);
+        // }
+
+
+        // function* f()
+        // {
+        //     for (var i= 0;true;i++)
+        //     {
+        //         var reast = yield i;
+        //         if(reast)
+        //         {
+        //             i = -1;
+        //         }
+        //     }
+        // }
+
+        // var g = f();
+        // console.log(g.next());//{value:0,done:false}
+        // console.log(g.next());//{value:1,done:flase}
+        // console.log(g.next(true));//{value:0,done:fasle}
+
+
+
+        // function* fn(x)
+        // {
+        //     var y = 2*(yield (x+1));
+        //     var z = yield(y/3);//y = 2*undefined(NaN)
+        //     return (x+y+z);//5+NaN+undefined = NaN
+        // }
+        // var a = fn(5);
+
+        // console.log(a.next());//{value:6,done:false}
+        // console.log(a.next());//{value:NaN,done:false}
+        // console.log(a.next());//{value:NaN,done:true}
+
+        // var b = fn(5);
+        // console.log(b.next());//{value:6,done:false}
+
+        // console.log(b.next(12));//{value:8,done:false}
+
+        // console.log(b.next(13));//{value:42,done:true}  z =13 x =5 y =24
+
+
+
+        // function* foo()
+        // {
+        //     yield 1;
+        //     yield 2;
+        //     yield 3;
+        //     yield 4;
+        //     yield 5;
+        //     yield 6;
+        //     return 6;
+        // }
+
+        // for(let item of foo())
+        // {
+        //     console.log(item);
+        // }
+
+
+        function* fib()
+        {
+            let [prev,curr] = [0,1];
+            for(;;)
+            {
+                yield curr;
+                [prev,curr] = [curr,prev+curr];//前2项等于第三项
+            }
+        }
+
+        for(let n of fib())
+        {
+            if(n>100) break;
+            console.log(n);
+        }
+
+
+
+
+        
+
+    </script>
+</body>
+</html>

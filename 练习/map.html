@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // 在map中使用复杂数据类型作为键，需要使用[变量]访问
+      const aa = new Map()
+      aa.set(['aa'], 555)
+      let o = ['aa']
+      aa.set(o, 666)
+      console.log(aa)
+      console.log(aa.get(['aa']))
+      console.log(aa.get(o))
+    </script>
+  </body>
+</html>

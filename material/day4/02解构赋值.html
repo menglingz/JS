@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+
+// let arr = [1,2,3,4];
+// let stu = {"name":"xiaoli","age":18};
+
+// // es5的提取方法
+// console.log(arr[0]);  //通过下标
+// console.log(stu.name);//key
+// console.log(stu['name']);
+
+// let [foo,[[bar],baz]] = [1,[[2],3]];
+// console.log(foo,bar,baz);//1 2 3
+
+// // let  [,,third] = ["foo","bar","baz"];
+// // console.log(third);//baz
+
+
+// // let [x,,y] =[1,,3];
+// // console.log(x,y); 
+
+
+// // let [x,y,...z] = ['a'];
+
+// // console.log(x,y,z);
+
+// let  [head,...tail] = [1,2,3,4,5,6,7];
+// console.log(head,tail);
+
+
+// let  [x,y] = [1,2,3,6,4];
+// console.log(x,y);//1 2
+
+// let [a,[b],d] = [1,[2,3,4],9];
+// console.log(a,b,d);//1  2  9
+
+// let  [foo] = 1;
+// let  [foo] = false;
+// let  [foo] = NaN;
+// let  [foo]  = undefined;
+// let  [foo] = null;
+// let  [foo] = {}
+
+// // let [foo = true] = [];
+// // console.log(foo);//true
+
+// // let [x,sex = 'n'] = ['a'];
+// // console.log(x,sex);  // n  a
+
+// let [x,y= 'b'] = ['a',undefined];
+// console.log(x,y);//a b
+
+// let [x =1] = [undefined]
+// console.log(x);  //1
+
+// let [y =1] =[null];
+// console.log(y); 
+
+
+// let {bar,foo} = {foo:"aaa",bar:"bbb"}
+
+// console.log(foo,bar);
+
+
+// let {foo} = {bar:'zad'};
+// console.log(foo);
+
+// let {sin,cos} = Math;
+// const {log} = console;
+// log("hello")
+
+// let {foo:baz} = {foo:'aaa',bar:'bbb'}
+// console.log(baz);
+
+
+// let obj = {f:'hello',l:'word'};
+// let {f:first,l:last} = obj;
+// console.log(first,last);
+
+
+// let obj = {
+//     p:[
+//         'hello',
+//         {y:'word'}
+//     ]
+// };
+
+// let {p,p:[x,{y}]} =obj;
+
+// // let {p :[x,{y}]} = obj;
+// console.log(x,y);//hello word
+// console.log(p);
+
+
+// let {foo:{bar}} = {baz:'baz'};
+
+
+// // var {x = 3} = {};
+// // console.log(x);
+
+// // var {x,y =5} ={x:1}
+
+// // console.log(x,y);//1  5
+
+// // var {x:y=3} = {};
+
+// // console.log(y);//3
+
+// var {x:y=3} ={x:5}
+
+// console.log(y);//5
+
+
+
+
+// function add([x,y])
+// {
+//     return x+y;
+// }
+// add([1,2])//3
+
+// function f({x=0,y=0} = {})
+// {
+//     return [x,y];
+// }
+
+// f({x:3,y:8})  //[3,8]
+// f({x:3});    //[3,0];
+// f({})  //  [0,0]
+
+// let [(a)] = [1];
+// let {x:(c)} = {}
+
+//     let ({x:c}) = {}
+//     let {(x):c} ={}
+
+// function f([(a)]){
+//     return a;
+// }
+
+// function f([z:(x)]){
+//     return x;
+// }
+
+// [(b)] = [3];
+// ({p:(d)} = {});
+
+
+// let x  =1;
+// let y =2;
+// [x,y] = [y,x];
+// console.log(x,y);
+
+// // 数组
+// function f()
+// {
+//     return [1,2,3];
+// }
+// let [a,b,c] = f();
+
+// // 对象
+// function fn()
+// {
+//     return {
+//         foo:1,
+//         bar:2
+//     }
+// }
+// let {foo,bar}  = fn()
+
+// let sdu = {
+//     id:1,
+//     score:"98",
+//     data:[9899,7898]
+// };
+
+// let {id ,score,data:number} = sdu;
+
+// console.log(id,score,number);
+
+
+
+
+    </script>
+</body>
+</html>

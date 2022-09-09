@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div></div>
+    <div></div>
+    <div></div>
+</body>
+<script>
+//    console.log([...document.getElementsByTagName("div")]);
+
+
+// let set  = new Set();
+// let a = NaN;
+// let b = NaN;
+// set.add(a);
+// set.add(b);
+
+// console.log(set);//{NaN}
+
+// let set  = new Set();
+// set.add({})
+
+// console.log(set);
+// console.log(set.size);//1
+
+// set.add({})
+// console.log(set);
+// console.log(set.size);//2
+
+
+// let s = new Set();
+// s.add(1).add(2).add(2);//2被加了两次
+
+// console.log(s);{1,2}
+// console.log(s.size);//2
+
+// console.log(s.has(2));//true
+// console.log(s.has(3));//fasle
+
+// s.delete(2);
+// console.log(s.has(2));//fasle
+
+// s.clear()
+// console.log(s);
+
+
+// let s = new Set(['pear','orange','watermelon']);
+
+// for (let item of s.keys())
+// {
+//     console.log(item);
+// }
+// // pear orange watermelon
+// for (let item of s.values())
+// {
+//     console.log(item);
+// }
+// // pear orange watermelon
+
+// for (let item of s.entries())
+// {
+//     console.log(item);//键名等于键值
+// }
+// //['pear', 'pear']
+// // ['orange', 'orange']
+// //['watermelon', 'watermelon']
+
+
+// console.log("****************");
+
+// for(let item of s)
+// {
+//     console.log(item);
+// }
+
+
+
+
+// let  set = new Set([1,4,9]);
+// set.forEach((value,key)=>console.log(key +":"+value))
+// // 1:1
+// // 4:4
+// // 9:9
+
+
+let  a = new Set([1,2,3])
+let  b = new Set([4,2,3])
+
+
+// // 并集
+
+// let Un  = new Set([...a,...b]);
+// console.log(Un);
+// // 交集
+// let In  = new Set([...a].filter(item=>b.has(item)));
+// console.log(In);
+
+// 差集
+// let Dn  = new Set([...a].filter(item=>!b.has(item)));
+// console.log(Dn);
+
+
+</script>
+</html>

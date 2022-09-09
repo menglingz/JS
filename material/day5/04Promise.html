@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // const promise = new Promise(function (resolve, reject) {
+        //     if (/*异步操作成功*/) {
+        //         resolve(value)
+        //     }
+        //     else {
+        //         reject(error)
+        //     }
+        // }).then(function (value) {
+        //     //成功
+        // }, function (error) {
+        //     //失败
+        // })
+        // let promise  = new Promise((resolve,rejected)=>{
+        //     console.log(111);//1
+        //     setTimeout(() => {
+        //         console.log(333);//4
+
+        //     }, 2000);
+        // })
+        // console.log(222);//2
+
+        // promise.then(()=>{
+        //     console.log("成功了.....");
+        // },()=>{
+        //     console.log("失败了.....");
+        // })
+        // function timeout(ms)
+        // {
+        //     return new Promise((resolve,reject)=>
+        //     {
+        //         setTimeout(resolve,ms,'done')
+        //     })
+        // }
+
+        // timeout(100).then((value)=>{
+        //     console.log(value);//3
+        // })
+
+
+        // let promise = new Promise((resolve, rejected) => {
+        //     console.log('promise');//1
+        //     rejected();//没有这行，Promise 对象的状态pendding.resolve()成功  失败回调
+        // })
+
+        // promise.then(function () {
+        //     console.log("resolved");
+        // },function()
+        // {
+        //     console.log("rejected");//3
+        // }
+        // );
+
+        // console.log('word');//2
+
+        
+        // const a1 = new Promise(function(resolve,reject)
+        // {
+        //     //
+        // });
+        // const a2 = new Promise(function(resolve,reject)
+        // {
+        //     //
+        //     resolve(a1)
+        // });
+
+
+        // new Promise((resolve,reject)=>{
+        //     resolve(1);
+        //     console.log(2);
+        // }).then(r=>{
+        //     console.log(r);
+        // })
+
+         new Promise((resolve,reject)=>{
+             return resolve(1);
+            console.log(2);
+        })
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>
