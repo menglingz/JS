@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <!-- <div class="red-text">
+    <p>Make me red</p>
+  </div>
+  <div class="green-text">
+    <p>Make me green</p>
+  </div>
+  <div class="yellow-text">
+    <p>Make me yellow</p>
+  </div> -->
+  <script>
+    for(let color of ['red','green','yellow']){
+      let div = document.createElement('div')
+      const shadowDom = div.attachShadow({mode:'open'})
+
+      document.body.appendChild(div)
+      shadowDom.innerHTML = `
+        <p>Make me ${color}</p>
+        <style>
+          p{
+            color:${color}
+          }
+        </style>
+      `
+    }
+  </script>
+</body>
+</html>

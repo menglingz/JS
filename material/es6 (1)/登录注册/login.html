@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优学-登录</title>
+    <style>
+        .offcnloginleft {
+            width: 530px;
+            min-height: 300px;
+            margin: 50px auto;
+        }
+
+        .offcnloginleft p {
+            margin-bottom: 15px;
+        }
+
+        .offcnloginleft p span {
+            display: inline-block;
+            width: 70px;
+            text-align: right;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .offcnloginleft p input {
+            width: 260px;
+            height: 36px;
+            border: 1px solid #ddd;
+            color: #999;
+            padding: 0 0 0 5px;
+            font-size: 14px;
+        }
+
+        .offcnloginleft p input.error {
+            border-color: red;
+        }
+
+        .offcnloginleft p input[type=submit] {
+            background-color: #ff4a00;
+            width: 265px;
+            height: 42px;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .offcnloginleft p em {
+            color: #f60;
+            padding-left: 8px;
+        }
+
+        .offcnloginleft p i.yanzhen {
+            position: absolute;
+            height: 38px;
+            line-height: 38px;
+            font-size: 16px;
+            right: 190px;
+            top: 0;
+            padding: 0 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="offcnloginleft">
+        <form action="" id="form">
+            <p>
+                <span>手机：</span>
+                <input type="text" placeholder="请输入手机号" class="tel" name="tel">
+                <em></em>
+            </p>
+            <p>
+                <span>密码：</span>
+                <input type="password" placeholder="请输入密码" class="pass" name="pass">
+                <em></em>
+            </p>
+            <p>
+                <span></span>
+                <input type="submit" name="submit" value="登录" class="btn">
+            </p>
+        </form>
+    </div>
+    <script src="utils/utils.js"></script>
+    <script>
+
+        var form = document.getElementById('form'),
+            tel = form.tel,
+            pass = form.pass,
+            submit = form.submit;
+
+        // 正则表达式 
+        var reg = {
+            tel: /^1\d{10}$/,
+            pass: /^\d{1,3}$/
+        }
+
+        var arr = [false, false]
+        // 手机号
+        tel.onblur = function () {
+            var val = this.value
+            var em = utils.next(this); // 提示语
+            if (reg.tel.test(val)) {
+                em.innerText = '正确'
+                arr[0] = true
+            } else {
+                em.innerText = '错误'
+                arr[0] = false
+            }
+        }
+
+        // 密码
+        pass.onblur = function () {
+            var val = this.value
+            var em = utils.next(this); // 提示语
+            if (reg.pass.test(val)) {
+                em.innerText = '正确'
+                arr[1] = true
+            } else {
+                em.innerText = '错误'
+                arr[1] = false
+
+            }
+        }
+
+        submit.onclick = function () {
+
+            tel.onblur()
+            pass.onblur()
+            // 判断是否为真
+            var resBool = arr.every(function (item) {
+                return item
+            })
+
+            // 判断是否全部通过 通过数据提交到服务器
+            if (resBool) {
+                // 跟客户端对比 
+                var userArr = JSON.parse(localStorage.getItem('user'))
+                if(!userArr){
+                    alert('没有注册，请先注册~~~~') 
+                    window.location.href = './register.html';
+                    return false
+                }
+
+                // 如果密码和用户一致
+                for(var i=0;i<userArr.length; i++){
+                    if(tel.value === userArr[i].tel && pass.value === userArr[i].pass){
+                        alert('登录成功'); 
+                        window.location.href = '../index.html';
+                        localStorage.setItem('id',tel.value) 
+                        return false
+                    }
+                }
+                alert('没有注册过，请先注册~~~~') 
+                window.location.href = './register.html'
+            }
+
+            // 阻止默认行为
+            return false
+        }
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>优学-注册</title>
+    <style>
+        .offcnloginleft {
+            width: 530px;
+            min-height: 300px;
+            margin: 50px auto;
+        }
+
+        .offcnloginleft p {
+            margin-bottom: 15px;
+        }
+
+        .offcnloginleft p span {
+            display: inline-block;
+            width: 70px;
+            text-align: right;
+            font-size: 14px;
+            color: #333;
+        }
+
+        .offcnloginleft p input {
+            width: 260px;
+            height: 36px;
+            border: 1px solid #ddd;
+            color: #999;
+            padding: 0 0 0 5px;
+            font-size: 14px;
+        }
+
+        .offcnloginleft p input.error {
+            border-color: red;
+        }
+
+        .offcnloginleft p input[type=submit] {
+            background-color: #ff4a00;
+            width: 265px;
+            height: 42px;
+            border: none;
+            color: #fff;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+        }
+
+        .offcnloginleft p em {
+            color: #f60;
+            padding-left: 8px;
+        }
+
+        .offcnloginleft p i.yanzhen {
+            position: absolute;
+            height: 38px;
+            line-height: 38px;
+            font-size: 16px;
+            right: 190px;
+            top: 0;
+            padding: 0 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="offcnloginleft">
+        <form action="" id="form">
+            <p>
+                <span>手机：</span>
+                <input type="text" placeholder="请输入手机号" name="tel" class="tel">
+                <em></em>
+            </p>
+            <p>
+                <span>创建密码：</span>
+                <input type="password" placeholder="请输入密码" name="pass" class="pass">
+                <em></em>
+            </p>
+            <p>
+                <span>确认密码：</span>
+                <input type="password" placeholder="请再次输入密码" name="pass2" class="pass2">
+                <em></em>
+            </p>
+            <p class="pr">
+                <span>验证码：</span>
+                <input type="text" placeholder="请输入验证码" name="yanzhenma" class="yanzhenma">
+                <em></em>
+            </p>
+            <p>
+                <span></span>
+                <input type="submit" value="注册" name="submit" class="btn">
+            </p>
+        </form>
+    </div>
+    <script src="utils/utils.js"></script>
+
+    <script>
+        var form = document.getElementById('form'),
+            tel = form.tel,
+            pass = form.pass,
+            pass2 = form.pass2,
+            yanzhenma = form.yanzhenma,
+            submit = form.submit;
+
+        // 为了避免全局污染  
+        ~(function () {
+
+            // 创建元素 
+            var i = document.createElement('i');
+            i.className = 'yanzhen';
+            i.innerHTML = getRandomChar();
+            // 父元素.inerstBefore(被插入的元素，参考元素)
+            yanzhenma.parentNode.insertBefore(i, utils.next(yanzhenma))
+
+
+            // 验证码
+            function getRandomChar () {
+                var char = 'qwertyuiopasdfghjklzxcvbnmQWERTYUIOPASDFGHJKLZXCVBNM1234567890';
+                var str = ''; 
+                for(var i=0;i<4;i++){
+                    str+= char[utils.getRandomNumber(0,char.length - 1)]; 
+                }
+                return str; 
+            }
+
+            // 点击切换 
+            i.onclick = function(){
+                i.innerHTML = getRandomChar();
+            }
+
+
+            // 验证码手机号 密码 确认密码 验证码  
+
+            // 正则表达式 
+            var reg = {
+                tel: /^1\d{10}$/g,
+                pass:/^\d{1,3}$/
+            }
+
+            var arr = [false,false,false,false]
+
+            // 手机号
+            tel.onblur = function(){
+                var val = this.value 
+                var em = utils.next(this); // 提示语
+                if(reg.tel.test(val)) {
+                    em.innerText = '正确'
+                    arr[0] = true
+                }else{
+                    em.innerText = '错误'
+                    arr[0] = false
+                }
+            }
+
+            // 密码
+            pass.onblur = function(){
+                var val = this.value 
+                var em = utils.next(this); // 提示语
+                if(reg.pass.test(val)) {
+                    em.innerText = '正确'
+                    arr[1] = true
+                }else{
+                    em.innerText = '错误'
+                    arr[1] = false
+
+                }
+            }
+
+            // 确认密码  
+            pass2.onblur = function(){
+                var val = this.value 
+                var em = utils.next(this); // 提示语
+                if(pass.value && pass.value === val) {
+                    em.innerText = '正确'
+                    arr[2] = true
+                }else{
+                    em.innerText = '错误'
+                    arr[2] = false
+                }
+            }
+
+            // 验证码 
+            yanzhenma.onblur = function(){
+                var val = this.value 
+                var em = utils.next(utils.next(this)); // 提示语
+                if(this.value.toUpperCase() === utils.next(this).innerText.toUpperCase()) {
+                    em.innerText = '正确'
+                    arr[3] = true
+                }else{
+                    em.innerText = '错误'
+                    arr[3] = false
+                }
+            }
+
+            // 点击注册 判断是否通过
+            submit.onclick = function(){
+                tel.onblur()
+                pass.onblur()
+                pass2.onblur()
+                yanzhenma.onblur()
+
+                // 全部为真才可以提交到服务器 
+                var resBool = arr.every(function(item){
+                    return item
+                })
+
+                // 判断是否全部通过 通过数据提交到服务器
+                if(resBool) {
+                    var para = `tel=${tel.value}&pass=${pass.value}`
+                    // 保存到客户端
+                    var  obj = {} 
+                    obj.tel = tel.value 
+                    obj.pass = pass.value
+
+                    var arr = JSON.parse(localStorage.getItem('user')); 
+
+                    if(!arr){
+                        
+                    }else {
+
+                    }
+                }
+                // 阻止默认行为
+                return false
+            }
+
+
+
+
+
+        })()
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

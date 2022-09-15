@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 100px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="box"></div>
+    <script src="../js/utils.js"></script>
+    <!-- <script src="../material/es6/登录注册/utils/utils.js"></script> -->
+    <script>
+      const box = document.querySelector('.box')
+      console.log(utils.getStyle(box, 'width'))
+
+      console.log(utils.getRandomNumber(3, 6))
+      console.log(utils.zero('3'))
+
+      let arr = [3, 5, 4, 6, 1, 6, 8, 9, 2, 11, 22, 1]
+      console.log(utils.bubbleSort(arr, false))
+      console.log(utils.quickSort(arr))
+      console.log(utils.arrNoRepeat(arr))
+
+      const obj = {
+        aa: 'dasd',
+        age: 11,
+        name: {
+          bb: 'aaa',
+          cc: 11
+        },
+        arr: [1, 2, 3, 4]
+      }
+
+      console.log(utils.deepClone(obj))
+    </script>
+  </body>
+</html>

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <video src="video/movie01.mp4" id="video" width="400px" controls></video>
+    <button>播放</button>
+    <button>暂停</button>
+    <button>duration总时长</button>
+    <button>currentTime 当前播放的时长</button>
+    <button>快进</button>
+    <button>快退</button>
+    <button>音量</button>
+    <button>音量加</button>
+    <button>音量减</button>
+    <button>播放倍速</button>
+    <script>
+
+        var video  = document.querySelector('#video') 
+        var btn = document.querySelectorAll('button') 
+
+        btn[0].onclick = function(){
+            video.play() // 播放
+        }
+
+        btn[1].onclick = function(){
+            video.pause() // 暂停
+            console.log(video.paused);
+            if(video.paused){
+                video.play()
+            }
+        }
+        
+        // 总时长
+        btn[2].onclick = function(){
+            console.log(video.duration);
+        }
+        // 播放时长
+        btn[3].onclick = function(){
+            console.log(video.currentTime);
+        }
+
+        // 快进 快退 
+
+        btn[4].onclick = function(){
+            video.currentTime +=1;
+        }
+        btn[5].onclick = function(){
+            video.currentTime -=1;
+        }
+
+        // 音量
+
+
+        btn[6].onclick = function(){
+            console.log(video.volume);
+        }
+        btn[7].onclick = function(){
+            var volume = video.volume 
+            volume +=0.1  
+            if(volume > 1){
+                volume = 1
+            }
+            video.volume = volume
+        }
+
+        btn[8].onclick = function(){
+            var volume = video.volume 
+            volume -=0.1  
+            if(volume < 0){
+                volume = 0
+            }
+            video.volume = volume
+        }
+
+        btn[9].onclick = function(){
+            video.playbackRate = 2 
+        }
+
+        // 事件
+        // 在播放过程中实时触发
+        // video.addEventListener('timeupdate',function(){
+        //     console.log(video.currentTime);
+        // })
+
+        // loademetadata -- 元素加载完毕在触发事件
+        video.addEventListener('loadedmetadata',function(){
+            console.log(video.duration);
+        })
+
+        // 监听音量改变
+        video.addEventListener('volumechange',function(){
+            console.log(video.volume);
+        })
+
+        // 监听播放速度  ratechange 
+        video.addEventListener('ratechange',function(){
+            console.log(video.playbackRate);
+        })
+
+        // ended -- 播放完毕
+        video.addEventListener('ended',function(){
+            console.log(11111);
+        })
+
+
+
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,151 @@
+* {
+    margin: 0;
+    padding: 0;
+    user-select: none;
+}
+
+html,
+body {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+#player {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+#video {
+    height: 0;
+    flex: 1;
+    background: #383838;
+}
+
+#controlBar {
+    height: 25px;
+    background: #2A2A2A;
+    flex: none;
+    display: flex;
+}
+
+#controlBar .btns {
+    flex: none;
+    width: 55px;
+    height: 25px;
+    display: flex;
+    align-items: center;
+}
+
+#controlBar .btns span {
+    margin: 0 8px;
+    width: 9px;
+    height: 11px;
+    background-image: url('../img/icon.png');
+}
+
+#controlBar .btns span.play {
+    background-position: 0 -22px;
+}
+
+#controlBar .btns span.play.played {
+    background-position: 0 -11px;
+}
+
+#controlBar .btns span.end {
+    background-position: 0 0;
+}
+
+#controlBar .progress {
+    flex: 1;
+    position: relative;
+}
+
+#controlBar .progress-gray,
+#controlBar .progress-pink {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 100%;
+    height: 3px;
+    background-color: #737373;
+}
+
+#controlBar .progress-pink {
+    width: 0;
+    background-color: deeppink;
+}
+
+#controlBar .progress-slider {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin-top: auto;
+    margin-bottom: auto;
+    width: 9px;
+    height: 7px;
+    background: #fff;
+    border-radius: 2px;
+}
+
+#controlBar .others {
+    flex: none;
+    width: 230px;
+    height: 25px;
+    display: flex;
+}
+
+#controlBar .times {
+    width: 120px;
+    font-size: 12px;
+    color: #fff;
+    line-height: 25px;
+    text-align: center;
+}
+
+#controlBar .volumes {
+    width: 80px;
+    display: flex;
+}
+
+#controlBar .volumes-btn {
+    width: 20px;
+    height: 25px;
+    display: flex;
+}
+
+#controlBar .volumes-btn span {
+    margin: auto;
+    width: 12px;
+    height: 12px;
+    background: url(../img/icon.png) no-repeat;
+    background-position: 0 -34px;
+}
+
+#controlBar .volumes-btn.muted span {
+    background-position: 0 -46px;
+}
+
+#controlBar .fullscreen {
+    width: 30px;
+    height: 25px;
+    display: flex;
+}
+
+#controlBar .fullscreen span {
+    margin: auto;
+    width: 11px;
+    height: 11px;
+    background: url(../img/icon.png) no-repeat;
+    background-position: 0 -58px;
+}
+
+#controlBar .fullscreen.active span {
+    background-position: 0 -70px;
+}

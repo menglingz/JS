@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        const obj1 = {
+            age: 20,
+            nams: 'xxx',
+            city: {
+                address: 'beijing'
+            },
+            arr: ['a', 'b', 'c', 'd']
+        }
+        // const obj3 = obj1; // 浅拷贝
+        const obj2 = deepClone(obj1)
+        // obj2.city.address = 'shanghai'
+        // console.log(obj1.city.address);
+
+        function deepClone (obj = {}) {
+            if (typeof obj !== 'object' || obj == null) {
+                // obj == null === obj === null obj === undefined
+                // 如果不是对象或者为空值，返回 没必要做深拷贝
+                return obj
+            }
+            // 初始化返回的结果 
+            let result;
+            if (obj instanceof Array) {
+                result = []
+            } else {
+                result = {}
+            }
+            for (let key in obj) {
+                // hasOwnProperty:判断当前的属性是不是对象本身的（非继承）
+                if (obj.hasOwnProperty(key)) {
+                    // 递归 
+                    result[key] = deepClone(obj[key])
+                }
+            }
+            return result
+        }
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        /*   function* a () {
+              yield '1'
+          }
+          var n = a();
+          console.log(n.next());
+  
+          // async函数
+          // 如果是async函数，在函数内部，一定必须使用await表达式
+          async function a () {
+              var h = await '1'
+          }
+  
+          async function foo () {
+  
+              // 函数表达式
+              const foo = async function () { }
+  
+              let obj = {
+                  async foo () { }
+              }
+  
+              obj.foo().then()
+   */
+
+        async function f () {
+            return 1234
+        }
+
+        f().then(v => console.log(v))
+
+
+    </script>
+</body>
+
+</html>

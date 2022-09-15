@@ -8,14 +8,76 @@
   </head>
   <body>
     <script>
-      function* generator(x) {
-        var y = yield x + 2
-        return y
+      // function* generator(x) {
+      //   var y = yield x + 2
+      //   return y
+      // }
+      // let g = generator(1)
+      // console.log(g.next())
+      // console.log(g.next(2))
+      // console.log(g.next(2))
+
+      //   function* Gen() {
+      //     yield 'hello'
+      //     yield 'world'
+      //     return 'ending'
+      //   }
+      //   var h = Gen()
+      //   console.log(h.next()) //{value: 'hello', done: false}//done  遍历还没有结束
+      //   console.log(h.next()) //{value: 'word', done: false}
+      //   console.log(h.next()) //{value: 'endig', done: true}
+      //   console.log(h.next()) //{value: 'undefined', done: true}
+      //   console.log(h.next()) //{value: 'undefined', done: true}
+      //   console.log(h.next()) //{value: 'undefined', done: true}
+      //   console.log(h.next()) //{value: 'undefined', done: true}
+
+      // function* gen() {
+      //   yield 123 + 456
+      //   return 2
+      //   return 3
+      // }
+
+      // let gens = gen()
+      // console.log(gens.next())
+      // console.log(gens.next())
+      // console.log(gens.next())
+
+      // function* gen() {
+      //   console.log('执行了')
+      // }
+
+      // var f = gen() //才会执行，就变成了
+      // setTimeout(() => {
+      //   f.next() //只有调用next方法
+      // }, 2000)
+
+      // function* f() {
+      //   for (var i = 0; true; i++) {
+      //     var reast = yield i
+      //     if (reast) {
+      //       i = -1
+      //     }
+      //   }
+      // }
+
+      // var g = f()
+      // console.log(g.next()) //{value:0,done:false}
+      // console.log(g.next()) //{value:1,done:flase}
+      // console.log(g.next(true)) //{value:0,done:fasle}console.log(ooo)
+
+      function* foo() {
+        yield 1
+        yield 2
+        yield 3
+        yield 4
+        yield 5
+        yield 6
+        return 7
+        yield 8 //不会出现
       }
-      let g = generator(1)
-      console.log(g.next())
-      console.log(g.next(2))
-      console.log(g.next(2))
+      for (let item of foo()) {
+        console.log(item)
+      }
     </script>
   </body>
 </html>

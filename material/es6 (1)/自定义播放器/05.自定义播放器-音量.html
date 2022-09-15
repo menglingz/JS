@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>自定义播放器</title>
+    <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+    <div id="player">
+        <video src="video/movie01.mp4" id="video"></video>
+        <div id="controlBar">
+            <div class="btns">
+                <span class="play"></span>
+                <span class="end"></span>
+            </div>
+            <div class="progress progress-main">
+                <div class="progress-gray"></div>
+                <div class="progress-pink"></div>
+                <div class="progress-slider"></div>
+            </div>
+            <div class="others">
+                <div class="times">
+                    <span class="now">00:00:00</span>
+                    /
+                    <span class="total"> 00:03:58</span>
+                </div>
+                <div class="volumes">
+                    <div class="volumes-btn">
+                        <span></span>
+                    </div>
+                    <div class="progress volumes-progress">
+                        <div class="progress-gray"></div>
+                        <div class="progress-pink"></div>
+                        <div class="progress-slider"></div>
+                    </div>
+                </div>
+                <div class="fullscreen active">
+                    <span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var video = document.querySelector('#video');
+        var controlBar = document.querySelector('#controlBar');
+
+        var playBtn = document.querySelector('.btns .play'),
+            endBtn = document.querySelector('.btns .end')
+
+        var progressMain = document.querySelector('.progress-main');
+        var progressPink = progressMain.querySelector('.progress-pink')
+        var progressSlider = progressMain.querySelector('.progress-slider')
+
+        var nowTime = document.querySelector('.others .now')
+        var totalTime = document.querySelector('.others .total')
+
+        var volumes = controlBar.querySelector('.volumes')
+        var volumesBtn = volumes.querySelector('.volumes-btn')
+        var volumesProgress = controlBar.querySelector('.volumes-progress')
+        var volumeprogressPink = volumesProgress.querySelector('.progress-pink')
+        var volumeprogressSlider = volumesProgress.querySelector('.progress-slider')
+
+        var fullscreen = controlBar.querySelector('.others .fullscreen')
+
+        // 播放
+        playBtn.onclick = function () {
+            if (video.paused) {
+                video.play()
+                this.classList.add('played')
+            } else {
+                video.pause();
+                this.classList.remove('played')
+            }
+        }
+
+        // 暂停
+        endBtn.onclick = function () {
+            video.pause();
+            playBtn.classList.remove('played')
+        }
+
+
+        // 元素加载完毕 
+        video.addEventListener('loadedmetadata', function () {
+            totalTime.innerHTML = formatTime(video.duration)
+        })
+
+        // 时间格式化
+        function formatTime (seconds) {
+            var h = parseInt(seconds / 3600)
+            var m = parseInt(seconds % 3600 / 60)
+            var s = parseInt(seconds % 60)
+            return zero(h) + ':' + zero(m) + ':' + zero(s)
+        }
+
+        // 补零
+        function zero (value) {
+            return value < 10 ? '0' + value : value
+        }
+
+        // 设置滑块和进度条的当前时间  
+        // 播放的过程中监听时间的变化设置滑块和进度条以及当前时间
+        video.addEventListener('timeupdate', function () {
+            // 比列： 当前时间 / 总时间  
+            var playScale = video.currentTime / video.duration
+
+            // 算出滑块的位置以及进度条的宽度 
+            var left = (progressMain.clientWidth - progressSlider.offsetWidth) * playScale
+
+            // 设置 
+            progressSlider.style.left = left + 'px'
+            progressPink.style.width = left + 'px'
+            // 格式化当前的时间 
+            nowTime.innerHTML = formatTime(this.currentTime)
+        })
+
+
+        // 播放进度
+        dragProgess(progressMain, progressSlider, progressPink, function (scal) {
+            // 设置（总时间的几分之几）
+            video.currentTime = video.duration * scal
+        })
+
+        // 音量 
+        dragProgess(volumesProgress, volumeprogressSlider, volumeprogressPink, function (scal) {
+            // 当前音量的更新 
+            video.volume = scal
+            if (video.volume <= 0) {
+                volumesBtn.classList.add('muted')
+            } else {
+                volumesBtn.classList.remove('muted')
+            }
+        })
+
+        // 点击静音 
+        volumesBtn.addEventListener('click', function () {
+            // 类名切换 
+            this.classList.toggle('muted')
+            // 是否静音 
+            video.muted = !video.muted
+        })
+
+
+
+        function dragProgess (progressMain, progressSlider, progressPink, callBack) {
+
+            // 自定义滑块拖动 
+            progressSlider.addEventListener('mousedown', function (ev) {
+                ev.preventDefault();
+                // 获取鼠标距离滑块的距离
+                // offsetX offsetY 距离当前定位元素的 x y 的值 
+                this.eX = ev.offsetX;
+
+                // 鼠标移动 
+                document.addEventListener('mousemove', mousemoveFn)
+                // 鼠标抬起 
+                document.addEventListener('mouseup', function () {
+                    // 移除移动事件 
+                    this.removeEventListener('mousemove', mousemoveFn)
+                })
+            })
+
+            // 点击移动滑块 
+            progressMain.addEventListener('click', function (ev) {
+                var left = ev.clientX - progressMain.offsetLeft
+                setPosition(left)
+            })
+
+            // 鼠标移动触发的事件的处理函数 
+            function mousemoveFn (ev) {
+                // 获取left值  
+                var left = ev.clientX - progressMain.offsetLeft - progressSlider.eX
+                setPosition(left)
+            }
+
+            function setPosition (left) {
+                // 控制范围 
+                var maxValue = progressMain.clientWidth - progressSlider.offsetWidth
+
+                if (left <= 0) {
+                    left = 0
+                } else if (left >= maxValue) {
+                    left = maxValue
+                }
+
+                // 设置滑块和进度条 
+                progressSlider.style.left = left + 'px'
+                progressPink.style.width = left + 'px'
+
+                // 当前时间更新 
+                var scal = left / maxValue
+
+                // 执行回调
+                callBack && callBack(scal)
+            }
+        }
+
+        // 全屏 
+        var isFullScreen = false
+        fullscreen.addEventListener('click', function () {
+            if (isFullScreen) {
+                // 处于全屏状态 缩小 有激活样式 
+                this.classList.add('active')
+                if (document.exitFullscreen) { // w3c
+                    document.exitFullscreen()
+                } else if (document.msExitFullscreen) { // IE 
+                    document.msExitFullscreen()
+                } else if (document.mozCancelFullscreen) { // 火狐
+                    document.mozCancelFullscreen()
+                } else if (document.webkitCancelFullscreen) {
+                    document.webkitCancelFullscreen()
+                }
+                isFullScreen = false
+            } else {
+                // 非全屏状态 要全屏 
+                // 移除激活样式
+                this.classList.remove('active')
+                var docEle = document.documentElement; // 获取根元素 
+                if (docEle.requestFullscreen) {
+                    docEle.requestFullscreen()
+                } else if (docEle.mozRequestFullscreen) {
+                    docEle.mozRequestFullscreen()
+                } else if (docEle.webkitRequestFullscreen) {
+                    docEle.webkitRequestFullscreen()
+                } else if (docEle.msRequestFullscreen) {
+                    docEle.msRequestFullscreen()
+                }
+                isFullScreen = true
+            }
+        })
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>
