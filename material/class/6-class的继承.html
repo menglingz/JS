@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // es5通过修改原型链实现继承  
+        // class 通过extends关键字实现继承  
+
+        // 父类
+        class Point {
+            constructor(x, y) {
+                this.x = x
+                this.y = y
+            }
+            toString () {
+                // console.log(this.x, this.y);
+                return this.x + ' ' + this.y
+            }
+        }
+
+        var p = new Point(1, 2)
+
+
+        // 子类 通过 extends 继承了 Point类所有的属性和方法
+        class ColorPoint extends Point {
+            constructor(x, y, color) {
+                // super必须放在第一行
+                super(x, y) // 相当于是调用了父类的constructor函数
+                this.color = color
+            }
+            toString () {
+                return this.color + ' ' + super.toString(); // 调用父类的toString()方法
+            }
+        }
+
+        // 在子类中 constructor 和 方法 toString都使用了super关键字  
+        // 表示用来新建父类的this对象
+
+        var cp = new ColorPoint(3, 4, 'red')
+        console.log(cp.toString());
+
+    </script>
+</body>
+
+</html>

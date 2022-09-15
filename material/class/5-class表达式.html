@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      //   const MyClass = class Num {
+      //     getClassName() {
+      //       return Num.name
+      //     }
+      //   }
+      //   console.log(new MyClass().getClassName())
+      //   console.log(new Num().getClassName())
+
+      // 这个类的名字是Num,但是 Num只在class的内部可用  指的是当前的类
+      // 在class外围，这个类只能使用Num的引用
+
+      /*  let n = new MyClass()
+         console.log(n.getClassName());
+ 
+         // 采用class的表达式 可以写出立即执行的class 
+         let person = new class {
+             constructor(name) {
+                 this.name = name
+             }
+             sayName () {
+                 console.log(this.name);
+             }
+         }('张三')
+ 
+         person.sayName(); //  */
+
+      // 静态属性
+      /* 
+            静态属性指的是Class本身的属性，也就是class.sayName  不是定义在实列对象(this)上的属性
+        */
+
+      // class Foo{
+
+      // }
+
+      // Foo.num = 32
+      // console.log(Foo.num); // 32
+
+      // 在es6中，class内部只有静态方法，没有静态属性
+      // 问题：需要在内部有静态属性
+      // 解决：static关键字
+
+      /*   class MyClass {
+              static num = 32  
+              constructor(){
+                  console.log(MyClass.num);
+              }
+          }
+  
+          var  my = new MyClass() */
+
+      // 静态方法
+      // 所有在类中定义的方法，都会被继承，如果在一个方法前加上static关键字
+      // 就表示这个方法不会被实列继承(不能被实列调用) 而是直接通过类来调用，这就是静态方法
+
+      // class Foo{
+      //    static classMethod(){
+      //     return 'world'
+      //     }
+      // }
+
+      // console.log(Foo.classMethod()); // word
+
+      // var foo = new Foo()
+      // console.log(foo.classMethod());
+
+      /*  class Foo {
+            static bar () {
+                this.baz()
+            }
+
+            static baz () {
+                console.log('hello');
+            }
+            baz () {
+                console.log('world');
+            }
+        } */
+
+      // var f = new Foo()
+      // f.baz(); // this指向的是实力化对象
+
+      // Foo.bar(); // 如果静态方法中包含this, 这个this指向的是这个类
+
+      // 父类的静态方法是可以被子类继承的
+      /* 
+        class Bar extends Foo {
+
+        }
+        Bar.bar(); */ // 子类继承父类的静态方法
+
+      // super -- 很重要
+
+      class Foo {
+        static classMethod1() {
+          return 'hello'
+        }
+      }
+
+      class Bar extends Foo {
+        static classMethod2() {
+          return super.classMethod1() + ',ertyuiop'
+        }
+      }
+
+      console.log(Bar.classMethod2())
+    </script>
+  </body>
+</html>

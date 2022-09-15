@@ -488,12 +488,7 @@ var utils = (function () {
       return obj
     }
 
-    let clone
-    if (obj instanceof Array) {
-      clone = []
-    } else {
-      clone = {}
-    }
+    let clone = obj instanceof Array ? [] : {}
 
     for (const key in obj) {
       if (obj.hasOwnProperty(key)) {
@@ -501,6 +496,63 @@ var utils = (function () {
       }
     }
     return clone
+  }
+
+  /**在URL尾部添加查询字符串参数
+   * @param {String} url 要添加查询字符串餐宿的URL
+   * @param {String} name 查询参数
+   * @param {String} value 参数值
+   * @param {String} return 添加完查询字符串参数后的URL
+   */
+  function addURLParam(url, name, value) {
+    url += url.indexOf('?') === -1 ? '?' : '&'
+    url += encodeURIComponent(name) + '=' + encodeURIComponent(value)
+    return url
+  }
+
+  /**在URL尾部添加查询字符串参数
+   * @param {HTMLFormElement} form 要序列化的表单元素
+   */
+  function serialize(form) {
+    let parts = []
+    let optValue
+
+    for (let field of form.elements) {
+      switch (field.type) {
+        case 'select-one':
+        case 'select-multiple':
+          if (field.name.length) {
+            for (let option of field.options) {
+              if (option.selected) {
+                if (option.hasAttribute) {
+                  optValue = option.hasAttribute('value') ? option.value : option.text
+                } else {
+                  optValue = option.attributes['value'].specified ? option.value : option.text
+                }
+                parts.push(encodeURIComponent(field.name) + '=' + encodeURIComponent(optValue))
+              }
+            }
+          }
+          break
+        case undefined:
+        case 'file':
+        case 'submit':
+        case 'reset':
+        case 'button':
+          break
+        case 'radio':
+        case 'checkbox':
+          if (!field.checked) {
+            break
+          }
+        default:
+          if (field.name.length) {
+            parts.push(`${encodeURIComponent(field.name)} = ${encodeURIComponent(field.value)}`)
+          }
+      }
+    }
+
+    return parts.join('&')
   }
 
   return {
@@ -532,6 +584,8 @@ var utils = (function () {
     siblingsAll: siblingsAll,
     getClass: getClass,
     move: move,
-    deepClone: deepClone
+    deepClone: deepClone,
+    addURLParam: addURLParam,
+    serialize: serialize
   }
 })()

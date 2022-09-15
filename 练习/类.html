@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // class Bus {
+      //   constructor(value) {
+      //     this.value = value
+      //     this.locate = () => {
+      //       console.log('instance')
+      //       this.prop = 41
+      //     }
+      //   }
+      //   func() {
+      //     return 1
+      //   }
+      //   set name(value) {
+      //     console.log('setter' + value)
+      //   }
+
+      //   get name() {
+      //     console.log('getter')
+      //   }
+
+      //   static locate() {
+      //     console.log('class' + this)
+      //   }
+
+      //   static prop = 42
+      // }
+
+      // let bus = new Bus(123)
+
+      // bus.name = 456
+      // console.log(bus.name)
+      // bus.locate()
+      // Bus.locate()
+      // console.log(bus.prop)
+      // console.log(Bus.prop)
+
+      // class Vehi extends Bus {
+      //   constructor() {
+      //     super()
+      //   }
+      //   toaa() {
+      //     console.log(super.func() + 'aa')
+      //   }
+      // }
+
+      // let v = new Vehi()
+      // console.log(v)
+      // v.func()
+      // v.toaa()
+
+      // class Bus {
+      //   constructor() {}
+      // }
+
+      // let bus = new Bus()
+      // console.log(bus.constructor === Bus) // true
+      // console.log(Bus.prototype === bus.__proto__) // true
+      // console.log(Bus.prototype.constructor === Bus) // true
+
+      class Bus {
+        bar() {
+          console.log('hello')
+        }
+        static baz() {
+          console.log('world')
+        }
+      }
+
+      let bus = new Bus()
+      bus.bar()
+      bus.baz()
+      Bus.bar()
+      Bus.baz()
+    </script>
+  </body>
+</html>
