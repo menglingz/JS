@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <script>
+
+        /* 
+        get方式要给后台传送数据
+        把数据放在地址的后面，使用 ？的方式进行链接 也就是，数据要在 ？ 后面
+        数据是以键值对的形式存在 -- name=zhangsan&age=20
+        http://localhost/062ajax/2-get%e6%96%b9%e5%bc%8f.html?name=zhangsan&age=20
+        
+        */
+
+        var xhr = new XMLHttpRequest()
+
+        xhr.open('get', './data/data.json?name=zhangsan&age=20', true)
+
+        xhr.send()
+
+        xhr.onreadystatechange = function () {
+            // ajax 
+            if (xhr.readyState === 4) {
+                // 服务器
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            }
+        }
+
+
+    </script>
+</body>
+
+</html>

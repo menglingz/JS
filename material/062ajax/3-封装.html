@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        h2 {
+            color: red;
+        }
+    </style>
+</head>
+
+<body>
+    <script src="./js/ajax1.js"></script>
+    <script>
+
+        // ajax('get', './data/data.json','name=zhangsan&age=20',function(data){
+        //     console.log(data);
+        // })
+
+        // ajax('get', './data/data.json',null,function(data){
+        //     console.log(data);
+        // })
+
+
+        // ajax('post', './data/data.json','name=zhangsan&age=200',function(data){
+        //     console.log(data);
+        // })
+
+        // ajax('post', './data/data.json',null,function(data){
+        //     console.log(data);
+        // })
+
+
+        // JSON.parse() -- 把字符串对象格式的数据转换成json对象格式的数据
+        // JSON.stringify() -- 把json对象格式的数据转换成字符串对象格式的数据
+
+        /*   ajax('get', './data/data.json','name=zhangsan&age=20',function(data){
+             show(JSON.parse(data))
+         })
+ 
+         function show(data){
+             console.log(data[0].title);
+ 
+             document.body.innerHTML = '<h2>'+data[0].title+'</h2>'
+         } */
+
+
+        // 调用
+        ajax({
+            type: 'post', // 请求方式 
+            url: "./data/data.json",
+            // data:{
+            //     name:'zhangsan',
+            //     age:20
+            // },
+            // header:{
+            //     'content-type':'application/json'
+            // },
+            success: function (data) {
+                // 成功的回调
+                console.log(data);
+            },
+            // error:function(data,xhr){
+            //     // 失败的函数 
+            //     console.log('这是error函数' + data);
+            // }
+        })
+
+
+
+    </script>
+
+    <form action="" enctype="application/x-www-form-urlencoded"></form>
+</body>
+
+</html>

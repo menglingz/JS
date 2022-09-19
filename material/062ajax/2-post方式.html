@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    
+    <script>
+
+        /* 
+        post方式要给后台传送数据
+        需要把数据当做send()方法的参数传递
+        数据是以键值对的形式存在 -- name=zhangsan&age=20
+        注意：如果是post需要传递数据，一定在发送之前  去设置请求头
+        
+        */
+
+        var xhr = new XMLHttpRequest()
+
+        xhr.open('post', './data/data.json', true)
+        
+        // 是用来声明传递的数据格式的
+        xhr.setRequestHeader('Content-Type','application/x-www-form-urlencoded')
+        xhr.send('name=zhangsan&age=20')
+
+        xhr.onreadystatechange = function () {
+            // ajax 
+            if (xhr.readyState === 4) {
+                // 服务器
+                if (xhr.status === 200) {
+                    console.log(xhr.responseText);
+                }
+            }
+        }
+
+
+    </script>
+    <input type="text" name="" id="">
+</body>
+
+</html>

@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- <script src="./js/js/jquery.js"></script> -->
+    <script src="https://code.jquery.com/jquery-3.6.1.min.js"></script>
+</head>
+
+<body>
+    <script>
+        /*
+                $.ajax({
+                    url: 'url1', // 请求地址
+                    cache: false, // s是否缓存，get请求如果url发生变化，就会走缓存
+                    dataType: 'jsonp', // 跨域
+                    type: 'get', // q请求方式
+                    timeout: 5000, // 超时 如果五秒钟请求还没有回来，请求就是失败的
+                    data: 'a=1&b=2', //  发送到后端的数据
+                    success: function (data) {
+                        // 成功的回调
+                        console.log(data);
+                    },
+                    error: function (e) {
+                        // 失败的回调
+                        console.log(e);
+                    },
+                    complete: function () {
+                        // 无论是成功还是失败，都会走这个函数
+                        console.log('我到这里了');
+                    }
+                })
+         */
+        // var url = './data/data.json';
+
+        // var url = 'https://p.3.cn/prices/mgets?skuIds=J_5089253&type=1';
+
+        /*   $.ajax({
+              url: url,
+              type: 'post',
+              dataType:'jsonp',
+              success: function (data) {
+                  console.log(data);
+              },
+              error: function (err) {
+                  console.log(err);
+              },
+              complete: function () {
+                  console.log('我到这里了');
+              }
+          }) */
+    </script>
+
+    <button>按钮</button>
+    <script>
+
+        // 跨域的原理 -- 把变量承载的地址转换为标签属性src引入的方式  
+        var url = 'https://p.3.cn/prices/mgets?skuIds=J_5089253&type=1';
+
+        // 创建一个全局函数
+        function showData (data) {
+            console.log(data);
+        }
+
+        $(function () {
+            $('button').click(function () {
+                $('head').append(`<script src="${ url }&callback=showData"><\/script>`)
+            })
+        })
+
+    </script>
+</body>
+
+</html>

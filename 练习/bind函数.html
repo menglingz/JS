@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      // const add = (a) => {
+      //   let current = a
+      //   let adder = function (b) {
+      //     if (b) {
+      //       current = current + b
+      //       return adder
+      //     }
+      //     return current
+      //   }
+      //   return adder
+      // }
+
+      // console.log(add(1)(2)(3)())
+
+      // var test = function (b) {
+      //   console.log(this.a + b)
+      // }
+      // // 如果直接执行test，最终打印的是10.
+      // var bindTest1 = test.bind({ a: 20 })
+      // bindTest1(10) // 30
+      // // 这里的bind是个柯里化的函数
+      // var bindTest2 = test.bind({ a: 20 }, 10)
+      // bindTest2()
+
+      // var a = 10
+      // var Test = function (a) {
+      //   console.log(this.a)
+      // }
+      // var bindTest = Test.bind({ a: 20 })
+      // bindTest() // 20
+      // // 在new的时候，Test中的this并没有指向bind中的对象
+      // new bindTest()
+
+      // console.log(['1', '2', '3'].map(parseInt))
+
+      // let list = [
+      //   { id: 3, name: '张三丰' },
+      //   { id: 5, name: '张无忌' },
+      //   { id: 13, name: '杨逍' },
+      //   { id: 33, name: '殷天正' },
+      //   { id: 12, name: '赵敏' },
+      //   { id: 97, name: '周芷若' }
+      // ]
+
+      // for (const x of list) {
+      //   for (key in x) {
+      //     if (key === 'name' && x[key] === '周芷若') {
+      //       console.log(x.id)
+      //     }
+      //   }
+      // }
+
+      // list = list.filter((obj) => obj.name === '周芷若')
+      // console.log(list[0].id)
+
+      setTimeout(function () {
+        console.log(' set1')
+        new Promise(function (resolve) {
+          resolve()
+        }).then(function () {
+          new Promise(function (resolve) {
+            resolve()
+          }).then(function () {
+            console.log('then4')
+          })
+          console.log('then2 ')
+        })
+      })
+
+      new Promise(function (resolve) {
+        console.log('pr1')
+        resolve()
+      }).then(function () {
+        console.log('then1')
+      })
+
+      setTimeout(function () {
+        console.log('set2')
+      })
+
+      console.log(2)
+
+      new Promise(function (resolve) {
+        resolve()
+      }).then(function () {
+        console.log('then3')
+      })
+    </script>
+  </body>
+</html>

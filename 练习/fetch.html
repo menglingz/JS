@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img src="" alt="" />
+    <script>
+      fetch('example.txt').then((response) => {
+        // 取得纯文本格式的内容
+        /*
+        response.text().then((data) => {
+          console.log(data)
+        })
+        */
+        // 读取状态码和状态文本
+        /*
+        console.log(response.status)
+        console.log(response.statusText)
+        */
+      })
+
+      const img = document.querySelector('img')
+      fetch('../img/1.jpeg').then((response) => {
+        response.blob().then((blob) => {
+          img.src = URL.createObjectURL(blob)
+        })
+      })
+    </script>
+  </body>
+</html>
