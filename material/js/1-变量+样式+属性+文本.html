@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            font-size: 40px;
+        }
+    </style>
+</head>
+
+<body>
+    <button id="btn">按钮</button>
+    <div id="box" class="box a" a="123">内容</div>
+    <input type="text" placeholder="moren">
+    <script>
+
+        // 变量：存储值的容器
+        /* var num = 10;
+        var num = 100;
+        var sum = 20;
+
+        var num1 = 10, num2 = 20;
+
+        var num3, num4;
+        num3 = 1;
+        num4 = 2;
+
+        let num5 = 50;
+        num5 = 500
+        console.log(num5); */
+
+
+        // 样式：只要是通过js操作的样式，一定是行内样式 
+        /* 
+        元素.style.样式名 = '样式值' 
+         */
+
+        var box = document.querySelector('#box')
+        box.style.color = 'blue'; // 场景：给元素赋值使用 
+
+        //  元素.style.cssText += ';样式名：样式值；' 
+        box.style.cssText += 'border:1px solid red'
+        //  box.style.cssText = 'border:1px solid red'
+
+        // 元素.className = 'active'  
+        box.className = 'box active'
+
+        // 元素.classList.add('加类名')
+        // 元素.classList.remove('删类名')
+        // 元素.classList.toggle('切换类名') 有这类就删除 没有这个类就添加
+
+        box.classList.add('active')
+        box.classList.remove('a')
+
+        btn.onclick = function () {
+            box.classList.toggle('active')
+        }
+
+
+        // 属性：原有属性和非原有属性
+
+        // 元素.属性名 = '属性值' 
+        console.log(box.id);
+        console.log(box.a); // undefined
+        box.id = 'box123'
+
+        // 变量 = '属性名' 
+        // 元素[变量]
+
+        var num = 'box'
+        console.log(box[num]);
+        box[num] = 'box1'
+
+        /* 
+        元素.getAttribute('属性名')
+        元素.setAttribute('属性名','新的属性值')
+        元素.removeAttribute('属性名') 
+        */
+
+        console.log(box.getAttribute('a'));
+        box.setAttribute('a', '456789')
+        box.removeAttribute('a')
+
+        // 单标签和双标签
+
+        /* 双标签： 
+        元素.innerHTML 
+        元素.innerText */
+        console.log(box.innerHTML);
+        box.innerHTML = 1234
+
+        console.log(box.innerText);
+        box.innerText = 678
+
+
+        /*  单标签： 
+         元素.value  */
+
+        console.log(document.querySelector('input').value);
+        // document.querySelector('input').value = '随便给的'
+
+
+
+    </script>
+</body>
+
+</html>

@@ -5,17 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+      }
+      form {
+        width: 600px;
+        margin: 100px auto;
+        display: flex;
+        justify-content: space-around;
+        border: 1px solid #ccc;
+        height: 100px;
+        align-items: center;
+      }
+      form select {
+        width: 150px;
+      }
+    </style>
   </head>
   <body>
     <form action="">
       <select name="province" id="province">
-        <option value="">请选择省份</option>
+        <option value="">请选择</option>
       </select>
       <select name="city" id="city">
-        <option value="">请选择城市</option>
+        <option value="">请选择</option>
       </select>
       <select name="area" id="area">
-        <option value="">请选择地区</option>
+        <option value="">请选择</option>
       </select>
     </form>
 
@@ -26,7 +44,8 @@
       new Select({
         province: document.querySelector('#province'),
         city: document.querySelector('#city'),
-        area: document.querySelector('#area')
+        area: document.querySelector('#area'),
+        data: city
       })
     </script>
   </body>

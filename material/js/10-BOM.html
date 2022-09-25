@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <a href="./人人网.html">人人网</a>
+    <button id="box">前进</button>
+    <script>
+
+        window.onload = function () {
+
+        }
+
+        window.onresize = function () {
+
+        }
+
+
+        // location对象
+        // location.href = 'http://www.baidu.com'; // 打开一个网址
+        // console.log(location.href);
+        /* 
+                location.protocol // 返回页面使用的协议，通常是http https ftp  
+                location.port; // 返回url地址中的端口，不包含端口，返回的是空字符串 
+                location.query; // 参数以键值对的形式存在，通过&符号分隔开 
+                location.host; // 返回服务器名称和端口号 
+                location.hostname; // 返回不带端口号的服务器名称 
+                location.pathname; // 返回url路径中的目录或者文件名 
+                location.search; // 设置或者返回从 ？开始的url地址（查询部分） 
+                location.hash; // 设置或返回从#开始的URL (锚) 
+         */
+
+        // history.forward() ; // 前进 
+        // history.back(); // 后退
+
+        document.querySelector('#box').onclick = function () {
+            // history.forward();
+            history.go(1)
+
+        }
+        
+       /*
+         offsetParent: 返回距离有定位属性的父元素，如果没有定位属性的父元素，返回的是body   
+         offsetLeft: 返回有定位属性的父元素左边的距离
+         offsetTop: 返回有定位属性的父元素上边的距离
+         offsetWidth: 返回自身包含[padding][border][content]宽度
+         offsetHeight: 返回自身包含[padding][border][content]高度
+ 
+ 
+         clientLeft: 返回元素左边框的大小
+         clientTop: 返回元素上边框的大小
+         clientWidth: 返回元素自身的[padding][content]宽度
+         clientHeight: 返回元素自身的[padding][content]高度
+ 
+         
+         scrollLeft: 返回被卷出去的左侧距离 
+         scrollTop:返回被卷出去的上侧距离 
+         scrollWidth:返回自身的宽度
+         scrollHeight:返回自身的高度
+         
+         */
+
+
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <button>按钮</button>
+    <p>段落</p>
+
+    <ul>
+        <li>第一个</li>
+        <li>第二个</li>
+        <li>第三个</li>
+    </ul>
+    
+    <script>
+
+        // 创建元素  
+        var div = document.createElement('div');
+        div.innerText = '1234567'
+
+        // 添加元素 
+        // document.body.appendChild(div)
+
+        // 插入元素
+        // 父元素.insertBefore(插入的元素,参考元素)
+        document.body.insertBefore(div, document.querySelector('p'))
+
+        // 删除元素
+        // 父元素.removeChild(被删除的元素)
+        document.querySelector('button').onclick = function(){
+            document.body.removeChild(document.querySelector('p'))
+        }
+
+        // 克隆元素  
+        // 元素.cloneNode()
+        document.body.appendChild(document.querySelector('p').cloneNode(true))
+
+        // 替换节点
+        // 父元素.replaceChild(新的节点，被替换的节点) 
+        document.body.replaceChild(document.createElement('a'),document.querySelector('p')) 
+
+        // 子节点 
+        
+        console.log(document.querySelector('ul').childNodes); // s所有的子节点 包含文本，元素，属性
+        console.log(document.querySelector('ul').children); // 所有的元素节点
+        console.log(document.querySelector('ul').parentNode); // 父节点 
+
+    </script>
+
+
+
+
+
+
+</body>
+
+</html>

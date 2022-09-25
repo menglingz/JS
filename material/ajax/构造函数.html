@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        Object()
+
+        function Person (name, age) {
+
+            this.name = name
+            this.age = age;
+        }
+
+        var person = new Person('张三', 20)
+        console.log(person);
+        Person.prototype.bind1 = function (arr) {
+            var sum = 0;
+            for (var i = 0; i < arr.length; i++) {
+                sum += arr[i]
+            }
+            return sum
+        }
+
+        // var arr = [1, 2, 3]
+        // console.log(arr.num(arr)); 
+
+        console.log(Person == Person.prototype.constructor);
+
+        console.log(person.__proto__ === Person.prototype);
+
+        console.log(person instanceof Person); // true
+
+        class Son {
+            constructor() {
+
+            }
+        }
+
+        var son = new Son()
+
+        console.log(Son == Son.prototype.constructor);
+        console.log(son.__proto__ === Son.prototype);
+
+
+        class Ty{
+            constructor(name,age){
+                this.name = name 
+                this.age = age 
+            }
+
+        }
+
+        class Yu extends Ty{
+            constructor(name,age){
+                super(name,age)
+
+            }
+        }
+        
+    </script>
+</body>
+
+</html>

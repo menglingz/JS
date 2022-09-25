@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body style="height: 3000px">
+    <p>防抖</p>
+    <input type="text" name="" id="input1" />
+
+    <p>节流</p>
+    <div id="div1" draggable="true" style="width: 100px; height: 100px; background-color: red"></div>
+
+    <script>
+      // 面试题：防抖和节流有何区别？分别用于什么场景
+
+      // 防抖：就是防止抖动，抖动着先不管他，等啥时候静止了，在做操作
+      // 比如：一个搜索框，等输入停止后，自动执行函数
+
+      // 防抖--限制执行次数，多次密集的触发只执行一次
+
+      /* 
+        fn:函数
+        delay = 2000：时间
+        */
+
+      function debounce(fn, delay = 2000) {
+        let timer = 0
+        // 防抖函数
+        return function () {
+          if (timer) clearInterval(timer)
+          timer = setTimeout(() => {
+            fn.apply(this, arguments) // 遗传this和参数
+            timer = 0
+          }, delay)
+        }
+      }
+
+      const input1 = document.getElementById('input1')
+      input1.addEventListener(
+        'input',
+        debounce(() => {
+          console.log('发起搜索', input1.value)
+        })
+      )
+
+      /*
+        节流：就是节省交互沟通，可以理解为交流，不一定产生网络流量  
+        比如：回调函数，上传进度的回调，可以设置一个固定的频率，没必要那么繁琐 
+        理解：限制执行的频率，有节奏的执行
+        */
+
+      function throttle(fn, delay = 2000) {
+        let timer = 0
+
+        return function () {
+          if (timer) return
+          timer = setTimeout(() => {
+            fn.apply(this, arguments)
+            timer = 0
+          }, delay)
+        }
+      }
+
+      var div1 = document.getElementById('div1')
+      div1.addEventListener(
+        'drag',
+        throttle((e) => {
+          console.log(e.offsetX, e.offsetY)
+        })
+      )
+
+      /*  答案：防抖和节流都用于处理频繁触发的操作，优化操作体验
+ 
+         触发频率：
+             防抖：不固定 
+             节流：固定  
+ 
+         场景： 
+             防抖：结果式，一次调用就可以了  
+             节流：过程式，需要持续一个过程，一次不够（过程） 
+  */
+    </script>
+  </body>
+</html>

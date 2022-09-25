@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        li {
+            list-style: none;
+        }
+    </style>
+</head>
+
+<body>
+    <ul>
+        <!-- <li>第一个羊</li>
+        <li>第一个羊</li>
+        <li>第一个羊</li>
+        <li>第一个羊</li>
+        <li>第一个羊</li> -->
+    </ul>
+    <script src="./js/ajax.js"></script>
+    <script>
+
+        // 实列化一个对象
+        // var xhr = new XMLHttpRequest();
+
+        // 打开的方式
+        // xhr.open('post', './data/data.json', true)
+
+        // xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded')
+        // xhr.send('name=zhangsdan&age=20')
+
+        // xhr.onreadystatechange = function () {
+        //     if (xhr.readyState === 4) {
+        //         if (xhr.status === 200) {
+        //             var arr = JSON.parse(xhr.responseText)
+        //             for (var i = 0; i < arr.length; i++) {
+        //                 document.body.innerHTML += '<h2>'+arr[i].title+'</h2>'
+        //             }
+        //         }
+        //     }
+        // }
+
+        // ajax('get', './data/data.json', null, function (data) {
+        //     show(JSON.parse(data))
+        // })
+
+        // var ul = document.querySelector('ul');
+        // function show (data) {
+        //     var str = ''
+        //     data.forEach(item => {
+        //         str += `<li>${ item.title }</li>`
+        //     });
+
+        //     ul.innerHTML = str
+        // }
+
+        function aaa () {
+            const promise = new Promise((resolve, reject) => {
+                const xhr = new XMLHttpRequest();
+                xhr.open('post', './data/data.json')
+                xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded')
+                xhr.onreadystatechange = function () {
+                    if (this.readyState != 4) {
+                        return
+                    }
+                    if (this.status === 200) {
+                        resolve(xhr.responseText)
+                    } else {
+                        reject(new Error('数据请求失败，错误码是：' + xhr.status))
+                    }
+                }
+                xhr.send()
+            })
+            return promise
+        }
+
+        /*  bbb = aaa();
+         bbb.then(function (value) {
+             var data = JSON.parse(value);
+             console.log(data);
+         }, function (error) {
+             console.log(error);
+         }) */
+
+
+        async function bbb () {
+            const res = await aaa()
+            console.log(res);
+        }
+        bbb()
+
+
+
+
+
+    </script>
+</body>
+
+</html>

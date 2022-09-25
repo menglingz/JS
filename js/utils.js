@@ -555,6 +555,97 @@ var utils = (function () {
     return parts.join('&')
   }
 
+  /**在URL尾部添加查询字符串参数
+   * @param {Object} obj 其中一个对象
+   * @param {Object} anotherObj 另外一个对象
+   * @param {Boolean} return 是否相等，true表示相等，false表示不相等
+   */
+  function isObjectValueEqual(obl, anotherObj) {
+    if (obj === anotherObj) return true
+
+    let aProps = Object.getOwnPropertyNames(obj)
+    let bProps = Object.getOwnPropertyNames(anotherObj)
+
+    if (aProps.length !== bProps.length) return false
+
+    for (let prop in aProps) {
+      if (anotherObj.hasOwnProperty(prop)) {
+        if (typeof aProps[prop] === 'object') {
+          if (!isObjectValueEqual(aProps[prop], bProps[prop])) return false
+        } else if (aProps[prop] !== bProps[prop]) {
+          return false
+        }
+      } else {
+        return false
+      }
+    }
+    return true
+  }
+
+  /**封装ajax
+   * @param {Object} options 请求的参数
+   */
+  function ajax(options) {
+    // 把所有的options使用defaults替换掉
+    var defaults = {
+      type: 'get',
+      url: '',
+      data: {},
+      header: {
+        'content-type': 'application/x-www-form-urlencoded'
+      },
+      success: function () {},
+      error: function () {}
+    }
+
+    Object.assign(defaults, options)
+
+    var xhr = new XMLHttpRequest()
+
+    var params = ''
+    for (var attr in defaults.data) {
+      // 将参数转换字符串进行保存
+      params += attr + '=' + defaults.data[attr] + '&'
+    }
+    // 把最后一个&去掉
+    params = params.substr(0, params.length - 1)
+    // 是get方式
+    if (defaults.type === 'get') {
+      defaults.url = defaults.url + '?' + params
+    }
+
+    xhr.open(defaults.type, defaults.url)
+
+    // 如果是post方式
+    if (defaults.type === 'post') {
+      var contentType = defaults.header['content-type']
+
+      // 设置请求参数的格式类型
+      xhr.setRequestHeader('content-type', contentType)
+
+      // 如果类型是json
+      if (contentType == 'application/json') {
+        // 向服务器传递json数据格式的参数
+        xhr.send(JSON.stringify(defaults.data))
+      } else {
+        // 向服务器传递普通类型的请求参数
+        xhr.send(params)
+      }
+    } else {
+      xhr.send()
+    }
+
+    xhr.onload = function () {
+      if (xhr.status === 200) {
+        // 请求成功 调用处理成功的函数
+        defaults.success(xhr.responseText)
+      } else {
+        // 请求失败 调用处理失败的函数
+        defaults.error(xhr.responseText, xhr)
+      }
+    }
+  }
+
   return {
     getRandomNumber: getRandomNumber,
     dateFormatting: dateFormatting,
@@ -586,6 +677,8 @@ var utils = (function () {
     move: move,
     deepClone: deepClone,
     addURLParam: addURLParam,
-    serialize: serialize
+    serialize: serialize,
+    isObjectValueEqual: isObjectValueEqual,
+    ajax: ajax
   }
 })()

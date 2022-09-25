@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+    <button id="btn">按钮</button>
+    <script>
+
+        // 题目：什么时候不能使用箭头函数
+        /* 
+                箭头函数的缺点： 
+                    没有arguments 
+                    无法通过call apply bind改变this  
+                    难以阅读
+        
+                不能使用箭头函数：
+                    对象方法 
+                    扩展对象的原型
+                    构造函数
+                    动态执行上下文中的回调函数
+                    Vue声明周期中和方法中（原因：因为vue组件是一个对象）
+        
+                可以使用箭头函数：
+                    class中使用箭头函数
+                    react中可以使用箭头函数（原因：组件是一个class）
+            */
+
+        // const obj = {
+        //     name:"张三",
+        //     getName: ()=>{
+        //         return this.name
+        //     }
+
+        //     // getName: function(){
+        //     //     return this.name
+        //     // }
+        // }
+
+        // obj.__proto__.getName = ()=>{
+        //     return this.name
+        // }
+        /* 
+            const Fun = (name,age)=>{
+                this.name = name;
+                this.age = age; 
+            }
+            const f = new Fun('张三',20)  */
+
+
+
+        // const btn = document.getElementById('btn'); 
+        // btn.addEventListener('click', ()=>{
+        //     this.innerHTML = 'adcewe'
+        // })
+
+
+        // 可以使用箭头函数 
+        class Foo {
+            constructor(name) {
+                this.name = name
+            }
+            getName = () => {
+                return this.name
+            }
+        }
+
+        var f = new Foo('zhangsan')
+
+        console.log(f.getName());
+
+        /* 
+            答案： 
+              箭头函数缺点： 
+                    没有arguments 
+                    无法通过call apply bind改变this  
+                    难以阅读
+         */
+
+    </script>
+</body>
+
+</html>

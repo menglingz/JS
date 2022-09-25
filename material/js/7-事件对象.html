@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">事件对象</div>
+    <script>
+
+        // 事件
+        // box.onclick = function(){}
+
+        // box.addEventListener('click',function(){ },false) 
+
+        // 当事件触发的时候，与事件相关的一些列的信息的集合，会被存储到一个实参中，在页面中设置一个形参来接收
+        // 这个形参，就是一个事件对象  
+        // 包含：事件类型，事件源，鼠标的位置，键盘的按键  
+
+
+        box.onclick = function (e) {
+            console.log(e);
+            console.log(e.type);
+            console.log(e.screenX); // 鼠标到屏幕左上角的距离 
+            console.log(e.pageX); // 鼠标到文档左上角的距离
+            console.log(e.clientX); // 鼠标到浏览器左上角的距离
+        }
+
+        /* document.addEventListener('keydown',function(){
+         console.log(11111);
+        })
+ 
+        document.addEventListener('keyup',function(e){
+         console.log(e.keyCode);
+        })
+       */
+
+
+
+
+
+    </script>
+</body>
+
+</html>

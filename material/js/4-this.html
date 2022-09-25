@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="box">345</div>
+    <script>
+        // es5中的this 
+
+        // 普通函数中 -- window
+        function fn () {
+            console.log(this); // window
+        }
+        fn()
+
+        // 事件中的this 
+        box.onclick = function () {
+            console.log(this);
+            fn()
+        }
+
+        // 对象中的this  
+        var x = 11
+        var obj = {
+            x: 22,
+            methods: {
+                x: 33,
+                say: function () {
+                    console.log(this.x); // 
+                    console.log(this); // 
+                }
+            }
+        }
+        obj.methods.say()
+
+        // 定时器中的this  
+        // function fn () {
+        //     setTimeout(function () {
+        //         console.log(this); // window
+        //     })
+        // }
+        // fn()
+
+        // 构造函数中的this  
+        /*   function Person (name, age) {
+              this.name = name
+              this.age = age
+              this.run = function () {
+                  console.log(this); // p
+                  return function () {
+                      console.log(this); // 
+                  }
+              }
+          }
+  
+          var p = new Person('刘德华', 20)
+          console.log(p); */
+        // p.run(); // p  
+        // p.run()(); // 
+
+        console.log('****************');
+
+        // es6  -- 箭头函数中的this指向的是父级的运行环境
+        // 普通函数 
+        var fn1 = () => {
+            console.log(this); // window
+        }
+        fn1()
+
+        // 事件中的this 
+        box.onclick = () => {
+            console.log(this); // window
+        }
+
+        // 对象中的this 
+        var x = 111;
+        var obj1 = {
+            x: 22,
+            methods: {
+                x: 333,
+                say1: () => {
+                    console.log(this.x); // 11
+                    console.log(this); // window 
+                }
+            }
+
+        }
+        obj1.methods.say1(); // 
+
+        // 定时器中的this 
+        var v = 10
+        function fnoo () {
+            setTimeout(function () {
+                console.log(this.v); // 
+            })
+        }
+        fnoo()
+
+        // 构造函数中的this 
+
+        function Person (name, age) {
+            this.name = name
+            this.age = age
+            this.eat = function () {
+                return () => {
+                    console.log(this);
+                }
+            };
+            this.ye = () => {
+                console.log(this);
+            }
+        }
+
+        var d = new Person('小花', 20)
+        d.eat()(); // 
+        d.ye(); // 
+
+
+        function add (...values) {
+            let sum = 0;
+            for (var val of values) {
+                sum += val
+            }
+            return sum;
+        }
+        console.log(add(2, 5, 4));; // 
+
+        function sortNumbers () {
+            return Array.prototype.slice.call(arguments).sort()
+        }
+
+        const sortNumbers = (...numbers) => numbers.sort()
+
+        
+    </script>
+</body>
+
+</html>
